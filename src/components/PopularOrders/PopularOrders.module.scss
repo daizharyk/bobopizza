@@ -1,0 +1,47 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--main-font);
+
+  h2 {
+    padding: 16px 0;
+    font-size: var(--font-size24);
+    font-weight: 400;
+  }
+}
+
+.wrapper {
+  display: flex;
+  gap: 24px;
+
+  article {
+    display: flex;
+    width: 260px;
+    height: 112px;
+    align-items: center;
+    
+    border-radius: 12px;
+    padding: 12px;
+    gap: 10px;
+    box-shadow: rgba(6, 5, 50, 0.15) 0px 4px 22px -6px;
+    transition: 0.2s ease-in-out;
+    cursor: pointer;
+    &:hover {
+      box-shadow: rgba(6, 5, 50, 0.15) 0px 0px 12px -4px;
+    }
+  }
+}
+.info_wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  gap: 10px;
+  h3 {
+    font-weight: 500;
+    font-size: var(--font-size16);
+  }
+}
+.price {
+  font-size: var(--font-size16);
+}

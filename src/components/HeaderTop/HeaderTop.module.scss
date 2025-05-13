@@ -1,0 +1,41 @@
+.headerTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--main-font);
+  font-weight: 600;
+  font-size: 14px;
+  padding: 12px 0;
+}
+.languageButton {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  position: relative;
+  font-family: var(--main-font);
+  cursor: pointer;
+  font-weight: 500;
+  span {
+    position: absolute;
+    top: -5px;
+    left: 15px;
+    background-color: var(--color-orange);
+    color: var(--white);
+    padding: 0 6px;
+    border-radius: 10px;
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 16px;
+  }
+}
+.nav {
+  display: flex;
+  gap: 20px;
+  a {
+    text-decoration: none;
+  }
+}

@@ -1,0 +1,47 @@
+@font-face {
+  font-family: "dodo";
+  src: url("/fonts/dodo-rounded.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  box-sizing: border-box;
+}
+button {
+  border: none;
+  cursor: pointer;
+}
+body {
+  max-width: 1375px;
+  margin: 0 auto;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+:root {
+  --color-orange: rgb(255, 105, 0);
+  --color-dark-orange: rgb(209, 87, 0);
+  --color-light-orange: rgb(255, 240, 230);
+  --white: #ffff;
+  --light-gray: rgb(243, 243, 247);
+
+  --main-font: "dodo", sans-serif;
+
+  --font-size12: 12px;
+  --font-size14: 14px;
+  --font-size15: 15px;
+  --font-size16: 16px;
+  --font-size20: 20px;
+  --font-size24: 24px;
+  --font-size32: 32px;
+
+  --font-wight: 700;
+}

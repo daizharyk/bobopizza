@@ -1,0 +1,233 @@
+{
+  "categories": [
+    { "label": "Пиццы", "targetId": "pizzas" },
+    { "label": "Комбо", "targetId": "combo" },
+    { "label": "Закуски", "targetId": "snacks" },
+    { "label": "Коктейли", "targetId": "cocktails" },
+    { "label": "Кофе", "targetId": "coffee" },
+    { "label": "Напитки", "targetId": "drinks" },
+    { "label": "Десерты", "targetId": "desserts" },
+    { "label": "Соусы", "targetId": "sauces" }
+  ],
+  "news": [
+    { "id": 1, "cover": "https://i.ibb.co.com/NgcL8PmG/logo-350x440-1.webp" },
+    { "id": 2, "cover": "https://i.ibb.co.com/KzX4jjhx/logo-350x440-2.webp" },
+    { "id": 3, "cover": "https://i.ibb.co.com/1tvwyQFJ/logo-350x440-3.webp" },
+    { "id": 4, "cover": "https://i.ibb.co.com/5XHZfvxb/logo-350x440-4.webp" },
+    { "id": 5, "cover": "https://i.ibb.co.com/4wCCWRQ5/logo-350x440-5.webp" },
+    { "id": 6, "cover": "https://i.ibb.co.com/fVVs4h8d/logo-350x440.webp" },
+    { "id": 7, "cover": "https://i.ibb.co.com/fVVs4h8d/logo-350x440.webp" },
+    { "id": 8, "cover": "https://i.ibb.co.com/fVVs4h8d/logo-350x440.webp" },
+    { "id": 9, "cover": "https://i.ibb.co.com/fVVs4h8d/logo-350x440.webp" },
+    { "id": 10, "cover": "https://i.ibb.co.com/fVVs4h8d/logo-350x440.webp" }
+  ],
+  "popularOrders": [
+    {
+      "id": 1,
+      "title": "Аррива!",
+      "variants": [
+        {
+          "size": "25см",
+          "price": 2890,
+          "cover": "https://i.ibb.co.com/nNqn808X/arriva.webp"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Креветки со сладким чили",
+      "variants": [
+        {
+          "size": "25см",
+          "price": 3390,
+          "cover": "https://i.ibb.co.com/CpsSkJmp/krevetka-Vsladkom-Souse.webp"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Береке ет!",
+      "variants": [
+        {
+          "size": "25см",
+          "price": 3390,
+          "cover": "https://i.ibb.co.com/k2bmgJzV/berekeet.webp"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Паста береке!",
+      "variants": [
+        {
+          "size": "25см",
+          "price": 2600,
+          "cover": "https://i.ibb.co.com/WvPj2rzH/berekepasta.webp"
+        }
+      ]
+    }
+  ],
+  "pizza": [
+    {
+      "id": 1,
+      "title": "Креветки с песто",
+      "image": "https://i.ibb.co.com/zgXqgQq/krevertka-Spesto30sm.webp",
+      "ingredients": "Томатный соус, моцарелла, соус песто, томаты, креветки, шампиньоны, итальянские травы",
+      "variants": [
+        {
+          "size": "25 см",
+          "price": "3390",
+          "weight": ""
+        },
+        {
+          "size": "30 см",
+          "price": "4950",
+          "weight": "630 г"
+        },
+        {
+          "size": "35 см",
+          "price": "6130",
+          "weight": ""
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Чикен бургер",
+      "image": "https://i.ibb.co.com/cczMNDbM/chiken-Burger35.webp",
+      "ingredients": "Цыпленок, чеснок, томаты, моцарелла, соус бургер, соус альфредо",
+      "variants": [
+        {
+          "size": "25 см",
+          "price": "2290",
+          "weight": ""
+        },
+        {
+          "size": "30 см",
+          "price": "3390",
+          "weight": "540 г"
+        },
+        {
+          "size": "35 см",
+          "price": "3990",
+          "weight": ""
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "С кониной",
+      "image": "https://i.ibb.co.com/0pcybDb9/s-Koninoy30.webp",
+      "ingredients": "Сладкий перец, красный лук, моцарелла, фирменный соус альфредо",
+      "variants": [
+        {
+          "size": "25 см",
+          "price": "3390",
+          "weight": ""
+        },
+        {
+          "size": "30 см",
+          "price": "4950",
+          "weight": "560 г"
+        },
+        {
+          "size": "35 см",
+          "price": "6130",
+          "weight": ""
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Чилл Грилл",
+      "image": "https://i.ibb.co.com/ds1r6BXQ/Chill-Grill30.webp",
+      "ingredients": "Цыпленок, маринованные огурчики, красный лук, соус гриль тейсти, моцарелла, чеснок, фирменный соус альфредо",
+      "variants": [
+        {
+          "size": "25 см",
+          "price": "2890",
+          "weight": ""
+        },
+        {
+          "size": "30 см",
+          "price": "3990",
+          "weight": "560 г"
+        },
+        {
+          "size": "35 см",
+          "price": "4790",
+          "weight": ""
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Сырная",
+      "image": "https://i.ibb.co.com/qMrG9NMv/Chees-Pizza30.webp",
+      "ingredients": "Моцарелла, сыры чеддер и пармезан, соус альфредо",
+      "variants": [
+        {
+          "size": "25 см",
+          "price": "2030",
+          "weight": ""
+        },
+        {
+          "size": "30 см",
+          "price": "3159",
+          "weight": "490 г"
+        },
+        {
+          "size": "35 см",
+          "price": "3750",
+          "weight": ""
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Пепперони фреш",
+      "image": "https://i.ibb.co.com/gMRqGWRt/peperony-Fresh30.webp",
+      "ingredients": "Пепперони из цыпленка, увеличенная порция моцареллы, томаты, томатный соус",
+      "variants": [
+        {
+          "size": "25 см",
+          "price": "2290",
+          "weight": ""
+        },
+        {
+          "size": "30 см",
+          "price": "3390",
+          "weight": "620 г"
+        },
+        {
+          "size": "35 см",
+          "price": "3990",
+          "weight": ""
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Ветчина и сыр",
+      "image": "https://i.ibb.co.com/9H0RC2Br/Vetshina-And-Chese30.webp",
+      "ingredients": "Ветчина из цыпленка, моцарелла, соус альфредо",
+      "variants": [
+        {
+          "size": "25 см",
+          "price": "2290",
+          "weight": ""
+        },
+        {
+          "size": "30 см",
+          "price": "3390",
+          "weight": "490 г"
+        },
+        {
+          "size": "35 см",
+          "price": "3990",
+          "weight": ""
+        }
+      ]
+    }
+  ]
+}
