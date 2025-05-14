@@ -3,9 +3,60 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  font-family: var(--main-font);
+  height: 100%;
 }
+.image {
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(10px);
+  }
+}
+
 .info {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
   row-gap: 10px;
+
+  h3 {
+    font-size: var(--font-size20);
+    line-height: var(--line-height);
+  }
+
+  p {
+    font-size: var(--font-size14);
+    line-height: 20px;
+    color: var(--dark-gray);
+  }
+}
+
+.price_wrapper {
+  display: flex;
+  justify-content: space-between;
+  color: var(--color);
+  margin-top: 16px;
+  align-items: center;
+
+  button {
+    padding: 8px 20px;
+    border-radius: var(--border-radius);
+    font-size: var(--font-size15);
+    color: var(--color-dark-orange);
+    min-width: 120px;
+    line-height: 24px;
+    font-weight: 600;
+    background-color: var(--color-light-orange);
+    transition: 0.2s background-color ease-in-out;
+    &:hover {
+      background-color: var(--dark-light-orange);
+    }
+  }
+}
+.price {
+  font-size: var(--font-size20);
+  font-weight: 600;
 }

@@ -6,7 +6,7 @@ import data from "@/data/data.json";
 
 const sections = [
   { key: "pizza", title: "Пиццы" },
-  { key: "snacks", title: "Закуски" },
+  { key: "snack", title: "Закуски" },
   { key: "cocktails", title: "Коктейли" },
   { key: "coffee", title: "Кофе" },
 ];

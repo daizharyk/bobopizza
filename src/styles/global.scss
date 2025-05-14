@@ -30,8 +30,10 @@ a {
   --color-orange: rgb(255, 105, 0);
   --color-dark-orange: rgb(209, 87, 0);
   --color-light-orange: rgb(255, 240, 230);
+  --dark-light-orange: rgb(255, 210, 179);
   --white: #ffff;
   --light-gray: rgb(243, 243, 247);
+  --dark-gray: #5c6370;
 
   --main-font: "dodo", sans-serif;
 
@@ -42,6 +44,11 @@ a {
   --font-size20: 20px;
   --font-size24: 24px;
   --font-size32: 32px;
+  --font-size36: 36px;
 
   --font-wight: 700;
+
+  --line-height: 24px;
+
+  --border-radius: 20px;
 }

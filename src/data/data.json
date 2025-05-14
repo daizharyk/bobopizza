@@ -229,5 +229,140 @@
         }
       ]
     }
+  ],
+  "snack": [
+    {
+      "id": 1,
+      "title": "Чикен ролл",
+      "image": "https://i.ibb.co.com/chHZZpgY/chiken-roll.webp",
+      "ingredients": "Ролл с цыпленком, свежим салатом, томатами, чеддером, пармезаном, соус ранч",
+      "size": "1 шт",
+      "weight": "170 г",
+      "price": "1550"
+    },
+    {
+      "id": 2,
+      "title": "Дэнвич с кониной",
+      "image": "https://i.ibb.co.com/fVnBhL3K/denvich-s-koninoy.webp",
+      "ingredients": "Хрустящая чиабатта с шужуком, томатами, красным луком, моцареллой, соус ранч",
+      "size": "1 шт",
+      "weight": "220 г",
+      "price": "1900"
+    },
+    {
+      "id": 3,
+      "title": "Картофель из печи",
+      "image": "https://i.ibb.co.com/60f0mBvg/free.webp",
+      "ingredients": "Запеченная в печи картошка, привычный вкус, мало масла",
+      "size": "Большая",
+      "weight": "160 г",
+      "price": "1300"
+    },
+    {
+      "id": 4,
+      "title": "Салат Цезарь",
+      "image": "https://i.ibb.co.com/PGRZ7v5n/salat-sezar.webp",
+      "ingredients": "Цыпленок, салат айсберг, томаты черри, сыры чеддер и пармезан, соус цезарь, пшеничные гренки, итальянские травы",
+      "size": "1 шт",
+      "weight": "170 г",
+      "price": "2100"
+    }
+  ],
+  "cocktails": [
+    {
+      "id": 1,
+      "title": "Молочный коктейль Фисташка",
+      "image": "https://i.ibb.co.com/Jjwrn94S/Milkshake-Pistachio.webp",
+      "ingredients": "",
+      "variants": [
+        {
+          "size": "0,3 л",
+          "weight": "320 г",
+          "price": "1990"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Молочный коктейль Пина Колада",
+      "image": "https://i.ibb.co.com/VYBDMzMZ/Pina-Colada-Milkshake-webp.webp",
+      "ingredients": "Тропическое сочетание кокоса и ананаса в нежном милкшейке",
+      "variants": [
+        {
+          "size": "0,3 л",
+          "weight": "300 г",
+          "price": "1490"
+        }
+      ]
+    }
+  ],
+  "coffee": [
+    {
+      "id": 1,
+      "title": "Карамельный Капучино",
+      "image": "https://i.ibb.co.com/RTSrs3fK/Caramel-Cappuccino.webp",
+      "ingredients": "Если не шоколад, то карамель! А капучино с карамельным сиропом особенно хорош",
+      "variants": [
+        {
+          "size": "0.3",
+          "price": "1200",
+          "weight": "230"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Кофе Капучино",
+      "image": "https://i.ibb.co.com/VcXRgMQL/Coffee-Cappuccino.webp",
+      "ingredients": "Король среди кофейных напитков — классический капучино. Для любителей сбалансированного кофейно-молочного вкуса",
+      "variants": [
+        {
+          "size": "0.3",
+          "price": "1000",
+          "weight": "210"
+        },
+        {
+          "size": "0.4",
+          "price": "1100",
+          "weight": ""
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Кофе Кокосовый Латте",
+      "image": "https://i.ibb.co.com/NgSrvhgF/Coffee-Coconut-Latte.webp",
+      "ingredients": "Горячий напиток на основе эспрессо с увеличенной порцией молока и кокосовым сиропом",
+      "variants": [
+        {
+          "size": "0.3",
+          "price": "1200",
+          "weight": ""
+        },
+        {
+          "size": "0.4",
+          "price": "1300",
+          "weight": ""
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Кофе Американо",
+      "image": "https://i.ibb.co.com/whYh9q8Q/Coffee-Americano.webp",
+      "ingredients": "Горячий напиток на основе эспрессо",
+      "variants": [
+        {
+          "size": "0.3",
+          "price": "800",
+          "weight": "330"
+        },
+        {
+          "size": "0.4",
+          "price": "900",
+          "weight": "380"
+        }
+      ]
+    }
   ]
 }
