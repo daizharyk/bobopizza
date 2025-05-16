@@ -4,7 +4,6 @@ import HeaderTop from "../HeaderTop/HeaderTop";
 import LogoSvg from "../svg/LogoFullSvg";
 import RaitingStarSvg from "../svg/RaitingStarSvg";
 import DodoCoinSvg from "../svg/DodoCoinSvg";
-import CategoriesBar from "../CategoriesBar/CategoriesBar";
 
 const Header = () => {
   return (
@@ -36,7 +35,7 @@ const Header = () => {
           <button>Войти</button>
         </div>
       </header>
-      <CategoriesBar />
+
     </div>
   );
 };

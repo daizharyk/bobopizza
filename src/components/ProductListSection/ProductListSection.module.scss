@@ -1,7 +1,7 @@
 .container {
   display: flex;
   flex-direction: column;
-
+  padding-bottom: 60px;
   h2 {
     font-family: var(--main-font);
     font-size: var(--font-size36);

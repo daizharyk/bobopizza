@@ -2,8 +2,21 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
+  font-family: var(--main-font);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: white;
+
+  &.blur-active {
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.7); // опционально
+  }
 
   button {
+    align-self: center;
+    height: auto;
     padding: 8px 20px;
     color: var(--white);
     font-family: var(--dodo);
@@ -21,9 +34,15 @@
   display: none;
   left: -50px;
 }
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 1280px;
+  margin: 0 auto;
+}
 .categoriesWrapper {
   display: flex;
-
+  font-weight: 700;
   align-items: center;
   gap: 20px;
   ul {

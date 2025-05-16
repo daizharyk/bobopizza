@@ -1,3 +1,4 @@
+import DeliveryInfo from "@/components/Delivery Info/DeliveryInfo";
 import NewsSlider from "@/components/NewsSlider/NewsSlider";
 import PopularOrders from "@/components/PopularOrders/PopularOrders";
 import ProductListSection from "@/components/ProductListSection/ProductListSection";
@@ -23,6 +24,7 @@ export default function Home() {
           <ProductListSection key={key} title={title} items={items} />
         ) : null;
       })}
+      <DeliveryInfo />
     </>
   );
 }
