@@ -19,23 +19,25 @@ const Header = () => {
           </div>
 
           <div className={styles.deliveryInfo}>
-            Доставка пиццы Атырау
-            <span className={styles.ratingStar}>
-          
+            <div className={styles.region}>
+              Доставка пиццы <span>Атырау</span>
+            </div>
+            <div className={styles.ratingStar}>
               26 мин 4.84 <RaitingStarSvg />
-            </span>
+            </div>
           </div>
         </div>
         <div className={styles.headerRight}>
           <div className={styles.coinWrapper}>
-            <DodoCoinSvg />
-            <Link href="/dodocoin">Додокоины</Link>
+            <DodoCoinSvg className={styles.dodoCoinIcon} />
+            <Link href="/dodocoin" className={styles.dodoCoinLink}>
+              Додокоины
+            </Link>
           </div>
 
           <button>Войти</button>
         </div>
       </header>
-
     </div>
   );
 };

@@ -1,7 +1,17 @@
+"use client";
+
 import Link from "next/link";
 import styles from "./HeaderTop.module.scss";
+import { usePathname } from "next/navigation";
 
 const HeaderTop = () => {
+  const pathname = usePathname();
+
+  const navLinks = [
+    { href: "/about", label: "О нас" },
+    { href: "/contacts", label: "Контакты" },
+  ];
+
   return (
     <div className={styles.headerTop}>
       <button className={styles.languageButton}>
@@ -33,8 +43,15 @@ const HeaderTop = () => {
         <div className={styles.languageLabel}>Язык</div>
       </button>
       <nav className={styles.nav}>
-        <Link href="/about">О нас</Link>
-        <Link href="/contacts">Контакты</Link>
+        {navLinks.map(({ href, label }) => (
+          <Link
+            key={href}
+            href={href}
+            className={pathname.startsWith(href) ? styles.activeLink : ""}
+          >
+            {label}
+          </Link>
+        ))}
       </nav>
     </div>
   );

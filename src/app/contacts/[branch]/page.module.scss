@@ -1,0 +1,67 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--main-font);
+  gap: 30px;
+  padding: 44px 0 120px;
+
+  .link {
+    width: fit-content;
+  }
+  .backButton {
+    font-family: var(--main-font);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    background-color: var(--light-gray);
+    font-size: var(--font-size16);
+    padding: 8px 20px;
+    height: 40px;
+    
+    .arrow {
+      opacity: 0.3;
+      padding-right: 5px;
+      transition: 0.2s opacity ease-in-out;
+    }
+    &:hover .arrow {
+      opacity: 1;
+    }
+  }
+  .wrapper {
+    display: flex;
+
+    h1 {
+      font-size: var(--font-size36);
+      padding-top: 25px;
+    }
+    .imageWrapper img {
+      border-radius: 20px;
+    }
+    p {
+      font-size: var(--font-size16);
+      padding-bottom: 10px;
+    }
+
+    .addressWrapper {
+      padding-left: 50px;
+      font-size: var(--font-size15);
+
+      .service {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 15px 0;
+      }
+    }
+  }
+  .bezperchatok {
+    font-size: var(--font-size18);
+    color: var(--color-orange);
+    transition: 0.2s color ease-in-out;
+
+    &:hover {
+      color: var(--color-dark-orange);
+    }
+  }
+}

@@ -35,7 +35,16 @@
 .nav {
   display: flex;
   gap: 20px;
+
   a {
+    transition: 0.2s color ease-in-out;
+
+    &:hover {
+      color: var(--color-orange);
+    }
+  }
+  .activeLink {
+    color: var(--color-orange);
     text-decoration: none;
   }
 }

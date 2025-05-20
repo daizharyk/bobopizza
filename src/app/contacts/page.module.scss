@@ -1,0 +1,174 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--main-font);
+  width: 100%;
+  padding: 44px 0 120px 0;
+
+  .blockTop {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+
+    .searchBlock {
+      display: flex;
+      flex-direction: column;
+      width: 900px;
+      .city {
+        font-size: var(--font-size36);
+        font-weight: 600;
+        line-height: 24px;
+        padding-bottom: 20px;
+      }
+
+      .searchWrapper {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .searchInputWrapper {
+          display: flex;
+          align-items: center;
+          position: relative;
+
+          .searchSvg {
+            position: absolute;
+
+            left: 10px;
+            top: 10px;
+            color: #969696;
+          }
+
+          .searchInput {
+            padding: 0 37px;
+            width: 400px;
+            line-height: 41px;
+            font-size: var(--font-size16);
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            transition: 0.2s border ease-in-out;
+
+            &:focus {
+              border: 1px solid var(--color-orange);
+              outline: none;
+            }
+          }
+        }
+
+        button {
+          align-items: center;
+          display: flex;
+          padding: 8px 20px;
+          border-radius: 20px;
+          background-color: var(--color-light-orange);
+          font-size: var(--font-size16);
+          color: var(--color-dark-orange);
+          transition: 0.2s background ease-in-out;
+          &:hover {
+            background-color: var(--dark-light-orange);
+          }
+        }
+      }
+
+      .checkboxGroup {
+        display: flex;
+        padding-top: 10px;
+        gap: 15px;
+        font-size: var(--font-size15);
+
+        .checkboxLabel {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          cursor: pointer;
+
+          input {
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            position: relative;
+            cursor: pointer;
+
+            // рисуем галочку
+            &::after {
+              content: "";
+              position: absolute;
+              top: 0px;
+              left: 5px;
+              width: 6px;
+              height: 12px;
+              border: solid var(--color-dark-orange);
+              border-width: 0 2px 2px 0;
+              transform: rotate(45deg);
+              opacity: 0;
+              transition: opacity 0.2s;
+            }
+
+            &:hover::after {
+              opacity: 0.5;
+            }
+
+            &:checked {
+              border-color: var(--color-orange);
+
+              &::after {
+                opacity: 1;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .information {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding: 16px;
+      border-radius: 5px;
+      width: 290px;
+      background-color: var(--light-gray);
+
+      .infoTitle {
+        padding-bottom: 5px;
+        font-size: var(--font-size14);
+        letter-spacing: 0.5px;
+        color: var(--light-dark-gray);
+      }
+    }
+  }
+
+  .blcokBotton {
+    display: flex;
+    padding-top: 35px;
+    gap: 50px;
+    .branch {
+      width: 290px;
+
+      .branchName {
+        font-size: var(--font-size20);
+        font-weight: 700;
+        transition: 0.2s color ease-in-out;
+
+        &:hover {
+          color: var(--color-orange);
+        }
+      }
+
+      .address {
+        font-size: var(--font-size15);
+        padding: 15px 0 11px;
+      }
+      .service {
+        padding: 15px 0 11px;
+        font-size: var(--font-size15);
+        .workTime {
+          padding-top: 5px;
+        }
+      }
+    }
+  }
+}

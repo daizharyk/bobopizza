@@ -16,6 +16,7 @@ const CategoriesBar = () => {
     const handleScroll = () => {
       const top = containerRef.current?.getBoundingClientRect().top;
       setIsSticky(top <= 0);
+      containerRef.current.position;
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -27,7 +28,13 @@ const CategoriesBar = () => {
       className={`${styles.container} ${isSticky ? styles["blur-active"] : ""}`}
     >
       <div className={styles.wrapper}>
-        <div className={styles.categoriesWrapper}>
+        <div
+          className={styles.categoriesWrapper}
+          style={{
+            transform: `translateX(${isSticky ? 0 : -50}px)`,
+            transition: "transform 0.3s ease",
+          }}
+        >
           <LogoSvg className={styles.logo} />
           <nav className={styles.categories}>
             <ul>

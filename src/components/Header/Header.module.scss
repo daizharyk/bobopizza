@@ -5,10 +5,12 @@
   font-weight: var(--font-wight);
   display: flex;
   flex-direction: column;
-  gap: 24px;
+
   header {
+
     display: flex;
     justify-content: space-between;
+    padding: 24px 0 16px 0;
   }
 }
 .headerLeft {
@@ -29,16 +31,34 @@
   display: flex;
   flex-direction: column;
   gap: 5px;
-
-  span {
-    font-size: var(--font-size15);
-  }
+  font-weight: 400;
 }
 
 .coinWrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
+  cursor: pointer;
+  gap: 5px;
+
+  .dodoCoinIcon {
+    transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
+  }
+
+  .dodoCoinLink {
+    transition: color 0.2s ease-in-out;
+  }
+
+  &:hover {
+    .dodoCoinIcon {
+      transform: translateY(-5px);
+      color: var(--color-orange);
+    }
+
+    .dodoCoinLink {
+      color: var(--color-orange);
+    }
+  }
 }
 .headerRight {
   display: flex;
@@ -52,5 +72,13 @@
     cursor: pointer;
     border: none;
     background-color: var(--light-gray);
+  }
+}
+
+.region {
+  font-size: var(--font-size18);
+
+  span {
+    color: var(--color-orange);
   }
 }
