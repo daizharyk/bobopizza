@@ -6,9 +6,6 @@ import branches from "@/data/branches.json";
 
 const atyrauBranches = branches.atyrau.branches;
 
-
-console.log(atyrauBranches);
-
 const ContactsPage = () => {
   return (
     <>

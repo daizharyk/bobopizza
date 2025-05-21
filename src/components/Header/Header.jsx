@@ -11,12 +11,15 @@ const Header = () => {
       <HeaderTop />
       <header>
         <div className={styles.headerLeft}>
-          <div className={styles.logoTitle}>
-            <LogoSvg />
-            <div className={styles.sloganLine1}>
-              Сеть №1 в Казахстане <span>по количеству пиццерий</span>
+          <Link href={"/"}>
+            <div className={styles.logoTitle}>
+              <LogoSvg />
+
+              <div className={styles.sloganLine1}>
+                Сеть №1 в Казахстане <span>по количеству пиццерий</span>
+              </div>
             </div>
-          </div>
+          </Link>
 
           <div className={styles.deliveryInfo}>
             <div className={styles.region}>

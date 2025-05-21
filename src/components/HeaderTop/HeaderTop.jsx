@@ -8,7 +8,7 @@ const HeaderTop = () => {
   const pathname = usePathname();
 
   const navLinks = [
-    { href: "/about", label: "О нас" },
+    { href: "/about-us", label: "О нас" },
     { href: "/contacts", label: "Контакты" },
   ];
 

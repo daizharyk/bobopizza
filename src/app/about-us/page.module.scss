@@ -1,0 +1,109 @@
+.container {
+  font-family: var(--main-font);
+  margin-top: 60px;
+
+  section {
+    margin-bottom: 110px;
+  }
+  .section {
+    position: relative;
+    min-height: max-content;
+
+    
+    .sectionTwo {
+      display: flex;
+
+      .ingredientWrapper {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        grid-column-gap: 10px;
+        grid-row-gap: 10px;
+        padding: 30px 0;
+
+        .ingredient {
+          background-color: var(--color-light-orange);
+          font-size: var(--font-size19);
+          padding: 26px 26px 40px 26px;
+          width: 432px;
+          height: 216px;
+          border-radius: 15px;
+          line-height: 24px;
+        }
+      }
+      .svgSec {
+        width: 25%;
+        position: relative;
+
+        .secSvgOne {
+          position: absolute;
+          width: 400px;
+          height: auto;
+          bottom: 0;
+        }
+
+        .secSvgTwo {
+          position: absolute;
+          width: 400px;
+          height: auto;
+          bottom: 0;
+        }
+
+        .secSvgThree {
+          position: absolute;
+          width: 400px;
+          height: auto;
+          bottom: 0;
+        }
+      }
+    }
+
+    .wrapper {
+      max-width: 75%;
+
+      h1 {
+        font-size: var(--font-size52);
+        margin-bottom: 43px;
+      }
+      h2 {
+        margin: 25px 0;
+      }
+      h3 {
+        color: var(--color-orange);
+        font-size: var(--font-size32);
+      }
+      p {
+        font-size: var(--font-size18);
+        white-space: pre-wrap;
+        line-height: 26px;
+      }
+    }
+
+    .svg {
+      position: absolute;
+      right: 0;
+
+      top: 0;
+      width: 400px;
+      height: auto;
+
+      .svgOne {
+        position: relative;
+        top: 80px;
+      }
+      .svgTwo {
+        position: absolute;
+        right: -20px;
+        width: 400px;
+        top: 90px;
+      }
+      .svgThree {
+        position: relative;
+        top: -230px;
+        left: 30px;
+
+        width: 400px;
+      }
+    }
+  }
+}
