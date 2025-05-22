@@ -1,12 +1,11 @@
-const GraphSvg = (props) => (
+const GraphSvg = ({ className }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={1801}
     height={1064}
     fill="none"
     viewBox="0 0 1801 1064"
-    className="img img-left"
-    {...props}
+    className={className}
   >
     <g clipPath="url(#4f0b24-a)">
       <mask

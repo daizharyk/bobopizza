@@ -1,0 +1,66 @@
+.section {
+  position: relative;
+  min-height: max-content;
+
+  .wrapper {
+    max-width: 75%;
+
+    h1 {
+      font-size: var(--font-size52);
+      margin-bottom: 43px;
+    }
+
+    p {
+      font-size: var(--font-size18);
+      white-space: pre-wrap;
+      line-height: 26px;
+    }
+  }
+
+  .svg {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 400px;
+    transition: all 0.8s ease-out;
+    height: auto;
+
+    .svgOne {
+      position: relative;
+      top: 80px;
+      transform: translateX(-60px);
+      transition-delay: 0s;
+      opacity: 0;
+      transition: all 0.8s ease-out;
+    }
+    .svgTwo {
+      position: absolute;
+      right: -20px;
+      width: 400px;
+      top: 90px;
+      transform: translateX(-100px);
+      transition-delay: 0.3s;
+      transition: all 0.8s ease-out;
+      opacity: 0;
+    }
+    .svgThree {
+      position: relative;
+      top: -230px;
+      left: 30px;
+      transform: translateX(60px);
+      transition-delay: 0.6s;
+      opacity: 0;
+      transition: all 0.8s ease-out;
+      width: 400px;
+    }
+
+    &.in-view {
+      .svgOne,
+      .svgTwo,
+      .svgThree {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+  }
+}

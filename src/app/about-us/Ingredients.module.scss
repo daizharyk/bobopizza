@@ -1,0 +1,91 @@
+.section {
+  position: relative;
+  min-height: max-content;
+
+  .sectionTwo {
+    display: flex;
+
+    .ingredientWrapper {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      grid-column-gap: 10px;
+      grid-row-gap: 10px;
+      padding: 30px 0;
+
+      .ingredient {
+        background-color: var(--color-light-orange);
+        font-size: var(--font-size19);
+        padding: 26px 26px 40px 26px;
+        width: 432px;
+        height: 216px;
+        border-radius: 15px;
+        line-height: 24px;
+      }
+    }
+    .svgSec {
+      width: 25%;
+      position: relative;
+
+      .secSvgOne {
+        position: absolute;
+        width: 400px;
+        height: auto;
+        bottom: 0;
+        transform: translateX(-110px);
+        transition: all 0.4s ease-out;
+        transition-delay: 0s;
+        opacity: 0;
+      }
+
+      .secSvgTwo {
+        position: absolute;
+        width: 400px;
+        height: auto;
+        bottom: 0;
+        transform: translateX(-80px);
+        transition: all 0.4s ease-out;
+        transition-delay: 0.3s;
+        opacity: 0;
+      }
+
+      .secSvgThree {
+        position: absolute;
+        width: 400px;
+        height: auto;
+        bottom: 0;
+        transform: translateX(100px);
+        transition: all 0.4s ease-out;
+        transition-delay: 0.6s;
+        opacity: 0;
+      }
+
+      &.in-view {
+        .secSvgOne,
+        .secSvgTwo,
+        .secSvgThree {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+    }
+  }
+
+  .wrapper {
+    max-width: 75%;
+
+    h2 {
+      font-size: var(--font-size31);
+      margin: 25px 0;
+    }
+    h3 {
+      color: var(--color-orange);
+      font-size: var(--font-size32);
+    }
+    p {
+      font-size: var(--font-size18);
+      white-space: pre-wrap;
+      line-height: 26px;
+    }
+  }
+}

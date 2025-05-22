@@ -1,0 +1,16 @@
+.section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  .text {
+    font-family: var(--main-font);
+    margin: 18px 0;
+    font-size: var(--font-size18);
+    line-height: 24px;
+  }
+
+  .dodoBookSvg {
+    width: 70%;
+  }
+}

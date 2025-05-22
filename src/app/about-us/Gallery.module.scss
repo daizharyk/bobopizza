@@ -1,0 +1,24 @@
+.section {
+  display: flex;
+  flex-direction: column;
+
+  img {
+    border-radius: 15px;
+    padding: 5px 0;
+    height: auto;
+  }
+  .gallery {
+    width: 100%;
+    .couple {
+      display: flex;
+
+      border-radius: 15px;
+      justify-content: space-between;
+    }
+
+    .imgRight {
+      justify-content: right;
+      display: flex;
+    }
+  }
+}
