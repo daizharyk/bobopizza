@@ -5,23 +5,21 @@ import ProductListSection from "@/components/ProductListSection/ProductListSecti
 import Label from "@/components/svg/WithoutPigLabel";
 import data from "@/data/data.json";
 
-const sections = [
-  { key: "pizza", title: "Пиццы" },
-  { key: "snack", title: "Закуски" },
-  { key: "cocktails", title: "Коктейли" },
-  { key: "coffee", title: "Кофе" },
-];
-
 export default function Home() {
   return (
     <>
       <NewsSlider />
       <PopularOrders />
       <Label />
-      {sections.map(({ key, title }) => {
-        const items = data[key];
+      {data.categories.map(({ label, targetId }) => {
+        const items = data[targetId];
         return Array.isArray(items) ? (
-          <ProductListSection key={key} title={title} items={items} />
+          <ProductListSection
+            key={targetId}
+            id={targetId}
+            title={label}
+            items={items}
+          />
         ) : null;
       })}
       <DeliveryInfo />

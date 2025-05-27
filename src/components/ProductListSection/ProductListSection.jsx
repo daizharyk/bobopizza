@@ -1,11 +1,10 @@
 import ProductCard from "./ProductCard";
 import styles from "./ProductListSection.module.scss";
 
-const ProductListSection = ({ title, items }) => {
-  console.log("1", items);
+const ProductListSection = ({ title, items, id }) => {
 
   return (
-    <section className={styles.container}>
+    <section id={id} className={styles.container}>
       <h2>{title}</h2>
       <div className={styles.wrapper}>
         {items.map((item) => (

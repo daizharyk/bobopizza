@@ -8,7 +8,7 @@ import ArrowLeft from "@/components/svg/ArrowLeftSvg";
 const BranchPage = ({ params }) => {
   const branch = branches.atyrau.branches.find((b) => b.slug === params.branch);
 
-  console.log(branch);
+
 
   if (!branch) return notFound();
 

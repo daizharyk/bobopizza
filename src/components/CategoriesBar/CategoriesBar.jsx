@@ -16,7 +16,6 @@ const CategoriesBar = () => {
     const handleScroll = () => {
       const top = containerRef.current?.getBoundingClientRect().top;
       setIsSticky(top <= 0);
-      containerRef.current.position;
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -39,7 +38,14 @@ const CategoriesBar = () => {
           <nav className={styles.categories}>
             <ul>
               {categories.map((categori, index) => (
-                <li key={index}>{categori.label}</li>
+                <li key={index}>
+                  <Link
+                    href={`/#${categori.targetId}`}
+                    className={styles.categoryButton}
+                  >
+                    {categori.label}
+                  </Link>
+                </li>
               ))}
             </ul>
           </nav>

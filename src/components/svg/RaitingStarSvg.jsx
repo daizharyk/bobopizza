@@ -10,8 +10,8 @@ const RaitingStarSvg = () => {
     >
       <defs>
         <linearGradient id="e83c58-a">
-          <stop offset="50%" stopColor="#FFD200" />{" "}
-          <stop offset="50%" stopColor="#999" stopOpacity="0.5" />{" "}
+          <stop offset="100%" stopColor="#FFD200" />{" "}
+          <stop offset="100%" stopColor="#999" stopOpacity="0.5" />{" "}
         </linearGradient>
       </defs>
       <path

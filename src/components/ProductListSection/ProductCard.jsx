@@ -23,7 +23,6 @@ const ProductCard = ({ item }) => {
               ? `от ${item.price} тг.`
               : "Цена не указана"}
           </div>
-
           <button>Выбрать</button>
         </div>
       </div>

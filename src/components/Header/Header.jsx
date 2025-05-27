@@ -20,7 +20,6 @@ const Header = () => {
               </div>
             </div>
           </Link>
-
           <div className={styles.deliveryInfo}>
             <div className={styles.region}>
               Доставка пиццы <span>Атырау</span>

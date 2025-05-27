@@ -10,15 +10,15 @@ const Search = ({ className }) => {
     >
       <path
         fill="currentColor"
-        fill-rule="evenodd"
+        fillRule="evenodd"
         d="m18.293 19.707-4-4 1.414-1.414 4 4a1 1 0 0 1-1.414 1.414"
-        clip-rule="evenodd"
+        clipRule="evenodd"
       ></path>
       <path
         fill="currentColor"
-        fill-rule="evenodd"
+        fillRule="evenodd"
         d="M10.5 16a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11m0 2a7.5 7.5 0 1 0 0-15 7.5 7.5 0 0 0 0 15"
-        clip-rule="evenodd"
+        clipRule="evenodd"
       ></path>
     </svg>
   );
