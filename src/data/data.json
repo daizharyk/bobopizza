@@ -364,5 +364,55 @@
         }
       ]
     }
+  ],
+  "sauces": [
+    {
+      "id": 1,
+      "title": "Сырный",
+      "image": "https://i.ibb.co.com/MDT68sSC/Cheesy.webp",
+      "price": "400",
+      "ingredients": "Фирменный соус со вкусом расплавленного сыра для бортиков пиццы и горячих закусок",
+      "weight": "25"
+    },
+    {
+      "id": 2,
+      "title": "Чесночный",
+      "image": "https://i.ibb.co.com/8nHNN0fM/019570dcbd6e76f1a307f4551b945e0d.webp",
+      "price": "300",
+      "ingredients": "Фирменный соус с чесночным вкусом для бортиков пиццы и горячих закусок",
+      "weight": "25"
+    },
+    {
+      "id": 3,
+      "title": "Барбекю",
+      "image": "https://i.ibb.co.com/RGtQZD8L/bbq.webp",
+      "price": "300",
+      "ingredients": "Фирменный соус с дымным ароматом для бортиков пиццы и горячих закусок",
+      "weight": "25"
+    },
+    {
+      "id": 4,
+      "title": "Медово-горчичный",
+      "image": "https://i.ibb.co.com/sJF2Mx9z/Honey-Mustard.webp",
+      "price": "300",
+      "ingredients": "Фирменный медово-горчичный соус со жгучей сладостью для бортиков пиццы и горячих закусок",
+      "weight": "25"
+    },
+    {
+      "id": 5,
+      "title": "Соус Цезарь",
+      "image": "https://i.ibb.co.com/BVDqZYmQ/Caesar-sauce.webp",
+      "price": "300",
+      "ingredients": "Мягкий соус для заправки овощных салатов и салата «Цезарь»",
+      "weight": "30"
+    },
+    {
+      "id": 6,
+      "title": "Малиновое варенье",
+      "image": "https://i.ibb.co.com/C3CG01Rq/Raspberry-jam.webp",
+      "price": "400",
+      "ingredients": "Идеально к сырникам",
+      "weight": "25"
+    }
   ]
 }

@@ -2,6 +2,8 @@ import "../styles/global.scss";
 import Header from "../components/Header/Header";
 import Footer from "@/components/footer/Footer";
 import CategoriesBar from "@/components/CategoriesBar/CategoriesBar";
+import Cart from "@/components/cart/Cart";
+
 export const metadata = {
   title: "DodoPizza Clone",
   description: "Клон сайта DodoPizza - заказать пиццу онлайн",
@@ -18,6 +20,7 @@ export default function RootLayout({ children }) {
         </div>
 
         <Footer />
+        <div id="modal-root" />
       </body>
     </html>
   );
