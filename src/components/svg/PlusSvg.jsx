@@ -5,7 +5,6 @@ export const PlusSvg = ({ className }) => {
       width="10"
       height="10"
       viewBox="0 0 10 10"
-      class="icon"
       className={className}
     >
       <g fill="#454B54">

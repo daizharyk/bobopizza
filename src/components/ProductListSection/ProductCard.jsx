@@ -1,8 +1,18 @@
+"use client";
+import { useDispatch } from "react-redux";
 import styles from "./ProductCard.module.scss";
+import { addToCart } from "@/store/slices/cartSlice";
 
 const { default: Image } = require("next/image");
 
 const ProductCard = ({ item }) => {
+  const dispatch = useDispatch();
+
+  const handleAddToCart = () => {
+    dispatch(addToCart(item));
+ 
+  };
+
   return (
     <article className={styles.article}>
       <Image
@@ -23,7 +33,7 @@ const ProductCard = ({ item }) => {
               ? `${item.price} тг.`
               : "Цена не указана"}
           </div>
-          <button>Выбрать</button>
+          <button onClick={handleAddToCart}>Выбрать</button>
         </div>
       </div>
     </article>

@@ -8,62 +8,14 @@ import { createPortal } from "react-dom";
 import { useEffect, useState } from "react";
 import { MinusSvg } from "../svg/MinusSvg";
 import { PlusSvg } from "../svg/PlusSvg";
-
-const itemsList = [
-  {
-    id: 1,
-    title: "Креветки с песто",
-    price: "500",
-    image: "https://i.ibb.co.com/zgXqgQq/krevertka-Spesto30sm.webp",
-    ingredients:
-      "Томатный соус, моцарелла, соус песто, томаты, креветки, шампиньоны, итальянские травы",
-    variants: [
-      {
-        size: "25 см",
-        price: "3390",
-        weight: "",
-      },
-      {
-        size: "30 см",
-        price: "4950",
-        weight: "630 г",
-      },
-      {
-        size: "35 см",
-        price: "6130",
-        weight: "",
-      },
-    ],
-  },
-  {
-    id: 2,
-    title: "Чикен бургер",
-    price: "500",
-    image: "https://i.ibb.co.com/cczMNDbM/chiken-Burger35.webp",
-    ingredients:
-      "Цыпленок, чеснок, томаты, моцарелла, соус бургер, соус альфредо",
-    variants: [
-      {
-        size: "25 см",
-        price: "2290",
-        weight: "",
-      },
-      {
-        size: "30 см",
-        price: "3390",
-        weight: "540 г",
-      },
-      {
-        size: "35 см",
-        price: "3990",
-        weight: "",
-      },
-    ],
-  },
-];
+import { useSelector } from "react-redux";
 
 const Cart = ({ isOpen, onClose }) => {
+  const itemsList = useSelector((state) => state.cart.items);
+  console.log("Cart contents:", itemsList);
+
   const [isBrowser, setIsBrowser] = useState(false);
+  const [openSauces, setOpenSauces] = useState(false);
 
   useEffect(() => {
     setIsBrowser(true);
@@ -77,6 +29,7 @@ const Cart = ({ isOpen, onClose }) => {
     }
 
     return () => {
+      setOpenSauces(false);
       document.body.style.overflow = "";
     };
   }, [isOpen]);
@@ -86,7 +39,9 @@ const Cart = ({ isOpen, onClose }) => {
   const modalContent = (
     <>
       <div className={styles.overlay} onClick={onClose} />
-      <section className={styles.cart}>
+      <section
+        className={`${styles.cart} ${openSauces ? styles.cartBlur : ""}`}
+      >
         <button className={styles.closeButton} onClick={onClose}>
           <CartCloseSVG className={styles.svgIcon} />
         </button>
@@ -102,27 +57,38 @@ const Cart = ({ isOpen, onClose }) => {
           <div className={styles.itemsList}>
             {itemsList.map((item) => (
               <article key={item.id} className={styles.itemCart}>
-                {" "}
-                <div>
+                <div className={styles.itemTop}>
                   <Image
                     src={item.image}
                     alt={item.title}
                     width={64}
                     height={64}
-                  />{" "}
+                    className={styles.itemImage}
+                  />
                   <div className={styles.itemInfoWrapper}>
                     <div className={styles.itemName}>{item.title}</div>
-                    <div className={styles.itemInfo}>1 шт</div>
+                    <div className={styles.itemSize}>1 шт</div>
                   </div>
+                  <button className={styles.itemDeleteButton}>
+                    <CartCloseSVG className={styles.svgIcon} />
+                  </button>
                 </div>
-                <div>
-                  <div className={styles.price}>{item.price}</div>
-                  <div>
-                    <button>
+                <div className={styles.itemBotton}>
+                  <div className={styles.itemBotton}>
+                    <div className={styles.price}>
+                      {(item.variants?.[0]?.price ?? item.price)
+                        .toLocaleString("ru-RU")
+                        .replace(/(\d)(\d{3})$/, "$1 $2")}{" "}
+                      тг.
+                    </div>
+                  </div>
+
+                  <div className={styles.quantityControls}>
+                    <button className={styles.minusButton}>
                       <MinusSvg />
                     </button>
-                    <div>1</div>
-                    <button>
+                    <div className={styles.quantity}>1</div>
+                    <button className={styles.plusButton}>
                       <PlusSvg />
                     </button>
                   </div>
@@ -131,11 +97,23 @@ const Cart = ({ isOpen, onClose }) => {
             ))}
           </div>
           <div className={styles.addToOrder}>
-            <h3>Добавить к заказу?</h3>
-            <Sauces />
+            <h3 className={styles.title}>Добавить к заказу?</h3>
+            <button
+              onClick={() => setOpenSauces(true)}
+              className={styles.sauces_preview}
+            >
+              <Image
+                width={72}
+                height={72}
+                src={"/png/saucesPreivew.png"}
+                alt="sauces Preview"
+              />
+              <div className={styles.sauces_text}>Соусы</div>
+            </button>
           </div>
         </div>
       </section>
+      <Sauces openSauces={openSauces} onClose={() => setOpenSauces(false)} />
     </>
   );
 

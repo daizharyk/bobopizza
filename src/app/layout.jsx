@@ -2,7 +2,7 @@ import "../styles/global.scss";
 import Header from "../components/Header/Header";
 import Footer from "@/components/footer/Footer";
 import CategoriesBar from "@/components/CategoriesBar/CategoriesBar";
-import Cart from "@/components/cart/Cart";
+import { ReduxProvider } from "./providers";
 
 export const metadata = {
   title: "DodoPizza Clone",
@@ -13,14 +13,15 @@ export default function RootLayout({ children }) {
   return (
     <html lang="ru">
       <body>
-        <Header />
-        <CategoriesBar />
-        <div className="container">
-          <main>{children}</main>
-        </div>
-
-        <Footer />
-        <div id="modal-root" />
+        <ReduxProvider>
+          <Header />
+          <CategoriesBar />
+          <div className="container">
+            <main>{children}</main>
+          </div>
+          <Footer />
+          <div id="modal-root" />
+        </ReduxProvider>
       </body>
     </html>
   );
