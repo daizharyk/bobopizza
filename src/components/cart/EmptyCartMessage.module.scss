@@ -1,0 +1,19 @@
+.container {
+  font-family: var(--main-font);
+  text-align: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  row-gap: 10px;
+
+  h3 {
+    font-size: var(--font-size21);
+    padding: 20px;
+  }
+  p {
+    font-size: var(--font-size14);
+    white-space: pre-wrap;
+  }
+}

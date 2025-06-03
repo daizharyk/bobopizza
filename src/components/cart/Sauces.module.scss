@@ -1,5 +1,3 @@
-
-
 .container {
   display: flex;
   flex-direction: column;
@@ -48,6 +46,24 @@
       color: var(--color-dark-orange);
       font-size: var(--font-size14);
       font-weight: 600;
+    }
+    .quantityControls {
+      display: flex;
+      background-color: var(--light-gray);
+      height: 32px;
+      width: 96px;
+      justify-content: space-between;
+      align-items: center;
+
+      border-radius: 15px;
+
+      .quantity {
+        color: var(--dark-gray);
+      }
+      button {
+        background-color: transparent;
+        padding: 0 8px;
+      }
     }
   }
 }

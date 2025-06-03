@@ -69,7 +69,7 @@
   ],
   "pizzas": [
     {
-      "id": 1,
+      "id": 5,
       "title": "Креветки с песто",
       "image": "https://i.ibb.co.com/zgXqgQq/krevertka-Spesto30sm.webp",
       "ingredients": "Томатный соус, моцарелла, соус песто, томаты, креветки, шампиньоны, итальянские травы",
@@ -92,7 +92,7 @@
       ]
     },
     {
-      "id": 2,
+      "id": 6,
       "title": "Чикен бургер",
       "image": "https://i.ibb.co.com/cczMNDbM/chiken-Burger35.webp",
       "ingredients": "Цыпленок, чеснок, томаты, моцарелла, соус бургер, соус альфредо",
@@ -115,7 +115,7 @@
       ]
     },
     {
-      "id": 3,
+      "id": 7,
       "title": "С кониной",
       "image": "https://i.ibb.co.com/0pcybDb9/s-Koninoy30.webp",
       "ingredients": "Сладкий перец, красный лук, моцарелла, фирменный соус альфредо",
@@ -138,7 +138,7 @@
       ]
     },
     {
-      "id": 4,
+      "id": 8,
       "title": "Чилл Грилл",
       "image": "https://i.ibb.co.com/ds1r6BXQ/Chill-Grill30.webp",
       "ingredients": "Цыпленок, маринованные огурчики, красный лук, соус гриль тейсти, моцарелла, чеснок, фирменный соус альфредо",
@@ -161,7 +161,7 @@
       ]
     },
     {
-      "id": 5,
+      "id": 9,
       "title": "Сырная",
       "image": "https://i.ibb.co.com/qMrG9NMv/Chees-Pizza30.webp",
       "ingredients": "Моцарелла, сыры чеддер и пармезан, соус альфредо",
@@ -184,7 +184,7 @@
       ]
     },
     {
-      "id": 6,
+      "id": 10,
       "title": "Пепперони фреш",
       "image": "https://i.ibb.co.com/gMRqGWRt/peperony-Fresh30.webp",
       "ingredients": "Пепперони из цыпленка, увеличенная порция моцареллы, томаты, томатный соус",
@@ -207,7 +207,7 @@
       ]
     },
     {
-      "id": 7,
+      "id": 11,
       "title": "Ветчина и сыр",
       "image": "https://i.ibb.co.com/9H0RC2Br/Vetshina-And-Chese30.webp",
       "ingredients": "Ветчина из цыпленка, моцарелла, соус альфредо",
@@ -232,7 +232,7 @@
   ],
   "snacks": [
     {
-      "id": 1,
+      "id": 12,
       "title": "Чикен ролл",
       "image": "https://i.ibb.co.com/chHZZpgY/chiken-roll.webp",
       "ingredients": "Ролл с цыпленком, свежим салатом, томатами, чеддером, пармезаном, соус ранч",
@@ -241,7 +241,7 @@
       "price": "1550"
     },
     {
-      "id": 2,
+      "id": 13,
       "title": "Дэнвич с кониной",
       "image": "https://i.ibb.co.com/fVnBhL3K/denvich-s-koninoy.webp",
       "ingredients": "Хрустящая чиабатта с шужуком, томатами, красным луком, моцареллой, соус ранч",
@@ -250,7 +250,7 @@
       "price": "1900"
     },
     {
-      "id": 3,
+      "id": 14,
       "title": "Картофель из печи",
       "image": "https://i.ibb.co.com/60f0mBvg/free.webp",
       "ingredients": "Запеченная в печи картошка, привычный вкус, мало масла",
@@ -259,7 +259,7 @@
       "price": "1300"
     },
     {
-      "id": 4,
+      "id": 15,
       "title": "Салат Цезарь",
       "image": "https://i.ibb.co.com/PGRZ7v5n/salat-sezar.webp",
       "ingredients": "Цыпленок, салат айсберг, томаты черри, сыры чеддер и пармезан, соус цезарь, пшеничные гренки, итальянские травы",
@@ -270,7 +270,7 @@
   ],
   "cocktails": [
     {
-      "id": 1,
+      "id": 16,
       "title": "Молочный коктейль Фисташка",
       "image": "https://i.ibb.co.com/Jjwrn94S/Milkshake-Pistachio.webp",
       "ingredients": "",
@@ -283,7 +283,7 @@
       ]
     },
     {
-      "id": 2,
+      "id": 17,
       "title": "Молочный коктейль Пина Колада",
       "image": "https://i.ibb.co.com/VYBDMzMZ/Pina-Colada-Milkshake-webp.webp",
       "ingredients": "Тропическое сочетание кокоса и ананаса в нежном милкшейке",
@@ -298,7 +298,7 @@
   ],
   "coffee": [
     {
-      "id": 1,
+      "id": 18,
       "title": "Карамельный Капучино",
       "image": "https://i.ibb.co.com/RTSrs3fK/Caramel-Cappuccino.webp",
       "ingredients": "Если не шоколад, то карамель! А капучино с карамельным сиропом особенно хорош",
@@ -311,7 +311,7 @@
       ]
     },
     {
-      "id": 2,
+      "id": 19,
       "title": "Кофе Капучино",
       "image": "https://i.ibb.co.com/VcXRgMQL/Coffee-Cappuccino.webp",
       "ingredients": "Король среди кофейных напитков — классический капучино. Для любителей сбалансированного кофейно-молочного вкуса",
@@ -329,7 +329,7 @@
       ]
     },
     {
-      "id": 3,
+      "id": 20,
       "title": "Кофе Кокосовый Латте",
       "image": "https://i.ibb.co.com/NgSrvhgF/Coffee-Coconut-Latte.webp",
       "ingredients": "Горячий напиток на основе эспрессо с увеличенной порцией молока и кокосовым сиропом",
@@ -347,7 +347,7 @@
       ]
     },
     {
-      "id": 4,
+      "id": 21,
       "title": "Кофе Американо",
       "image": "https://i.ibb.co.com/whYh9q8Q/Coffee-Americano.webp",
       "ingredients": "Горячий напиток на основе эспрессо",
@@ -367,7 +367,7 @@
   ],
   "sauces": [
     {
-      "id": 1,
+      "id": 22,
       "title": "Сырный",
       "image": "https://i.ibb.co.com/MDT68sSC/Cheesy.webp",
       "price": "400",
@@ -375,7 +375,7 @@
       "weight": "25"
     },
     {
-      "id": 2,
+      "id": 23,
       "title": "Чесночный",
       "image": "https://i.ibb.co.com/8nHNN0fM/019570dcbd6e76f1a307f4551b945e0d.webp",
       "price": "300",
@@ -383,7 +383,7 @@
       "weight": "25"
     },
     {
-      "id": 3,
+      "id": 24,
       "title": "Барбекю",
       "image": "https://i.ibb.co.com/RGtQZD8L/bbq.webp",
       "price": "300",
@@ -391,7 +391,7 @@
       "weight": "25"
     },
     {
-      "id": 4,
+      "id": 25,
       "title": "Медово-горчичный",
       "image": "https://i.ibb.co.com/sJF2Mx9z/Honey-Mustard.webp",
       "price": "300",
@@ -399,7 +399,7 @@
       "weight": "25"
     },
     {
-      "id": 5,
+      "id": 26,
       "title": "Соус Цезарь",
       "image": "https://i.ibb.co.com/BVDqZYmQ/Caesar-sauce.webp",
       "price": "300",
@@ -407,7 +407,7 @@
       "weight": "30"
     },
     {
-      "id": 6,
+      "id": 27,
       "title": "Малиновое варенье",
       "image": "https://i.ibb.co.com/C3CG01Rq/Raspberry-jam.webp",
       "price": "400",
