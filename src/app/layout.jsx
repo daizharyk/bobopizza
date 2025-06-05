@@ -3,6 +3,8 @@ import Header from "../components/Header/Header";
 import Footer from "@/components/footer/Footer";
 import CategoriesBar from "@/components/CategoriesBar/CategoriesBar";
 import { ReduxProvider } from "./providers";
+import NewsSlider from "@/components/NewsSlider/NewsSlider";
+import { Toaster } from "react-hot-toast";
 
 export const metadata = {
   title: "DodoPizza Clone",
@@ -16,6 +18,14 @@ export default function RootLayout({ children }) {
         <ReduxProvider>
           <Header />
           <CategoriesBar />
+          <Toaster
+            position="top-right"
+            toastOptions={{
+              className: "popup",
+              duration: 2500,
+            }}
+          />
+          <NewsSlider />
           <div className="container">
             <main>{children}</main>
           </div>

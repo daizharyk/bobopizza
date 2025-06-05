@@ -2,15 +2,21 @@
 import { useDispatch } from "react-redux";
 import styles from "./ProductCard.module.scss";
 import { addToCart } from "@/store/slices/cartSlice";
+import toast from "react-hot-toast";
 
 const { default: Image } = require("next/image");
 
-const ProductCard = ({ item }) => {
+const ProductCard = ({ item, onOpenModal }) => {
   const dispatch = useDispatch();
 
+
   const handleAddToCart = () => {
-    dispatch(addToCart(item));
- 
+    if (item.customizable) {
+      onOpenModal(item);
+    } else {
+      dispatch(addToCart(item));
+      toast.success(`Добавлено: ${item.title}, 1 шт.`);
+    }
   };
 
   return (

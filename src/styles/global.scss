@@ -38,7 +38,7 @@ a {
   --light-gray: rgb(243, 243, 247);
   --dark-gray: #5c6370;
   --light-gray-2: #f3f3f7;
-  --light-dark-gray: #73798C;
+  --light-dark-gray: #73798c;
   --color-black: #181818;
 
   --main-font: "dodo", sans-serif;
@@ -62,4 +62,16 @@ a {
   --line-height: 24px;
 
   --border-radius: 20px;
+}
+
+.popup {
+  background-color: rgba(0, 0, 0, 0.85);
+  color: var(--white);
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-size: var(--font-size15);
+  line-height: 1.4;
+  max-width: 280px;
+  font-family: var(--main-font);
+  transition: all 0.3s ease;
 }

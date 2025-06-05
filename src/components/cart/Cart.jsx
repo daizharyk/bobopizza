@@ -21,6 +21,7 @@ const Cart = ({ isOpen, onClose }) => {
   const [isBrowser, setIsBrowser] = useState(false);
   const [openSauces, setOpenSauces] = useState(false);
 
+
   const dispatch = useDispatch();
 
   const handleDeleteFromCart = (item) => {
@@ -73,105 +74,106 @@ const Cart = ({ isOpen, onClose }) => {
   const modalContent = (
     <>
       <div className={styles.overlay} onClick={onClose}>
-        <section
-          className={`${styles.cart} ${openSauces ? styles.cartBlur : ""}`}
-          onClick={(e) => e.stopPropagation()}
-        >
-          <button className={styles.closeButton} onClick={onClose}>
-            <CartCloseSVG className={styles.svgIcon} />
-          </button>
-          {itemsList.length === 0 ? (
-            <EmptyCartMessage />
-          ) : (
-            <>
-              <div className={styles.container}>
-                <div className={styles.countWrapper}>
-                  <div className={styles.item_count}>
-                    {itemsList.length} {getWordForm(itemsList.length)} на{" "}
-                    {getTotalPrice(itemsList)} тг.
-                  </div>
-                  <div className={styles.minDelivery}>{freeDelivery()}</div>
+        {" "}
+      </div>
+      <section
+        className={`${styles.cart} ${openSauces ? styles.cartBlur : ""}`}
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button className={styles.closeButton} onClick={onClose}>
+          <CartCloseSVG className={styles.svgIcon} />
+        </button>
+        {itemsList.length === 0 ? (
+          <EmptyCartMessage />
+        ) : (
+          <>
+            <div className={styles.container}>
+              <div className={styles.countWrapper}>
+                <div className={styles.item_count}>
+                  {itemsList.length} {getWordForm(itemsList.length)} на{" "}
+                  {getTotalPrice(itemsList)} тг.
                 </div>
+                <div className={styles.minDelivery}>{freeDelivery()}</div>
+              </div>
 
-                <div className={styles.itemsList}>
-                  {itemsList.map((item) => (
-                    <article key={item.id} className={styles.itemCart}>
-                      <div className={styles.itemTop}>
-                        <Image
-                          src={item.image}
-                          alt={item.title}
-                          width={64}
-                          height={64}
-                          className={styles.itemImage}
-                        />
-                        <div className={styles.itemInfoWrapper}>
-                          <div className={styles.itemName}>{item.title}</div>
-                          <div className={styles.itemSize}>1 шт</div>
-                        </div>
+              <div className={styles.itemsList}>
+                {itemsList.map((item) => (
+                  <article key={item.id} className={styles.itemCart}>
+                    <div className={styles.itemTop}>
+                      <Image
+                        src={item.image}
+                        alt={item.title}
+                        width={64}
+                        height={64}
+                        className={styles.itemImage}
+                      />
+                      <div className={styles.itemInfoWrapper}>
+                        <div className={styles.itemName}>{item.title}</div>
+                        <div className={styles.itemSize}>1 шт</div>
+                      </div>
+                      <button
+                        onClick={() => handleDeleteFromCart(item.id)}
+                        className={styles.itemDeleteButton}
+                      >
+                        <CartCloseSVG className={styles.svgIcon} />
+                      </button>
+                    </div>
+
+                    <div className={styles.itemBotton}>
+                      <div className={styles.price}>
+                        {(item.variants?.[0]?.price ?? item.price)
+                          .toLocaleString("ru-RU")
+                          .replace(/(\d)(\d{3})$/, "$1 $2")}{" "}
+                        тг.
+                      </div>
+
+                      <div className={styles.quantityControls}>
                         <button
-                          onClick={() => handleDeleteFromCart(item.id)}
-                          className={styles.itemDeleteButton}
+                          onClick={() => dispatch(decreaseQuantity(item.id))}
+                          className={styles.minusButton}
                         >
-                          <CartCloseSVG className={styles.svgIcon} />
+                          <MinusSvg />
+                        </button>
+                        <div className={styles.quantity}>{item.quantity}</div>
+                        <button
+                          onClick={() => dispatch(increaseQuantity(item.id))}
+                          className={styles.plusButton}
+                        >
+                          <PlusSvg />
                         </button>
                       </div>
-
-                      <div className={styles.itemBotton}>
-                        <div className={styles.price}>
-                          {(item.variants?.[0]?.price ?? item.price)
-                            .toLocaleString("ru-RU")
-                            .replace(/(\d)(\d{3})$/, "$1 $2")}{" "}
-                          тг.
-                        </div>
-
-                        <div className={styles.quantityControls}>
-                          <button
-                            onClick={() => dispatch(decreaseQuantity(item.id))}
-                            className={styles.minusButton}
-                          >
-                            <MinusSvg />
-                          </button>
-                          <div className={styles.quantity}>{item.quantity}</div>
-                          <button
-                            onClick={() => dispatch(increaseQuantity(item.id))}
-                            className={styles.plusButton}
-                          >
-                            <PlusSvg />
-                          </button>
-                        </div>
-                      </div>
-                    </article>
-                  ))}
-                </div>
-
-                <div className={styles.addToOrder}>
-                  <h3 className={styles.title}>Добавить к заказу?</h3>
-                  <button
-                    onClick={() => setOpenSauces(true)}
-                    className={styles.sauces_preview}
-                  >
-                    <Image
-                      width={72}
-                      height={72}
-                      src={"/png/saucesPreivew.png"}
-                      alt="sauces Preview"
-                    />
-                    <div className={styles.sauces_text}>Соусы</div>
-                  </button>
-                </div>
+                    </div>
+                  </article>
+                ))}
               </div>
-            </>
-          )}
-        </section>
 
-        {itemsList.length > 0 && (
-          <Sauces
-            itemsList={itemsList}
-            openSauces={openSauces}
-            onClose={() => setOpenSauces(false)}
-          />
+              <div className={styles.addToOrder}>
+                <h3 className={styles.title}>Добавить к заказу?</h3>
+                <button
+                  onClick={() => setOpenSauces(true)}
+                  className={styles.sauces_preview}
+                >
+                  <Image
+                    width={72}
+                    height={72}
+                    src={"/png/saucesPreivew.png"}
+                    alt="sauces Preview"
+                  />
+                  <div className={styles.sauces_text}>Соусы</div>
+                </button>
+              </div>
+            </div>
+          </>
         )}
-      </div>
+      </section>
+
+      {itemsList.length > 0 && (
+        <Sauces
+          itemsList={itemsList}
+          openSauces={openSauces}
+          onClose={() => setOpenSauces(false)}
+        />
+      )}
     </>
   );
 
