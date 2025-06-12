@@ -14,7 +14,7 @@
   background-color: var(--light-gray);
   height: 100vh;
   right: 0;
-  font-family: var(--main-font);
+
 
   .closeButton {
     position: relative;
@@ -53,6 +53,7 @@
       .minDelivery {
         font-size: var(--font-size14);
         color: var(--dark-gray);
+        height: 20px;
       }
     }
 

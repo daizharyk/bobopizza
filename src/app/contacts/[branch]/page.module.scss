@@ -1,7 +1,7 @@
 .container {
   display: flex;
   flex-direction: column;
-  font-family: var(--main-font);
+ 
   gap: 30px;
   padding: 44px 0 120px;
 
@@ -9,7 +9,7 @@
     width: fit-content;
   }
   .backButton {
-    font-family: var(--main-font);
+    
     display: flex;
     align-items: center;
     justify-content: center;

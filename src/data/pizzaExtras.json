@@ -1,0 +1,104 @@
+[
+  {
+    "id": "cheeseCrust",
+    "title": "Сырный бортик",
+    "price": 800,
+    "image": "https://i.ibb.co.com/ynRP7T1b/cheese-side.png"
+  },
+  {
+    "id": "mozzarella",
+    "title": "Моцарелла",
+    "price": 450,
+    "image": "https://i.ibb.co.com/HDbpt4g3/Mozzarella.png"
+  },
+  {
+    "id": "cheddarParmesan",
+    "title": "Сыры чеддер и пармезан",
+    "price": 450,
+    "image": "https://i.ibb.co.com/bjHqrpRT/Cheddar-and-Parmesan-cheeses.png"
+  },
+  {
+    "id": "jalapeno",
+    "title": "Острый перец халапеньо",
+    "price": 250,
+    "image": "https://i.ibb.co.com/mfdHdcr/hot-jalapeno-pepper.png"
+  },
+  {
+    "id": "chicken",
+    "title": "Цыпленок",
+    "price": 450,
+    "image": "https://i.ibb.co.com/5xBQntks/chiken.png"
+  },
+  {
+    "id": "pepperoniChicken",
+    "title": "Пепперони из цыпленка",
+    "price": 450,
+    "image": "https://i.ibb.co.com/7tfJzrGT/Chicken-pepperoni.png"
+  },
+  {
+    "id": "hamChicken",
+    "title": "Ветчина из цыпленка",
+    "price": 450,
+    "image": "https://i.ibb.co.com/nMvRfJXQ/Chicken-ham.png"
+  },
+  {
+    "id": "mushrooms",
+    "title": "Шампиньоны",
+    "price": 250,
+    "image": "https://i.ibb.co.com/B5B4zwrd/Champignons.png"
+  },
+  {
+    "id": "pickles",
+    "title": "Маринованные огурчики",
+    "price": 250,
+    "image": "https://i.ibb.co.com/xSSBK8KW/Pickled-cucumbers.png"
+  },
+  {
+    "id": "tomatoes",
+    "title": "Томаты",
+    "price": 250,
+    "image": "https://i.ibb.co.com/q3cHmBgY/Tomatoes.png"
+  },
+  {
+    "id": "chorizo",
+    "title": "Острые колбаски чоризо",
+    "price": 450,
+    "image": "https://i.ibb.co.com/679BDX51/Spicy-sausages.png"
+  },
+  {
+    "id": "feta",
+    "title": "Кубики брынзы",
+    "price": 450,
+    "image": "https://i.ibb.co.com/V0M7pvHc/Feta-cheese-cubes.png"
+  },
+  {
+    "id": "redOnion",
+    "title": "Красный лук",
+    "price": 250,
+    "image": "https://i.ibb.co.com/SXBP7T1n/Red-onion.png"
+  },
+  {
+    "id": "italianHerbs",
+    "title": "Итальянские травы",
+    "price": 250,
+    "image": "https://i.ibb.co.com/S1mTtML/Italian-herbs.png"
+  },
+  {
+    "id": "pineapple",
+    "title": "Ананасы",
+    "price": 250,
+    "image": "https://i.ibb.co.com/FbqTGcJG/Pineapples.png"
+  },
+  {
+    "id": "bellPepper",
+    "title": "Сладкий перец",
+    "price": 250,
+    "image": "https://i.ibb.co.com/v6z6tj9j/Sweet-pepper.png"
+  },
+  {
+    "id": "meatballs",
+    "title": "Митболы из говядины",
+    "price": 350,
+    "image": "https://i.ibb.co.com/S455dGgy/Beef-Meatballs.png"
+  }
+]

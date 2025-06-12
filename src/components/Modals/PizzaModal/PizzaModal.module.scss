@@ -1,29 +1,165 @@
-.container {
-  width: 600px;
-  height: 600px;
-  z-index: 9999;
-  position: fixed;
-  top: 50%;
-  left: 50%;
+.content {
+  display: flex;
+  width: 100%;
 
-  transform: translate(-50%, -50%) scale(0.70);
-  opacity: 0;
-  background-color: white;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-  border-radius: 10px;
-
-  transition: opacity 0.2s ease, transform 0.2s ease;
-
-  &.show {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
+  justify-content: center;
+  height: 100%;
+  overflow: hidden;
+  max-height: 90vh;
+  .content_img {
+    display: flex;
+    margin: 50px 14px 0 14px;
   }
-}
 
-.overlay {
-  position: fixed;
-  inset: 0;
-  background-color: rgba(0, 0, 0, 0.7);
-  z-index: 9994;
-  
+  .content_info {
+    flex-direction: column;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    max-height: 100%;
+
+    padding: 30px;
+    width: 400px;
+    .title {
+      font-size: var(--font-size24);
+      font-weight: 500;
+    }
+
+    .pizza_info {
+      color: var(--dark-gray);
+      font-size: var(--font-size14);
+      padding-bottom: 5px;
+    }
+    .ingredients {
+      font-size: var(--font-size14);
+      line-height: 20px;
+    }
+
+    .sizeGroup {
+      margin-top: 8px;
+      display: flex;
+      position: relative;
+      height: 32px;
+      flex-shrink: 0;
+      border-radius: 9999px;
+      background-color: var(--light-gray-2);
+      overflow: hidden;
+      font-size: 12px;
+      line-height: 32px;
+      min-height: 32px;
+      
+      .selected_Size {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 33%;
+        height: 90%;
+        background-color: rgb(255, 255, 255);
+        border-radius: 9999px;
+        box-shadow: rgba(6, 5, 50, 0.19) 0px 6px 20px;
+        transition: transform 0.3s ease, width 0.3s ease;
+        z-index: 1;
+        transform: translate(0, -50%);
+      }
+      .sizeItem {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+
+        input {
+          display: none;
+        }
+
+        .sizeOption {
+          flex: 1;
+          text-align: center;
+          z-index: 2;
+          cursor: pointer;
+          position: relative;
+          user-select: none;
+        }
+      }
+    }
+    .thicknessGroup {
+      margin: 8px 0;
+      display: flex;
+      position: relative;
+      height: 32px;
+      flex-shrink: 0;
+      border-radius: 9999px;
+      background-color: var(--light-gray-2);
+      overflow: hidden;
+      font-size: 12px;
+      line-height: 32px;
+      min-height: 32px;
+      .selected {
+        position: absolute;
+        top: 50%;
+        left: 0;
+
+        width: 50%;
+        height: 90%;
+        background-color: white;
+        border-radius: 9999px;
+        box-shadow: rgba(6, 5, 50, 0.19) 0px 6px 20px;
+        transition: transform 0.3s ease, width 0.3s ease;
+        z-index: 1;
+        transform: translate(0, -50%);
+      }
+
+      input {
+        display: none;
+      }
+
+      .thicknessOption {
+        flex: 1;
+        text-align: center;
+        z-index: 2;
+        cursor: pointer;
+        position: relative;
+        user-select: none;
+      }
+    }
+
+    .extra_content {
+      display: flex;
+      flex-direction: column;
+      row-gap: 10px;
+
+      h3 {
+        font-size: var(--font-size20);
+      }
+
+      .extras_content {
+        display: grid;
+
+        overflow: unset;
+        max-height: unset;
+        grid-template-columns: repeat(3, 1fr);
+        grid-row-gap: 8px;
+
+        grid-column-gap: 8px;
+        .article {
+          box-shadow: rgba(6, 5, 50, 0.12) 0px 4px 20px;
+          display: flex;
+          background-color: var(--white);
+          flex-direction: column;
+          justify-content: space-between;
+          width: 105px;
+          height: 166px;
+          padding: 8px;
+
+          border-radius: 10px;
+          transition: 0.2s box-shadow ease-in-out;
+
+          &:hover {
+            box-shadow: rgba(6, 5, 50, 0.12) 0px 0px 8px;
+          }
+        }
+        .title {
+          font-size: var(--font-size12);
+        }
+      }
+    }
+  }
 }

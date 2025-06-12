@@ -19,6 +19,7 @@ const Sauces = ({ openSauces, onClose, itemsList }) => {
 
   return (
     <div className={styles.container} onClick={(e) => e.stopPropagation()}>
+     
       <button onClick={onClose} className={styles.close_button}>
         <CartCloseSVG />
       </button>

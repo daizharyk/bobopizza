@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  font-family: var(--main-font);
+  
 }
 
 .wrapper {
@@ -24,7 +24,7 @@
     border-radius: 9999px;
     font-size: var(--font-size16);
     color: var(--color-dark-orange);
-    font-family: var(--main-font);
+   
     line-height: 24px;
     background-color: var(--color-light-orange);
     transition: 0.2s background-color ease-in-out;
