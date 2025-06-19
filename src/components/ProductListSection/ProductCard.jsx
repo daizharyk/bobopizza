@@ -9,7 +9,6 @@ const { default: Image } = require("next/image");
 const ProductCard = ({ item, onOpenModal }) => {
   const dispatch = useDispatch();
 
-
   const handleAddToCart = () => {
     if (item.customizable) {
       onOpenModal(item);
@@ -19,6 +18,10 @@ const ProductCard = ({ item, onOpenModal }) => {
     }
   };
 
+  // onOpenModal(item, (finalItem) => {
+  //   dispatch(addToCart(finalItem));
+  //   toast.success(`Добавлено: ${finalItem.title}, 1 шт.`);
+  // });
   return (
     <article className={styles.article}>
       <Image

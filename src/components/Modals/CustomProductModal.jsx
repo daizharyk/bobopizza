@@ -1,16 +1,18 @@
 import PizzaModal from "./PizzaModal/PizzaModal";
 
-
-const CustomProductModal = ({ item, onClose }) => {
-
+const CustomProductModal = ({ item, onClose, handleAddToCart }) => {
   if (!item) return null;
-
-
-
 
   switch (item.type) {
     case "pizzas":
-      return <PizzaModal item={item} onClose={onClose} />;
+      return (
+        <PizzaModal
+          item={item}
+          onClose={onClose}
+          handleAddToCart={handleAddToCart}
+          
+        />
+      );
 
     case "combo":
       return <ComboModal item={item} onClose={onClose} />;
