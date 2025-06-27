@@ -1,7 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  images: {
-    domains: ["i.ibb.co.com"], // Разрешаем загрузку изображений с этого домена
+   images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'i.ibb.co.com',
+        port: '',         // если есть конкретный порт, укажи его, иначе оставь пустым
+        pathname: '/**',  // разрешает все пути
+      },
+    ],
   },
 };
 

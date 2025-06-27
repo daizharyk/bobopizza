@@ -3,12 +3,20 @@ import ModalWrapper from "../ModalWrapper";
 import styles from "./PizzaModal.module.scss";
 import { useEffect, useRef, useState } from "react";
 import pizzaExtras from "@/data/pizzaExtras.json";
+import SelectedSvg from "@/components/svg/ModalSvg/SelectedSvg";
 
 const PizzaModal = ({ item, onClose }) => {
   const [selectedSize, setSelectedSize] = useState(
     item.variants[1]?.size || ""
   );
-  console.log("seleceted", selectedSize);
+  const [selectedExtras, setSelectedExtras] = useState([]);
+  
+  
+  const toggleExtra = (id) => {
+    setSelectedExtras((prev) =>
+      prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id]
+    );
+  };
 
   const [selectedThickness, setSelectedThickness] = useState("Традиционное");
 
@@ -21,6 +29,10 @@ const PizzaModal = ({ item, onClose }) => {
   const traditionalRef = useRef(null);
   const thinRef = useRef(null);
   const groupRef = useRef(null);
+
+  const selectedVariant = item.variants?.find(
+    (variant) => variant.size === selectedSize
+  );
 
   useEffect(() => {
     const indicator = sizeIndicatorRef.current;
@@ -43,7 +55,7 @@ const PizzaModal = ({ item, onClose }) => {
     };
 
     const animationFrame = requestAnimationFrame(() => {
-      setTimeout(updatePosition, 200); 
+      setTimeout(updatePosition, 200);
     });
 
     return () => cancelAnimationFrame(animationFrame);
@@ -75,13 +87,22 @@ const PizzaModal = ({ item, onClose }) => {
             height={480}
             src={item.image}
             alt="Изображение пицы"
+            style={{
+              transform:
+                selectedSize === "35"
+                  ? "scale(1)"
+                  : selectedSize === "30"
+                  ? "scale(0.8)"
+                  : "scale(0.7)",
+              transition: "transform 0.3s ease",
+            }}
           />
         </div>
         <div className={styles.conten__info_wrapper}>
           <div className={styles.content_info}>
             <h2 className={styles.title}>{item.title}</h2>
             <div className={styles.pizza_info}>
-              {`${selectedSize}, ${selectedThickness} тесто, 630 г`}
+              {`${selectedSize} см, ${selectedThickness} тесто, ${selectedVariant?.weight} г`}
             </div>
             <p className={styles.ingredients}>{item.ingredients}</p>
             <div ref={sizeGroupRef} className={styles.sizeGroup}>
@@ -150,18 +171,32 @@ const PizzaModal = ({ item, onClose }) => {
             <div className={styles.extra_content}>
               <h3>Добавить по вкусу</h3>
               <section className={styles.extras_content}>
-                {pizzaExtras.map((item) => (
-                  <button className={styles.article} key={item.id}>
-                    <Image
-                      src={item.image}
-                      alt={item.title}
-                      width={88}
-                      height={88}
-                    />
-                    <h4 className={styles.title}>{item.title}</h4>
-                    <p className={styles.price}>{item.price}</p>
-                  </button>
-                ))}
+                {pizzaExtras.map((item) => {
+                  const isSelected = selectedExtras.includes(item.id);
+                  return (
+                    <button
+                      key={item.id}
+                      className={`${styles.article} ${
+                        isSelected ? styles.selected : ""
+                      }`}
+                      onClick={() => toggleExtra(item.id)}
+                    >
+                      {isSelected && (
+                        <div className={styles.selectedIcon}>
+                          <SelectedSvg />
+                        </div>
+                      )}
+                      <Image
+                        src={item.image}
+                        alt={item.title}
+                        width={88}
+                        height={88}
+                      />
+                      <h4 className={styles.title}>{item.title}</h4>
+                      <p className={styles.price}>{item.price}</p>
+                    </button>
+                  );
+                })}
               </section>
             </div>
           </div>

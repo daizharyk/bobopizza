@@ -5,6 +5,7 @@ import CategoriesBar from "@/components/CategoriesBar/CategoriesBar";
 import { ReduxProvider } from "./providers";
 import NewsSlider from "@/components/NewsSlider/NewsSlider";
 import { Toaster } from "react-hot-toast";
+import CartLoader from "@/components/CartLoadr";
 
 export const metadata = {
   title: "DodoPizza Clone",
@@ -16,6 +17,7 @@ export default function RootLayout({ children }) {
     <html lang="ru">
       <body>
         <ReduxProvider>
+          <CartLoader />
           <Header />
           <CategoriesBar />
           <Toaster
