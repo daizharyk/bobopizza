@@ -7,6 +7,7 @@ const saveToStorage = (items) => {
 const initialState = {
   items: [],
 };
+console.log("init", initialState);
 
 const cartSlice = createSlice({
   name: "cart",
@@ -25,7 +26,6 @@ const cartSlice = createSlice({
       } else {
         state.items.push({ ...action.payload, quantity: 1 });
       }
-
       saveToStorage(state.items);
     },
     increaseQuantity: (state, action) => {

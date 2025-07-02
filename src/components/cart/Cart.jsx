@@ -15,12 +15,12 @@ import {
   removeFromCart,
 } from "@/store/slices/cartSlice";
 import EmptyCartMessage from "./EmptyCartMessage";
+import ArrowLeft from "../svg/ArrowLeftSvg";
 
 const Cart = ({ isOpen, onClose }) => {
   const itemsList = useSelector((state) => state.cart.items);
   const [isBrowser, setIsBrowser] = useState(false);
   const [openSauces, setOpenSauces] = useState(false);
-
 
   const dispatch = useDispatch();
 
@@ -109,7 +109,22 @@ const Cart = ({ isOpen, onClose }) => {
                       />
                       <div className={styles.itemInfoWrapper}>
                         <div className={styles.itemName}>{item.title}</div>
-                        <div className={styles.itemSize}>1 шт</div>
+
+                        {item.customizable ? (
+                          <div className={styles.itemDetails}>
+                            <div>
+                              {item.size} см, {item.thickness.value} тесто{" "}
+                              {item.size}
+                            </div>
+                            {item.extras && (
+                              <div className={styles.extras}>
+                                + {item.extras}
+                              </div>
+                            )}
+                          </div>
+                        ) : (
+                          <div className={styles.itemSize}>1 шт</div>
+                        )}
                       </div>
                       <button
                         onClick={() => handleDeleteFromCart(item.id)}
@@ -121,7 +136,7 @@ const Cart = ({ isOpen, onClose }) => {
 
                     <div className={styles.itemBotton}>
                       <div className={styles.price}>
-                        {(item.variants?.[0]?.price ?? item.price)
+                        {(item.price * item.quantity)
                           .toLocaleString("ru-RU")
                           .replace(/(\d)(\d{3})$/, "$1 $2")}{" "}
                         тг.
@@ -165,15 +180,30 @@ const Cart = ({ isOpen, onClose }) => {
             </div>
           </>
         )}
+        <div className={styles.toOrder}>
+          <div className={styles.item_count}>
+            <div>
+              {itemsList.length} {getWordForm(itemsList.length)}
+            </div>
+            <div>{getTotalPrice(itemsList)} тг.</div>
+          </div>
+
+          <div className={styles.totalPrice}>
+            <span>Сумма заказа:</span>
+            <span>{getTotalPrice(itemsList)} тг.</span>
+          </div>
+
+          <button className={styles.toOrderButton}>
+            К оформлению заказа <ArrowLeft className={styles.arrow} />
+          </button>
+        </div>
       </section>
 
-      {itemsList.length > 0 && (
-        <Sauces
-          itemsList={itemsList}
-          openSauces={openSauces}
-          onClose={() => setOpenSauces(false)}
-        />
-      )}
+      <Sauces
+        itemsList={itemsList}
+        openSauces={openSauces}
+        onClose={() => setOpenSauces(false)}
+      />
     </>
   );
 

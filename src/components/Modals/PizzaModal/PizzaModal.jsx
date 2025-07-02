@@ -1,24 +1,28 @@
 import Image from "next/image";
 import ModalWrapper from "../ModalWrapper";
 import styles from "./PizzaModal.module.scss";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import pizzaExtras from "@/data/pizzaExtras.json";
 import SelectedSvg from "@/components/svg/ModalSvg/SelectedSvg";
+import { useDispatch } from "react-redux";
+import { addItemToCart } from "@/components/utils/addItemToCart";
 
 const PizzaModal = ({ item, onClose }) => {
+  const dispatch = useDispatch();
+
+  const thicknessOptions = [
+    { value: "Традиционное", key: "traditional" },
+    { value: "Тонкое", key: "thin" },
+  ];
+
   const [selectedSize, setSelectedSize] = useState(
     item.variants[1]?.size || ""
   );
   const [selectedExtras, setSelectedExtras] = useState([]);
-  
-  
-  const toggleExtra = (id) => {
-    setSelectedExtras((prev) =>
-      prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id]
-    );
-  };
 
-  const [selectedThickness, setSelectedThickness] = useState("Традиционное");
+  const [selectedThickness, setSelectedThickness] = useState(
+    thicknessOptions[0]
+  );
 
   const indicatorRef = useRef(null);
   const sizeIndicatorRef = useRef(null);
@@ -30,9 +34,47 @@ const PizzaModal = ({ item, onClose }) => {
   const thinRef = useRef(null);
   const groupRef = useRef(null);
 
+  const selectedExtrasTitles = pizzaExtras
+    .filter((extra) => selectedExtras.includes(extra.id))
+    .map((extra) => extra.title)
+    .join(", ");
+
+  const toggleExtra = (id) => {
+    setSelectedExtras((prev) =>
+      prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id]
+    );
+  };
+
   const selectedVariant = item.variants?.find(
     (variant) => variant.size === selectedSize
   );
+
+  const totalPrice = useMemo(() => {
+    const totalExtrasPrice = pizzaExtras
+      .filter((extra) => selectedExtras.includes(extra.id))
+      .reduce((sum, extra) => sum + Number(extra.price), 0);
+
+    return totalExtrasPrice + Number(selectedVariant?.price || 0);
+  }, [selectedExtras, selectedVariant]);
+
+  const customId = `${item.id}_${selectedVariant.size}_${
+    selectedThickness.key
+  }_${selectedExtras.sort().join("-")}`;
+
+  const pizzaToAdd = {
+    id: customId,
+    title: item.title,
+    image: item.image,
+    size: selectedVariant.size,
+    price: totalPrice,
+    thickness: selectedThickness,
+    extras: selectedExtrasTitles,
+    customizable: item.customizable,
+  };
+
+  const handleAddToCart = () => {
+    addItemToCart(dispatch, pizzaToAdd, onClose);
+  };
 
   useEffect(() => {
     const indicator = sizeIndicatorRef.current;
@@ -63,7 +105,7 @@ const PizzaModal = ({ item, onClose }) => {
 
   useEffect(() => {
     const currentRef =
-      selectedThickness === "Традиционное" ? traditionalRef : thinRef;
+      selectedThickness.key === "traditional" ? traditionalRef : thinRef;
     const indicator = indicatorRef.current;
     const group = groupRef.current;
 
@@ -102,7 +144,7 @@ const PizzaModal = ({ item, onClose }) => {
           <div className={styles.content_info}>
             <h2 className={styles.title}>{item.title}</h2>
             <div className={styles.pizza_info}>
-              {`${selectedSize} см, ${selectedThickness} тесто, ${selectedVariant?.weight} г`}
+              {`${selectedSize} см, ${selectedThickness.value} тесто, ${selectedVariant?.weight} г`}
             </div>
             <p className={styles.ingredients}>{item.ingredients}</p>
             <div ref={sizeGroupRef} className={styles.sizeGroup}>
@@ -134,39 +176,28 @@ const PizzaModal = ({ item, onClose }) => {
             <div ref={groupRef} className={styles.thicknessGroup}>
               <div ref={indicatorRef} className={styles.selected}></div>
 
-              <input
-                type="radio"
-                id="Традиционное"
-                name="thickness"
-                value="Традиционное"
-                className={styles.hiddenInput}
-                checked={selectedThickness === "Традиционное"}
-                onChange={() => setSelectedThickness("Традиционное")}
-              />
-              <label
-                ref={traditionalRef}
-                htmlFor="Традиционное"
-                className={styles.thicknessOption}
-              >
-                Традиционное
-              </label>
-
-              <input
-                type="radio"
-                id="Тонкое"
-                name="thickness"
-                value="Тонкое"
-                className={styles.hiddenInput}
-                checked={selectedThickness === "Тонкое"}
-                onChange={() => setSelectedThickness("Тонкое")}
-              />
-              <label
-                ref={thinRef}
-                htmlFor="Тонкое"
-                className={styles.thicknessOption}
-              >
-                Тонкое
-              </label>
+              {thicknessOptions.map((option) => (
+                <div className={styles.wrapper_option} key={option.key}>
+                  <input
+                    type="radio"
+                    id={option.value}
+                    name="thickness"
+                    value={option.value}
+                    className={styles.hiddenInput}
+                    checked={selectedThickness === option.value}
+                    onChange={() => setSelectedThickness(option)}
+                  />
+                  <label
+                    ref={
+                      option.key === "traditional" ? traditionalRef : thinRef
+                    }
+                    htmlFor={option.value}
+                    className={styles.thicknessOption}
+                  >
+                    {option.value}
+                  </label>
+                </div>
+              ))}
             </div>
             <div className={styles.extra_content}>
               <h3>Добавить по вкусу</h3>
@@ -200,7 +231,10 @@ const PizzaModal = ({ item, onClose }) => {
               </section>
             </div>
           </div>
-          <button className={styles.to_cart_button}>{`В корзину за `}</button>
+          <button
+            onClick={handleAddToCart}
+            className={styles.to_cart_button}
+          >{`В корзину за ${totalPrice} `}</button>
         </div>
       </div>
     </ModalWrapper>

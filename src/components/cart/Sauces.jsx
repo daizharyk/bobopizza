@@ -10,16 +10,36 @@ import {
 } from "@/store/slices/cartSlice";
 import { PlusSvg } from "../svg/PlusSvg";
 import { MinusSvg } from "../svg/MinusSvg";
+import { useEffect, useRef } from "react";
 
 const sauces = data.sauces;
 
 const Sauces = ({ openSauces, onClose, itemsList }) => {
   if (!openSauces) return null;
+
+  const saucesRef = useRef(null);
+
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (saucesRef.current && !saucesRef.current.contains(event.target)) {
+        onClose();
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [onClose]);
+
   return (
-    <div className={styles.container} onClick={(e) => e.stopPropagation()}>
-     
+    <div
+      ref={saucesRef}
+      className={styles.container}
+      onClick={(e) => e.stopPropagation()}
+    >
       <button onClick={onClose} className={styles.close_button}>
         <CartCloseSVG />
       </button>
@@ -29,7 +49,7 @@ const Sauces = ({ openSauces, onClose, itemsList }) => {
           const sauceInCart = itemsList.find((item) => item.id === sauce.id);
 
           return (
-            <div key={sauce.id} className={styles.wrapper}>
+            <div ef={saucesRef} key={sauce.id} className={styles.wrapper}>
               <div className={styles.img_wrapper}>
                 <Image
                   src={sauce.image}
