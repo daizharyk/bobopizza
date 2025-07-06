@@ -1,0 +1,19 @@
+.to_cart_button {
+  position: absolute;
+  width: 334px;
+  bottom: -70px;
+  padding: 12px 48px;
+  font-size: var(--font-size16);
+  background-color: var(--color-orange);
+  border-radius: 9999px;
+  color: var(--white);
+  height: 48px;
+  line-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease-in-out;
+  &:hover {
+    background-color: var(--color-dark-orange);
+  }
+}

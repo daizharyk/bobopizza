@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import ModalWrapper from "../ModalWrapper";
 import styles from "./PizzaModal.module.scss";
@@ -6,6 +7,7 @@ import pizzaExtras from "@/data/pizzaExtras.json";
 import SelectedSvg from "@/components/svg/ModalSvg/SelectedSvg";
 import { useDispatch } from "react-redux";
 import { addItemToCart } from "@/components/utils/addItemToCart";
+import AddToCartButton from "../AddToCartButton";
 
 const PizzaModal = ({ item, onClose }) => {
   const dispatch = useDispatch();
@@ -231,11 +233,11 @@ const PizzaModal = ({ item, onClose }) => {
               </section>
             </div>
           </div>
-          <button
-            onClick={handleAddToCart}
-            className={styles.to_cart_button}
-          >{`В корзину за ${totalPrice} `}</button>
-        </div>
+          <AddToCartButton
+            selectedVariant={totalPrice}
+            onAddToCart={handleAddToCart}
+          />
+        </div>.
       </div>
     </ModalWrapper>
   );

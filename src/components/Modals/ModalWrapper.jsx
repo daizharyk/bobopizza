@@ -13,13 +13,14 @@ const ModalWrapper = ({ children, onClose }) => {
       document.body.style.overflow = "";
     };
   }, []);
+  
   useEffect(() => {
     const timer = setTimeout(() => {
       setVisible(true);
     }, 10);
     return () => clearTimeout(timer);
   }, []);
-  
+
   const modalContent = (
     <div className={styles.wrapper}>
       <div className={styles.overlay} onClick={onClose} />

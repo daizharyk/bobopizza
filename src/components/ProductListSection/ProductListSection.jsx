@@ -1,22 +1,40 @@
 "use client";
-import { useState } from "react";
+
 import ProductCard from "./ProductCard";
 import styles from "./ProductListSection.module.scss";
-import CustomProductModal from "../Modals/CustomProductModal";
 
-const ProductListSection = ({ title, items, id, itemType }) => {
-  const [selectedItem, setSelectedItem] = useState(null);
-
+const ProductListSection = ({ title, items, id, itemType, onOpenModal }) => {
   const handleOpenModal = (item) => {
-    setSelectedItem({ ...item, type: itemType });
+    onOpenModal({ ...item, type: item.type || itemType });
   };
-
-  const handleCloseModal = () => setSelectedItem(null);
 
   return (
     <section id={id} className={styles.container}>
       <h2>{title}</h2>
       <div className={styles.wrapper}>
+        {itemType === "pizzas" && (
+          <ProductCard
+            key="half-pizza"
+            item={{
+              id: "half-pizza",
+              title: "Пицца из половинок",
+              ingredients: "Соберите свою пиццу 35 см с двумя разными вкусами",
+              image:
+                "https://i.ibb.co.com/50ttRbf/0195dc96b2da74aabee7a671f52b731b.webp",
+              price: 0,
+              customizable: true,
+              half: true,
+            }}
+            onOpenModal={() =>
+              handleOpenModal({
+                id: "half-pizza",
+                title: "Собери половинки",
+                type: "half-pizza",
+                customizable: true,
+              })
+            }
+          />
+        )}
         {items.map((item) => (
           <ProductCard
             key={item.id}
@@ -25,9 +43,6 @@ const ProductListSection = ({ title, items, id, itemType }) => {
           />
         ))}
       </div>
-      {selectedItem && (
-        <CustomProductModal item={selectedItem} onClose={handleCloseModal} />
-      )}
     </section>
   );
 };

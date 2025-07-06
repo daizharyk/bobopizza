@@ -284,29 +284,35 @@
   "cocktails": [
     {
       "id": 16,
-      "customizable": false,
+      "customizable": true,
       "title": "Молочный коктейль Фисташка",
       "image": "https://i.ibb.co.com/Jjwrn94S/Milkshake-Pistachio.webp",
-      "ingredients": "",
+      "ingredients": "Сочетание нежности, сливочной текстуры и тонкого вкуса фисташки",
       "variants": [
         {
           "size": "0,3",
-          "weight": "320",
           "price": "1990"
+        },
+        {
+          "size": "0,6",
+          "price": "2990"
         }
       ]
     },
     {
       "id": 17,
-      "customizable": false,
-      "title": "Молочный коктейль Пина Колада",
-      "image": "https://i.ibb.co.com/VYBDMzMZ/Pina-Colada-Milkshake-webp.webp",
-      "ingredients": "Тропическое сочетание кокоса и ананаса в нежном милкшейке",
+      "customizable": true,
+      "title": "Классический молочный коктейль",
+      "image": "https://i.ibb.co.com/HL9JS8rt/11ee796ee39316cc97b025769d2775d6.webp",
+      "ingredients": "В мире так много коктейлей, но классика — вечна. Попробуйте наш молочный напиток с мороженым",
       "variants": [
         {
           "size": "0,3",
-          "weight": "300",
-          "price": "1490"
+          "price": "1700"
+        },
+        {
+          "size": "0,6",
+          "price": "2550"
         }
       ]
     }
@@ -318,13 +324,8 @@
       "title": "Карамельный Капучино",
       "image": "https://i.ibb.co.com/RTSrs3fK/Caramel-Cappuccino.webp",
       "ingredients": "Если не шоколад, то карамель! А капучино с карамельным сиропом особенно хорош",
-      "variants": [
-        {
-          "size": "0.3",
-          "price": "1200",
-          "weight": "230"
-        }
-      ]
+      "size": "0.3",
+      "price": "1200"
     },
     {
       "id": 19,
@@ -335,13 +336,11 @@
       "variants": [
         {
           "size": "0.3",
-          "price": "1000",
-          "weight": "210"
+          "price": "1000"
         },
         {
           "size": "0.4",
-          "price": "1100",
-          "weight": ""
+          "price": "1100"
         }
       ]
     },
@@ -354,13 +353,11 @@
       "variants": [
         {
           "size": "0.3",
-          "price": "1200",
-          "weight": ""
+          "price": "1200"
         },
         {
           "size": "0.4",
-          "price": "1300",
-          "weight": ""
+          "price": "1300"
         }
       ]
     },

@@ -17,7 +17,7 @@ const ProductCard = ({ item, onOpenModal }) => {
   };
 
   return (
-    <article className={styles.article}>
+    <article onClick={handleAddToCart} className={styles.article}>
       <Image
         className={styles.image}
         src={item.image}
@@ -36,7 +36,9 @@ const ProductCard = ({ item, onOpenModal }) => {
               ? `${item.price} тг.`
               : "Цена не указана"}
           </div>
-          <button onClick={handleAddToCart}>Выбрать</button>
+          <button onClick={handleAddToCart}>{`${
+            item.customizable ? "Выбрать" : "В корзину"
+          }`}</button>
         </div>
       </div>
     </article>

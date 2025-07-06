@@ -71,6 +71,7 @@ const Cart = ({ isOpen, onClose }) => {
   }, [isOpen]);
 
   if (!isOpen || !isBrowser) return null;
+
   const modalContent = (
     <>
       <div className={styles.overlay} onClick={onClose}>
@@ -113,9 +114,11 @@ const Cart = ({ isOpen, onClose }) => {
                         {item.customizable ? (
                           <div className={styles.itemDetails}>
                             <div>
-                              {item.size} см, {item.thickness.value} тесто{" "}
-                              {item.size}
+                              {item.size} л
+                              {item.thickness?.value &&
+                                `, ${item.thickness.value} тесто ${item.size}`}
                             </div>
+
                             {item.extras && (
                               <div className={styles.extras}>
                                 + {item.extras}
