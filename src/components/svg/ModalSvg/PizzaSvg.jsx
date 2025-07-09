@@ -1,10 +1,8 @@
-import React from "react";
-
 const PizzaSvg = ({ className }) => {
   return (
     <svg
-      width={584}
-      height={584}
+      width={236}
+      height={236}
       viewBox="0 0 584 584"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

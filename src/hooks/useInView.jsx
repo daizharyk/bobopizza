@@ -7,8 +7,7 @@ export const useInView = (ref, threshold = 0.9) => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          console.log(entry.isIntersecting);
-
+  
           setInView(true);
         }
       },

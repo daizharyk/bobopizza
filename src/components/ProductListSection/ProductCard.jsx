@@ -37,7 +37,7 @@ const ProductCard = ({ item, onOpenModal }) => {
               : "Цена не указана"}
           </div>
           <button onClick={handleAddToCart}>{`${
-            item.customizable ? "Выбрать" : "В корзину"
+            item.half ? "Собрать" : item.customizable ? "Выбрать" : "В корзину"
           }`}</button>
         </div>
       </div>

@@ -1,6 +1,7 @@
 import CocktailModal from "./CocktailModal/CocktailModal";
 import CoffeeModal from "./CoffeModal/CoffeModal";
-import PizzaHalfModal from "./PizzaModal/PizzaHalfModal";
+import PizzaHalfModal from "./PizzaModal/PizzaHalfModal/PizzaHalfModal";
+
 import PizzaModal from "./PizzaModal/PizzaModal";
 
 const CustomProductModal = ({ item, onClose }) => {

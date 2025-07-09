@@ -3,13 +3,12 @@
 import GraphSvg from "@/components/svg/AboutUsPageSVG/GraphSvg";
 import styles from "./SameTasteEverywhere.module.scss";
 import SVGComponent from "@/components/svg/AboutUsPageSVG/ThreeSvg";
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import { useInView } from "@/hooks/useInView";
 
 const SameTasteEverywhere = () => {
   const svgRef = useRef(null);
   const inView = useInView(svgRef);
-
 
   return (
     <section className={styles.section}>

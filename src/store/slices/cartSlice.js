@@ -7,7 +7,7 @@ const saveToStorage = (items) => {
 const initialState = {
   items: [],
 };
-console.log("init", initialState);
+
 
 const cartSlice = createSlice({
   name: "cart",

@@ -1,20 +1,28 @@
-import { useEffect, useRef, useState } from "react";
-import ModalWrapper from "../ModalWrapper";
+import React, { useEffect, useRef, useState } from "react";
+import ModalWrapper from "../../ModalWrapper";
 import styles from "./PizzaHalfModal.module.scss";
 import { addItemToCart } from "@/components/utils/addItemToCart";
 import { useDispatch } from "react-redux";
 import Image from "next/image";
-import AddToCartButton from "../AddToCartButton";
+
 import data from "@/data/data.json";
 import PizzaSvg from "@/components/svg/ModalSvg/PizzaSvg";
+import { useInView } from "@/hooks/useInView";
+import AddToCartButton from "../../AddToCartButton";
 
 const pizzas = data["pizzas"];
+
 const thicknessOptions = [
-  { key: "traditional", label: "Традиционное" },
-  { key: "thin", label: "Тонкое" },
+  { value: "Традиционное", key: "traditional" },
+  { value: "Тонкое", key: "thin" },
 ];
 
 const PizzaHalfModal = ({ item, onClose }) => {
+  const refs = useRef([]);
+  const inView = pizzas.map((_, i) =>
+    useInView((refs.current[i] ||= React.createRef()))
+  );
+
   const [selectedThickness, setSelectedThickness] = useState(
     thicknessOptions[0]
   );
@@ -22,6 +30,7 @@ const PizzaHalfModal = ({ item, onClose }) => {
 
   const groupRef = useRef(null);
   const traditionalRef = useRef(null);
+
   const thinRef = useRef(null);
 
   const sizeIndicatorRef = useRef(null);
@@ -70,70 +79,78 @@ const PizzaHalfModal = ({ item, onClose }) => {
           </h2>
 
           <div className={styles.pizza_grid}>
-            {pizzas.map((pizza) => (
-              <div key={pizza.id} className={styles.pizza_card}>
-                <Image
-                  src={pizza.image}
-                  alt={pizza.title}
-                  width={140}
-                  height={140}
-                  className={styles.pizza_img}
-                />
-                <h3 className={styles.pizza_title}>{pizza.title}</h3>
-                <div className={styles.pizza_price}>
-                  {pizza.variants?.[0]?.price || pizza.price} тг.
-                </div>
+            {pizzas.map((pizza, index) => (
+              <div
+                key={pizza.id}
+                ref={refs.current[index]}
+                className={styles.pizza_card}
+              >
+                {inView[index] && (
+                  <>
+                    <Image
+                      src={pizza.image}
+                      alt={pizza.title}
+                      width={140}
+                      height={140}
+                      className={styles.pizza_img}
+                    />
+                    <h3 className={styles.pizza_title}>{pizza.title}</h3>
+                    <div className={styles.pizza_price}>
+                      {pizza.variants?.[0]?.price || pizza.price} тг.
+                    </div>
+                  </>
+                )}
               </div>
             ))}
           </div>
         </div>
         <div className={styles.conten__info_wrapper}>
           <div className={styles.content_info}>
-            <PizzaSvg className={styles.pizza_svg} />
-            <div>
+            <PizzaSvg className={styles.pizza_svg_top} />
+            <div className={styles.pizza_info}>
               <div className={styles.pizza_label_wrapper}>
                 <PizzaSvg className={styles.pizza_svg} />
                 <div className={styles.pizza_label}>Выбери левую половинку</div>
               </div>
-              <div>
+              <div className={styles.pizza_label_wrapper}>
                 <PizzaSvg className={styles.pizza_svg} />
                 <div className={styles.pizza_label}>
                   Выбери правую половинку
                 </div>
               </div>
             </div>
-            <div className={styles.sizeLabel}>Большая 35 см</div>
-            <div ref={groupRef} className={styles.thicknessGroup}>
-              <div ref={indicatorRef} className={styles.selected}></div>
+            <div className={styles.sizeGroup}>
+              <div className={styles.sizeLabel}>Большая 35 см</div>
+              <div ref={groupRef} className={styles.thicknessGroup}>
+                <div ref={indicatorRef} className={styles.selected}></div>
 
-              {thicknessOptions.map((option) => (
-                <div className={styles.wrapper_option} key={option.key}>
-                  <input
-                    type="radio"
-                    id={option.value}
-                    name="thickness"
-                    value={option.value}
-                    className={styles.hiddenInput}
-                    checked={selectedThickness === option.value}
-                    onChange={() => setSelectedThickness(option)}
-                  />
-                  <label
-                    ref={
-                      option.key === "traditional" ? traditionalRef : thinRef
-                    }
-                    htmlFor={option.value}
-                    className={styles.thicknessOption}
-                  >
-                    {option.value}
-                  </label>
-                </div>
-              ))}
+                {thicknessOptions.map((option) => (
+                  <div className={styles.wrapper_option} key={option.key}>
+                    <input
+                      type="radio"
+                      id={option.value}
+                      name="thickness"
+                      value={option.value}
+                      className={styles.hiddenInput}
+                      checked={selectedThickness === option.value}
+                      onChange={() => setSelectedThickness(option)}
+                    />
+                    <label
+                      ref={
+                        option.key === "traditional" ? traditionalRef : thinRef
+                      }
+                      htmlFor={option.value}
+                      className={styles.thicknessOption}
+                    >
+                      {option.value}
+                    </label>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
-          <AddToCartButton
-            // selectedVariant={selectedVariant.price}
-            onAddToCart={handleAddToCart}
-          />
+          <AddToCartButton onAddToCart={handleAddToCart} />
+          <div>dasdadsd</div>
         </div>
       </div>
     </ModalWrapper>
