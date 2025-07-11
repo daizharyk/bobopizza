@@ -1,6 +1,5 @@
 .to_cart_button {
-  position: absolute;
-  width: 334px;
+  width: 100%;
   bottom: -70px;
   padding: 12px 48px;
   font-size: var(--font-size16);
@@ -13,7 +12,7 @@
   align-items: center;
   justify-content: center;
   transition: background-color 0.2s ease-in-out;
-  
+  margin: 20px 0;
   &:hover {
     background-color: var(--color-dark-orange);
   }

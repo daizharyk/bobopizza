@@ -1,14 +1,15 @@
 .content {
   display: flex;
+  width: 880px;
   height: 720px;
   position: relative;
-  justify-content: center;
+
   height: 100%;
   overflow: hidden;
 
   .select_half {
     padding: 20px;
-    width: 490px;
+
     overflow-y: scroll;
     .title {
       margin: 20px 12px 10px;
@@ -23,18 +24,32 @@
     .pizza_card {
       text-align: center;
       cursor: pointer;
-      margin-bottom: 12px;
-      border: none;
-      border-radius: 8px;
+      margin: 12px;
+      overflow: hidden;
+      border-radius: 16px;
 
-      .pizza_img {
+      .selected {
+        border: 1px solid var(--color-orange);
+        border-radius: 16px;
+        scale: 0.9;
+      }
+
+      .pizza_img_wrapper {
+        overflow: hidden;
         width: 138px;
         height: 138px;
+        padding: 5px 0 0 5px;
 
-        object-fit: contain;
         transition: scale 0.2s ease;
-        &:hover {
-          scale: 0.97;
+
+        &.left-selected {
+          clip-path: inset(0 50% 0 0);
+          transition: clip-path 0.2s ease;
+        }
+
+        &.right-selected {
+          clip-path: inset(0 0 0 50%);
+          transition: clip-path 0.2s ease;
         }
       }
 
@@ -52,20 +67,50 @@
     }
   }
 
-  .conten__info_wrapper {
+  .content__info_wrapper {
     display: flex;
     flex-direction: column;
-    width: 320px;
+    justify-content: space-between;
+    width: 360px;
     padding: 15px;
 
     .content_info {
       display: flex;
       flex-direction: column;
 
-      .pizza_svg_top {
-        width: 256px;
-        height: 256px;
-        width: 100%;
+      .top_image_wrapper {
+        position: relative;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+
+        .left_image {
+          position: absolute;
+       
+          mask-image: linear-gradient(to right, black 48%, transparent 48%);
+          -webkit-mask-image: linear-gradient(
+            to right,
+            black 48%,
+            transparent 48%
+          );
+        }
+
+        .right_image {
+          position: absolute;
+     
+          mask-image: linear-gradient(to right, transparent 48%, black 48%);
+          -webkit-mask-image: linear-gradient(
+            to right,
+            transparent 48%,
+            black 48%
+          );
+        }
+
+        .pizza_svg_top {
+          width: 256px;
+          height: 256px;
+          width: 100%;
+        }
       }
 
       .pizza_info {
@@ -90,7 +135,8 @@
           }
         }
       }
-
+    }
+    .pizza_size_wrapper {
       .sizeGroup {
         bottom: 0;
 

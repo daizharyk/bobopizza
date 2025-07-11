@@ -234,10 +234,11 @@ const PizzaModal = ({ item, onClose }) => {
             </div>
           </div>
           <AddToCartButton
-            selectedVariant={totalPrice}
+            totalPrice={totalPrice}
             onAddToCart={handleAddToCart}
           />
-        </div>.
+        </div>
+        .
       </div>
     </ModalWrapper>
   );
