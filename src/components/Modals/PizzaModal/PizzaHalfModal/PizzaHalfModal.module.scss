@@ -1,10 +1,8 @@
 .content {
   display: flex;
-  width: 880px;
-  height: 720px;
+  width: 100%;
   position: relative;
 
-  height: 100%;
   overflow: hidden;
 
   .select_half {
@@ -19,14 +17,15 @@
     .pizza_grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
     }
 
     .pizza_card {
       text-align: center;
       cursor: pointer;
-      margin: 12px;
+      width: 138px;
+
       overflow: hidden;
-      border-radius: 16px;
 
       .selected {
         border: 1px solid var(--color-orange);
@@ -70,8 +69,8 @@
   .content__info_wrapper {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    width: 360px;
+
+    width: 410px;
     padding: 15px;
 
     .content_info {
@@ -86,7 +85,7 @@
 
         .left_image {
           position: absolute;
-       
+
           mask-image: linear-gradient(to right, black 48%, transparent 48%);
           -webkit-mask-image: linear-gradient(
             to right,
@@ -97,7 +96,7 @@
 
         .right_image {
           position: absolute;
-     
+
           mask-image: linear-gradient(to right, transparent 48%, black 48%);
           -webkit-mask-image: linear-gradient(
             to right,
@@ -117,21 +116,63 @@
         .pizza_label_wrapper {
           display: flex;
           align-items: center;
-          justify-content: center;
+          position: relative;
+
           margin-top: 8px;
           padding: 12px;
           box-shadow: rgba(6, 5, 50, 0.24) 0px 1px 2px;
           border-radius: 16px;
 
+          .image_wrapper {
+            width: 68px;
+          }
+          .left_image {
+            position: absolute;
+            left: 10px;
+            mask-image: linear-gradient(to right, black 50%, transparent 50%);
+            -webkit-mask-image: linear-gradient(
+              to right,
+              black 50%,
+              transparent 50%
+            );
+          }
+          .right_image {
+            position: absolute;
+            left: 10px;
+            mask-image: linear-gradient(to left black 50%, transparent 50%);
+            -webkit-mask-image: linear-gradient(
+              to left,
+              black 50%,
+              transparent 10%
+            );
+          }
+
+          .pizza_info {
+            display: flex;
+            flex-direction: column;
+            width: 220px;
+          }
+          .pizza_title {
+            margin-bottom: 4px;
+            font-size: var(--font-size16);
+          }
           .pizza_label {
             font-size: var(--font-size16);
             color: var(--dark-gray);
-            width: 60%;
+          }
+          .ingredients_label {
+            font-size: var(--font-size12);
+            color: var(--dark-gray);
           }
           .pizza_svg {
             width: 68px;
             height: 68px;
             margin-right: 10px;
+          }
+          .svg_faded {
+            width: 68px;
+            height: 68px;
+            opacity: 0.4;
           }
         }
       }
@@ -171,10 +212,8 @@
           }
           .selected {
             position: absolute;
-
             top: 50%;
             left: 0;
-
             width: 50%;
             height: 90%;
             background-color: white;
@@ -198,6 +237,38 @@
             user-select: none;
           }
         }
+      }
+    }
+  }
+  @keyframes slideUpFade {
+    0% {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .add_to_cart {
+    position: relative;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+
+    .choose_notice {
+      text-align: center;
+      position: absolute;
+      bottom: -15px;
+      animation: slideUpFade 0.3s ease forwards;
+
+      &::before {
+        content: "▲";
+        position: absolute;
+        top: -20px;
+        left: 50%;
+        transform: translateX(-50%);
       }
     }
   }

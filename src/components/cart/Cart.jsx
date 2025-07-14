@@ -21,6 +21,7 @@ const Cart = ({ isOpen, onClose }) => {
   const itemsList = useSelector((state) => state.cart.items);
   const [isBrowser, setIsBrowser] = useState(false);
   const [openSauces, setOpenSauces] = useState(false);
+  console.log("itemlist", itemsList);
 
   const dispatch = useDispatch();
 
@@ -96,18 +97,37 @@ const Cart = ({ isOpen, onClose }) => {
                 </div>
                 <div className={styles.minDelivery}>{freeDelivery()}</div>
               </div>
-
               <div className={styles.itemsList}>
                 {itemsList.map((item) => (
                   <article key={item.id} className={styles.itemCart}>
                     <div className={styles.itemTop}>
-                      <Image
-                        src={item.image}
-                        alt={item.title}
-                        width={64}
-                        height={64}
-                        className={styles.itemImage}
-                      />
+                      {item.half ? (
+                        <div className={styles.half_pizza_img}>
+                          <Image
+                            src={item.leftImage}
+                            alt={item.title}
+                            width={64}
+                            height={64}
+                            className={styles.leftImage}
+                          />
+                          <Image
+                            src={item.rightImage}
+                            alt={item.title}
+                            width={64}
+                            height={64}
+                            className={styles.rightImage}
+                          />
+                        </div>
+                      ) : (
+                        <Image
+                          src={item.image}
+                          alt={item.title}
+                          width={64}
+                          height={64}
+                          className={styles.itemImage}
+                        />
+                      )}
+
                       <div className={styles.itemInfoWrapper}>
                         <div className={styles.itemName}>{item.title}</div>
 
@@ -116,7 +136,9 @@ const Cart = ({ isOpen, onClose }) => {
                             <div>
                               {item.size} л
                               {item.thickness?.value &&
-                                `, ${item.thickness.value} тесто ${item.size}`}
+                                `, ${item.thickness.value} тесто ${
+                                  item.size ? item.size : ""
+                                }`}
                             </div>
 
                             {item.extras && (
@@ -183,23 +205,25 @@ const Cart = ({ isOpen, onClose }) => {
             </div>
           </>
         )}
-        <div className={styles.toOrder}>
-          <div className={styles.item_count}>
-            <div>
-              {itemsList.length} {getWordForm(itemsList.length)}
+        {itemsList.length > 0 && (
+          <div className={styles.toOrder}>
+            <div className={styles.item_count}>
+              <div>
+                {itemsList.length} {getWordForm(itemsList.length)}
+              </div>
+              <div>{getTotalPrice(itemsList)} тг.</div>
             </div>
-            <div>{getTotalPrice(itemsList)} тг.</div>
-          </div>
 
-          <div className={styles.totalPrice}>
-            <span>Сумма заказа:</span>
-            <span>{getTotalPrice(itemsList)} тг.</span>
-          </div>
+            <div className={styles.totalPrice}>
+              <span>Сумма заказа:</span>
+              <span>{getTotalPrice(itemsList)} тг.</span>
+            </div>
 
-          <button className={styles.toOrderButton}>
-            К оформлению заказа <ArrowLeft className={styles.arrow} />
-          </button>
-        </div>
+            <button className={styles.toOrderButton}>
+              К оформлению заказа <ArrowLeft className={styles.arrow} />
+            </button>
+          </div>
+        )}
       </section>
 
       <Sauces

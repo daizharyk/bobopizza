@@ -246,9 +246,15 @@
       "title": "Чикен ролл",
       "image": "https://i.ibb.co.com/chHZZpgY/chiken-roll.webp",
       "ingredients": "Ролл с цыпленком, свежим салатом, томатами, чеддером, пармезаном, соус ранч",
-      "size": "1 шт",
-      "weight": "170 г",
-      "price": "1550"
+      "variants": [
+        {
+          "size": "1",
+          "sizeUnit": "шт",
+          "weight": "170",
+          "weightUnit": "г",
+          "price": "1550"
+        }
+      ]
     },
     {
       "id": 13,
@@ -256,9 +262,15 @@
       "title": "Дэнвич с кониной",
       "image": "https://i.ibb.co.com/fVnBhL3K/denvich-s-koninoy.webp",
       "ingredients": "Хрустящая чиабатта с шужуком, томатами, красным луком, моцареллой, соус ранч",
-      "size": "1 шт",
-      "weight": "220",
-      "price": "1900"
+      "variants": [
+        {
+          "size": "1",
+          "sizeUnit": "шт",
+          "weight": "220",
+          "weightUnit": "г",
+          "price": "1900"
+        }
+      ]
     },
     {
       "id": 14,
@@ -266,9 +278,15 @@
       "title": "Картофель из печи",
       "image": "https://i.ibb.co.com/60f0mBvg/free.webp",
       "ingredients": "Запеченная в печи картошка, привычный вкус, мало масла",
-      "size": "Большая",
-      "weight": "160",
-      "price": "1300"
+      "variants": [
+        {
+          "size": "Большая",
+          "sizeUnit": "",
+          "weight": "160",
+          "weightUnit": "г",
+          "price": "1300"
+        }
+      ]
     },
     {
       "id": 15,
@@ -276,14 +294,92 @@
       "title": "Салат Цезарь",
       "image": "https://i.ibb.co.com/PGRZ7v5n/salat-sezar.webp",
       "ingredients": "Цыпленок, салат айсберг, томаты черри, сыры чеддер и пармезан, соус цезарь, пшеничные гренки, итальянские травы",
-      "size": "1 шт",
-      "weight": "170",
-      "price": "2100"
+      "variants": [
+        {
+          "size": "1",
+          "sizeUnit": "порция",
+          "weight": "170",
+          "weightUnit": "г",
+          "price": "2100"
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "customizable": false,
+      "title": "Додстер",
+      "image": "https://i.ibb.co.com/tpDnL3M4/Dodster.webp",
+      "ingredients": "Легендарная горячая закуска с цыплёнком, томатами, моцареллой, соусом ранч в тонкой пшеничной лепешке",
+      "variants": [
+        {
+          "size": "1",
+          "sizeUnit": "шт",
+          "weight": "200",
+          "weightUnit": "г",
+          "price": "1790"
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "customizable": false,
+      "title": "Грибной Стартер",
+      "image": "https://i.ibb.co.com/JWvMbC1Q/Mushroom-Starter.webp",
+      "ingredients": "Горячая закуска с шампиньонами, моцареллой и соусом ранч в тонкой пшеничной лепешке",
+      "variants": [
+        {
+          "size": "1",
+          "sizeUnit": "шт",
+          "weight": "150",
+          "weightUnit": "г",
+          "price": "1550"
+        }
+      ]
+    }
+  ],
+  "drinks": [
+    {
+      "id": 180,
+      "customizable": true,
+      "title": "Миринда",
+      "image": "https://i.ibb.co.com/ZpW57t10/mirinda.webp",
+      "ingredients": "",
+      "variants": [
+        {
+          "size": "0,5",
+          "sizeUnit": "л",
+          "price": "700"
+        },
+        {
+          "size": "1",
+          "sizeUnit": "л",
+          "price": "990"
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "customizable": true,
+      "title": "Pepsi",
+      "image": "https://i.ibb.co.com/9HfgpxvG/pepsi.webp",
+      "ingredients": "",
+      "variants": [
+        {
+          "size": "0,5",
+          "sizeUnit": "л",
+          "price": "700"
+        },
+        {
+          "size": "1",
+          "sizeUnit": "л",
+          "price": "990"
+        }
+      ]
     }
   ],
   "cocktails": [
     {
-      "id": 16,
+      "id": 19,
       "customizable": true,
       "title": "Молочный коктейль Фисташка",
       "image": "https://i.ibb.co.com/Jjwrn94S/Milkshake-Pistachio.webp",
@@ -291,16 +387,18 @@
       "variants": [
         {
           "size": "0,3",
+          "sizeUnit": "л",
           "price": "1990"
         },
         {
           "size": "0,6",
+          "sizeUnit": "л",
           "price": "2990"
         }
       ]
     },
     {
-      "id": 17,
+      "id": 20,
       "customizable": true,
       "title": "Классический молочный коктейль",
       "image": "https://i.ibb.co.com/HL9JS8rt/11ee796ee39316cc97b025769d2775d6.webp",
@@ -308,27 +406,37 @@
       "variants": [
         {
           "size": "0,3",
+          "sizeUnit": "л",
           "price": "1700"
         },
         {
           "size": "0,6",
+          "sizeUnit": "л",
           "price": "2550"
         }
       ]
     }
   ],
+
   "coffee": [
     {
-      "id": 18,
+      "id": 21,
       "customizable": false,
       "title": "Карамельный Капучино",
       "image": "https://i.ibb.co.com/RTSrs3fK/Caramel-Cappuccino.webp",
       "ingredients": "Если не шоколад, то карамель! А капучино с карамельным сиропом особенно хорош",
-      "size": "0.3",
-      "price": "1200"
+      "variants": [
+        {
+          "size": "0.3",
+          "sizeUnit": "л",
+          "weight": "",
+          "weightUnit": "",
+          "price": "1200"
+        }
+      ]
     },
     {
-      "id": 19,
+      "id": 22,
       "customizable": true,
       "title": "Кофе Капучино",
       "image": "https://i.ibb.co.com/VcXRgMQL/Coffee-Cappuccino.webp",
@@ -336,16 +444,22 @@
       "variants": [
         {
           "size": "0.3",
+          "sizeUnit": "л",
+          "weight": "",
+          "weightUnit": "",
           "price": "1000"
         },
         {
           "size": "0.4",
+          "sizeUnit": "л",
+          "weight": "",
+          "weightUnit": "",
           "price": "1100"
         }
       ]
     },
     {
-      "id": 20,
+      "id": 23,
       "customizable": true,
       "title": "Кофе Кокосовый Латте",
       "image": "https://i.ibb.co.com/NgSrvhgF/Coffee-Coconut-Latte.webp",
@@ -353,16 +467,22 @@
       "variants": [
         {
           "size": "0.3",
+          "sizeUnit": "л",
+          "weight": "",
+          "weightUnit": "",
           "price": "1200"
         },
         {
           "size": "0.4",
+          "sizeUnit": "л",
+          "weight": "",
+          "weightUnit": "",
           "price": "1300"
         }
       ]
     },
     {
-      "id": 21,
+      "id": 24,
       "customizable": true,
       "title": "Кофе Американо",
       "image": "https://i.ibb.co.com/whYh9q8Q/Coffee-Americano.webp",
@@ -370,20 +490,24 @@
       "variants": [
         {
           "size": "0.3",
-          "price": "800",
-          "weight": "330"
+          "sizeUnit": "л",
+          "weight": "330",
+          "weightUnit": "г",
+          "price": "800"
         },
         {
           "size": "0.4",
-          "price": "900",
-          "weight": "380"
+          "sizeUnit": "л",
+          "weight": "380",
+          "weightUnit": "г",
+          "price": "900"
         }
       ]
     }
   ],
   "sauces": [
     {
-      "id": 22,
+      "id": 25,
       "title": "Сырный",
       "image": "https://i.ibb.co.com/MDT68sSC/Cheesy.webp",
       "price": "400",
@@ -391,7 +515,7 @@
       "weight": "25"
     },
     {
-      "id": 23,
+      "id": 26,
       "customizable": false,
       "title": "Чесночный",
       "image": "https://i.ibb.co.com/8nHNN0fM/019570dcbd6e76f1a307f4551b945e0d.webp",
@@ -400,7 +524,7 @@
       "weight": "25"
     },
     {
-      "id": 24,
+      "id": 27,
       "customizable": false,
       "title": "Барбекю",
       "image": "https://i.ibb.co.com/RGtQZD8L/bbq.webp",
@@ -409,7 +533,7 @@
       "weight": "25"
     },
     {
-      "id": 25,
+      "id": 28,
       "customizable": false,
       "title": "Медово-горчичный",
       "image": "https://i.ibb.co.com/sJF2Mx9z/Honey-Mustard.webp",
@@ -418,7 +542,7 @@
       "weight": "25"
     },
     {
-      "id": 26,
+      "id": 29,
       "customizable": false,
       "title": "Соус Цезарь",
       "image": "https://i.ibb.co.com/BVDqZYmQ/Caesar-sauce.webp",
@@ -427,7 +551,7 @@
       "weight": "30"
     },
     {
-      "id": 27,
+      "id": 30,
       "customizable": false,
       "title": "Малиновое варенье",
       "image": "https://i.ibb.co.com/C3CG01Rq/Raspberry-jam.webp",

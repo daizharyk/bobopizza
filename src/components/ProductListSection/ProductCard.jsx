@@ -17,13 +17,14 @@ const ProductCard = ({ item, onOpenModal }) => {
   };
 
   return (
-    <article onClick={handleAddToCart} className={styles.article}>
+    <article className={styles.article}>
       <Image
         className={styles.image}
         src={item.image}
         alt={item.title}
         width={280}
         height={280}
+        onClick={() => onOpenModal(item)}
       />
       <div className={styles.info}>
         <h3>{item.title}</h3>

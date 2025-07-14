@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import ModalWrapper from "../../ModalWrapper";
 import styles from "./PizzaHalfModal.module.scss";
 import { addItemToCart } from "@/components/utils/addItemToCart";
@@ -27,13 +27,12 @@ const PizzaHalfModal = ({ item, onClose }) => {
   const [selectedThickness, setSelectedThickness] = useState(
     thicknessOptions[0]
   );
-  const [leftPizzaHalf, setLeftPizzaHalf] = useState(null);
-  const [rightPizzaHalf, setRightPizzaHalf] = useState(null);
+  const [showWarning, setShowWarning] = useState(false);
+
   const [selectedSides, setSelectedSides] = useState({
     left: null,
     right: null,
   });
-  console.log("selectedside", selectedSides);
 
   const dispatch = useDispatch();
 
@@ -42,19 +41,54 @@ const PizzaHalfModal = ({ item, onClose }) => {
   const thinRef = useRef(null);
   const indicatorRef = useRef(null);
 
-  const customId = `${item.id}_${selectedThickness}.join("-")}`;
+  const customId = [
+    selectedThickness.key,
+    selectedSides.left?.id,
+    selectedSides.right?.id,
+  ].join("-");
+
+  const totalPrice = useMemo(() => {
+    let price = 0;
+
+    if (selectedSides.left) {
+      price += selectedSides.left.variants[2].price / 2;
+    }
+
+    if (selectedSides.right) {
+      price += selectedSides.right.variants[2].price / 2;
+    }
+
+    return Math.round(price);
+  }, [selectedSides]);
 
   const halfPizza = {
     id: customId,
-    title: item.title,
-    image: item.image,
-    // price: selectedVariant.price,
+    title: `${selectedSides.left?.title} + ${selectedSides.right?.title}`,
+    leftImage: selectedSides.left?.image,
+    rightImage: selectedSides.right?.image,
+    price: totalPrice,
     customizable: item.customizable,
+    thickness: selectedThickness,
+    half: true,
+  };
+
+  const handleAddToCart = () => {
+    if (!selectedSides.left || !selectedSides.right) {
+      setShowWarning(true);
+
+      setTimeout(() => {
+        setShowWarning(false);
+      }, 2000);
+
+      return;
+    }
+
+    // Всё выбрано — добавляем в корзину
+    addItemToCart(dispatch, halfPizza, onClose);
   };
 
   const handlePizzaClick = (pizza) => {
     setSelectedSides((prev) => {
-      // Удалить, если уже выбрана
       if (prev.left?.id === pizza.id) {
         return { ...prev, left: null };
       }
@@ -63,7 +97,6 @@ const PizzaHalfModal = ({ item, onClose }) => {
         return { ...prev, right: null };
       }
 
-      // Если обе стороны выбраны — начать заново с новой пиццы на left
       if (prev.left && prev.right) {
         return { left: pizza, right: null };
       }
@@ -76,7 +109,6 @@ const PizzaHalfModal = ({ item, onClose }) => {
     });
   };
 
-  const handleAddToCart = () => {};
   useEffect(() => {
     const currentRef =
       selectedThickness.key === "traditional" ? traditionalRef : thinRef;
@@ -177,23 +209,68 @@ const PizzaHalfModal = ({ item, onClose }) => {
 
             <div className={styles.pizza_info}>
               <div className={styles.pizza_label_wrapper}>
-                {selectedSides.left && (
-                  <Image
-                    src={selectedSides.left.image}
-                    alt={selectedSides.left.title}
-                    width={128}
-                    height={128}
+                <div className={styles.image_wrapper}>
+                  {selectedSides.left && (
+                    <Image
+                      src={selectedSides.left.image}
+                      alt={selectedSides.left.title}
+                      width={68}
+                      height={68}
+                      className={styles.left_image}
+                    />
+                  )}
+                  <PizzaSvg
+                    className={`${styles.pizza_svg} ${
+                      selectedSides.left ? styles.svg_faded : ""
+                    }`}
                   />
+                </div>
+                {selectedSides.left ? (
+                  <div className={styles.pizza_info}>
+                    <div className={styles.pizza_title}>
+                      {selectedSides.left.title}
+                    </div>
+                    <div className={styles.ingredients_label}>
+                      {selectedSides.left.ingredients}
+                    </div>
+                  </div>
+                ) : (
+                  <div className={styles.pizza_label}>
+                    Выбери левую половинку
+                  </div>
                 )}
-
-                <PizzaSvg className={styles.pizza_svg} />
-                <div className={styles.pizza_label}>Выбери левую половинку</div>
               </div>
               <div className={styles.pizza_label_wrapper}>
-                <PizzaSvg className={styles.pizza_svg} />
-                <div className={styles.pizza_label}>
-                  Выбери правую половинку
+                <div className={styles.image_wrapper}>
+                  {selectedSides.right && (
+                    <Image
+                      src={selectedSides.right.image}
+                      alt={selectedSides.right.title}
+                      width={68}
+                      height={68}
+                      className={styles.right_image}
+                    />
+                  )}
+                  <PizzaSvg
+                    className={`${styles.pizza_svg} ${
+                      selectedSides.right ? styles.svg_faded : ""
+                    }`}
+                  />
                 </div>
+                {selectedSides.right ? (
+                  <div className={styles.pizza_info}>
+                    <div className={styles.pizza_title}>
+                      {selectedSides.right.title}
+                    </div>
+                    <div className={styles.ingredients_label}>
+                      {selectedSides.right.ingredients}
+                    </div>
+                  </div>
+                ) : (
+                  <div className={styles.pizza_label}>
+                    Выбери правую половинку
+                  </div>
+                )}
               </div>
             </div>
           </div>
@@ -227,10 +304,18 @@ const PizzaHalfModal = ({ item, onClose }) => {
                 ))}
               </div>
             </div>
-            <AddToCartButton
-              onAddToCart={handleAddToCart}
-              selectedVariant={999}
-            />
+            <div className={styles.add_to_cart}>
+              <AddToCartButton
+                onAddToCart={handleAddToCart}
+                totalPrice={totalPrice}
+              />
+
+              {showWarning && (
+                <div className={styles.choose_notice}>
+                  Выберите вторую половинку
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>
