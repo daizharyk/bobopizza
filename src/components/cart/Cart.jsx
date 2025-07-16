@@ -21,7 +21,7 @@ const Cart = ({ isOpen, onClose }) => {
   const itemsList = useSelector((state) => state.cart.items);
   const [isBrowser, setIsBrowser] = useState(false);
   const [openSauces, setOpenSauces] = useState(false);
-  console.log("itemlist", itemsList);
+
 
   const dispatch = useDispatch();
 
@@ -134,7 +134,7 @@ const Cart = ({ isOpen, onClose }) => {
                         {item.customizable ? (
                           <div className={styles.itemDetails}>
                             <div>
-                              {item.size} л
+                              {`${item.size} ${item.sizeUnit}`}
                               {item.thickness?.value &&
                                 `, ${item.thickness.value} тесто ${
                                   item.size ? item.size : ""

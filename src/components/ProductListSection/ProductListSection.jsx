@@ -4,6 +4,11 @@ import ProductCard from "./ProductCard";
 import styles from "./ProductListSection.module.scss";
 
 const ProductListSection = ({ title, items, id, itemType, onOpenModal }) => {
+
+
+console.log("props",  itemType);
+
+  
   const handleOpenModal = (item) => {
     onOpenModal({ ...item, type: item.type || itemType });
   };

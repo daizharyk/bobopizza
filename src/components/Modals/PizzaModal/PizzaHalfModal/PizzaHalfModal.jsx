@@ -70,6 +70,8 @@ const PizzaHalfModal = ({ item, onClose }) => {
     customizable: item.customizable,
     thickness: selectedThickness,
     half: true,
+    size: "35",
+    sizeUnit: "см",
   };
 
   const handleAddToCart = () => {

@@ -50,6 +50,7 @@ const PizzaModal = ({ item, onClose }) => {
   const selectedVariant = item.variants?.find(
     (variant) => variant.size === selectedSize
   );
+  console.log("selectedVariant", selectedVariant);
 
   const totalPrice = useMemo(() => {
     const totalExtrasPrice = pizzaExtras
@@ -146,7 +147,7 @@ const PizzaModal = ({ item, onClose }) => {
           <div className={styles.content_info}>
             <h2 className={styles.title}>{item.title}</h2>
             <div className={styles.pizza_info}>
-              {`${selectedSize} см, ${selectedThickness.value} тесто, ${selectedVariant?.weight} г`}
+              {`${selectedSize} ${selectedVariant.sizeUnit}, ${selectedThickness.value} тесто, ${selectedVariant?.weight} ${selectedVariant?.weightUnit}`}
             </div>
             <p className={styles.ingredients}>{item.ingredients}</p>
             <div ref={sizeGroupRef} className={styles.sizeGroup}>

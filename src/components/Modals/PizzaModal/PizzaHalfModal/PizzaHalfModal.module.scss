@@ -2,6 +2,7 @@
   display: flex;
   width: 100%;
   position: relative;
+  height: 100%;
 
   overflow: hidden;
 
@@ -69,7 +70,7 @@
   .content__info_wrapper {
     display: flex;
     flex-direction: column;
-
+    height: 100%;
     width: 410px;
     padding: 15px;
 
@@ -178,6 +179,7 @@
       }
     }
     .pizza_size_wrapper {
+      padding-top: 20px;
       .sizeGroup {
         bottom: 0;
 
@@ -271,5 +273,9 @@
         transform: translateX(-50%);
       }
     }
+  }
+  .cartBottomSpacing {
+    margin-top: auto;
+    margin-bottom: 20px;
   }
 }

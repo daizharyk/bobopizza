@@ -5,20 +5,15 @@ import Image from "next/image";
 import { useDispatch } from "react-redux";
 import { addItemToCart } from "../utils/addItemToCart";
 
-const { pizzas, snacks } = data;
+const { items } = data;
 
-const popularPizzaIds = [10, 9, 8];
-const popularSnackIds = [12];
+const popularPizzaIds = [10, 9, 8,12];
 
-// Фильтруем по ID
-const popularPizzas = pizzas.filter((item) =>
+
+
+const popularOrders = items.filter((item) =>
   popularPizzaIds.includes(item.id)
 );
-const popularSnacks = snacks.filter((item) =>
-  popularSnackIds.includes(item.id)
-);
-
-const popularOrders = [...popularPizzas, ...popularSnacks];
 
 const PopularOrders = ({ onOpenModal }) => {
   const dispatch = useDispatch();

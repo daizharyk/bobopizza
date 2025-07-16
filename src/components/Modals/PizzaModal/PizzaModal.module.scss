@@ -10,26 +10,20 @@
   .content_img {
     display: flex;
     margin: 50px 14px 0 14px;
+    align-items: center;
   }
 
   .conten__info_wrapper {
     position: relative;
     flex-direction: column;
-justify-content: space-between;
     display: flex;
-  
-
     align-items: center;
-    height: 100%;
 
     .content_info {
-      flex-direction: column;
+      flex: 1;
       overflow-y: auto;
-      display: flex;
-      flex-direction: column;
-      height: 490px;
+      width: 100%;
       padding: 30px;
-      width: 400px;
 
       .title {
         font-size: var(--font-size24);
@@ -197,5 +191,9 @@ justify-content: space-between;
         }
       }
     }
+  }
+  .cartBottomSpacing {
+    margin-top: auto;
+    margin-bottom: 20px;
   }
 }

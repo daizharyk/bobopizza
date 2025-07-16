@@ -8,6 +8,8 @@ import data from "@/data/data.json";
 import { useState } from "react";
 
 export default function Home() {
+  if (!data.items) return null;
+
   const [selectedItem, setSelectedItem] = useState(null);
 
   const handleOpenModal = (item) => setSelectedItem(item);
@@ -17,8 +19,12 @@ export default function Home() {
       <PopularOrders onOpenModal={handleOpenModal} />
       <Label />
       {data.categories.map(({ label, targetId }) => {
-        const items = data[targetId];
-        return Array.isArray(items) ? (
+        const items =
+          targetId === "combo"
+            ? data.combo
+            : data.items?.filter((item) => item.type === targetId);
+
+        return items.length > 0 ? (
           <ProductListSection
             key={targetId}
             id={targetId}

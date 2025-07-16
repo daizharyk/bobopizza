@@ -105,13 +105,15 @@ const SimpleProductModal = ({ item, onClose }) => {
               </div>
             ) : (
               <div className={styles.singleVariant}>
-                {item.variants[0].size} 
+                {item.variants[0].size}
               </div>
             )}
           </div>
+
           <AddToCartButton
             selectedVariant={selectedVariant?.price}
             onAddToCart={handleAddToCart}
+            className={styles.cartBottomSpacing}
           />
         </div>
       </div>
