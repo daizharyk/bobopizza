@@ -4,10 +4,10 @@ import ModalWrapper from "../ModalWrapper";
 import styles from "./PizzaModal.module.scss";
 import { useEffect, useMemo, useRef, useState } from "react";
 import pizzaExtras from "@/data/pizzaExtras.json";
-import SelectedSvg from "@/components/svg/ModalSvg/SelectedSvg";
 import { useDispatch } from "react-redux";
 import { addItemToCart } from "@/components/utils/addItemToCart";
 import AddToCartButton from "../AddToCartButton";
+import PizzaExtrasSelector from "@/components/PizzaExtrasSelector/PizzaExtrasSelector";
 
 const PizzaModal = ({ item, onClose }) => {
   const dispatch = useDispatch();
@@ -50,7 +50,6 @@ const PizzaModal = ({ item, onClose }) => {
   const selectedVariant = item.variants?.find(
     (variant) => variant.size === selectedSize
   );
-  console.log("selectedVariant", selectedVariant);
 
   const totalPrice = useMemo(() => {
     const totalExtrasPrice = pizzaExtras
@@ -64,6 +63,8 @@ const PizzaModal = ({ item, onClose }) => {
     selectedThickness.key
   }_${selectedExtras.sort().join("-")}`;
 
+
+  
   const pizzaToAdd = {
     id: customId,
     title: item.title,
@@ -202,37 +203,12 @@ const PizzaModal = ({ item, onClose }) => {
                 </div>
               ))}
             </div>
-            <div className={styles.extra_content}>
-              <h3>Добавить по вкусу</h3>
-              <section className={styles.extras_content}>
-                {pizzaExtras.map((item) => {
-                  const isSelected = selectedExtras.includes(item.id);
-                  return (
-                    <button
-                      key={item.id}
-                      className={`${styles.article} ${
-                        isSelected ? styles.selected : ""
-                      }`}
-                      onClick={() => toggleExtra(item.id)}
-                    >
-                      {isSelected && (
-                        <div className={styles.selectedIcon}>
-                          <SelectedSvg />
-                        </div>
-                      )}
-                      <Image
-                        src={item.image}
-                        alt={item.title}
-                        width={88}
-                        height={88}
-                      />
-                      <h4 className={styles.title}>{item.title}</h4>
-                      <p className={styles.price}>{item.price}</p>
-                    </button>
-                  );
-                })}
-              </section>
-            </div>
+            <PizzaExtrasSelector
+              pizzaExtras={pizzaExtras}
+              selectedExtras={selectedExtras}
+              toggleExtra={toggleExtra}
+              variant="pizza"
+            />
           </div>
           <AddToCartButton
             totalPrice={totalPrice}

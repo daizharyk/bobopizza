@@ -123,12 +123,14 @@
         {
           "type": "pizzas",
           "defaultId": 9,
-          "replaceable": true
+          "replaceable": true,
+          "preferredSize": "30"
         },
         {
           "type": "pizzas",
           "defaultId": 284,
-          "replaceable": true
+          "replaceable": true,
+          "preferredSize": "30"
         }
       ]
     },
@@ -142,17 +144,20 @@
         {
           "type": "pizzas",
           "defaultId": null,
-          "replaceable": true
+          "replaceable": true,
+          "preferredSize": "30"
         },
         {
           "type": "pizzas",
           "defaultId": null,
-          "replaceable": true
+          "replaceable": true,
+          "preferredSize": "30"
         },
         {
           "type": "pizzas",
           "defaultId": null,
-          "replaceable": true
+          "replaceable": true,
+          "preferredSize": "30"
         }
       ]
     },
@@ -195,7 +200,8 @@
         {
           "type": "pizzas",
           "defaultId": null,
-          "replaceable": true
+          "replaceable": true,
+          "preferredSize": "30"
         },
         {
           "type": "snacks",

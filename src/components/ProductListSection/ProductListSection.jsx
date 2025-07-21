@@ -6,7 +6,6 @@ import styles from "./ProductListSection.module.scss";
 const ProductListSection = ({ title, items, id, itemType, onOpenModal }) => {
 
 
-console.log("props",  itemType);
 
   
   const handleOpenModal = (item) => {
