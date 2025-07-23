@@ -124,13 +124,13 @@
           "type": "pizzas",
           "defaultId": 9,
           "replaceable": true,
-          "preferredSize": "30"
+          "preferredSize": 30
         },
         {
           "type": "pizzas",
           "defaultId": 284,
           "replaceable": true,
-          "preferredSize": "30"
+          "preferredSize": 30
         }
       ]
     },
@@ -143,21 +143,21 @@
       "items": [
         {
           "type": "pizzas",
-          "defaultId": null,
+          "defaultId": 10,
           "replaceable": true,
-          "preferredSize": "30"
+          "preferredSize": 30
         },
         {
           "type": "pizzas",
-          "defaultId": null,
+          "defaultId": 9,
           "replaceable": true,
-          "preferredSize": "30"
+          "preferredSize": 30
         },
         {
           "type": "pizzas",
-          "defaultId": null,
+          "defaultId": 284,
           "replaceable": true,
-          "preferredSize": "30"
+          "preferredSize": 30
         }
       ]
     },
@@ -201,7 +201,7 @@
           "type": "pizzas",
           "defaultId": null,
           "replaceable": true,
-          "preferredSize": "30"
+          "preferredSize": 30
         },
         {
           "type": "snacks",
@@ -254,24 +254,24 @@
       "ingredients": "Томатный соус, моцарелла, соус песто, томаты, креветки, шампиньоны, итальянские травы",
       "variants": [
         {
-          "size": "25",
+          "size": 25,
           "sizeUnit": "см",
-          "price": "3390",
-          "weight": "420",
+          "price": 3390,
+          "weight": 420,
           "weightUnit": "г"
         },
         {
-          "size": "30",
+          "size": 30,
           "sizeUnit": "см",
-          "price": "4950",
-          "weight": "630",
+          "price": 4950,
+          "weight": 630,
           "weightUnit": "г"
         },
         {
-          "size": "35",
+          "size": 35,
           "sizeUnit": "см",
-          "price": "6130",
-          "weight": "880",
+          "price": 6130,
+          "weight": 880,
           "weightUnit": "г"
         }
       ],
@@ -286,21 +286,21 @@
       "ingredients": "Цыпленок, чеснок, томаты, моцарелла, соус бургер, соус альфредо",
       "variants": [
         {
-          "size": "25",
+          "size": 25,
           "sizeUnit": "см",
-          "price": "2290"
+          "price": 2290
         },
         {
-          "size": "30",
+          "size": 30,
           "sizeUnit": "см",
-          "price": "3390",
-          "weight": "540",
+          "price": 3390,
+          "weight": 540,
           "weightUnit": "г"
         },
         {
-          "size": "35",
+          "size": 35,
           "sizeUnit": "см",
-          "price": "3990"
+          "price": 3990
         }
       ],
       "type": "pizzas"
@@ -314,21 +314,21 @@
       "ingredients": "Сладкий перец, красный лук, моцарелла, фирменный соус альфредо",
       "variants": [
         {
-          "size": "25",
+          "size": 25,
           "sizeUnit": "см",
-          "price": "3390"
+          "price": 3390
         },
         {
-          "size": "30",
+          "size": 30,
           "sizeUnit": "см",
-          "price": "4950",
-          "weight": "560",
+          "price": 3950,
+          "weight": 560,
           "weightUnit": "г"
         },
         {
-          "size": "35",
+          "size": 35,
           "sizeUnit": "см",
-          "price": "6130"
+          "price": 6130
         }
       ],
       "type": "pizzas"
@@ -342,21 +342,21 @@
       "ingredients": "Цыпленок, маринованные огурчики, красный лук, соус гриль тейсти, моцарелла, чеснок, фирменный соус альфредо",
       "variants": [
         {
-          "size": "25",
+          "size": 25,
           "sizeUnit": "см",
-          "price": "2890"
+          "price": 2890
         },
         {
-          "size": "30",
+          "size": 30,
           "sizeUnit": "см",
-          "price": "3990",
-          "weight": "560",
+          "price": 3990,
+          "weight": 560,
           "weightUnit": "г"
         },
         {
-          "size": "35",
+          "size": 35,
           "sizeUnit": "см",
-          "price": "4790"
+          "price": 4790
         }
       ],
       "type": "pizzas"
@@ -370,21 +370,21 @@
       "ingredients": "Моцарелла, сыры чеддер и пармезан, соус альфредо",
       "variants": [
         {
-          "size": "25",
+          "size": 25,
           "sizeUnit": "см",
-          "price": "2030"
+          "price": 2030
         },
         {
-          "size": "30",
+          "size": 30,
           "sizeUnit": "см",
-          "price": "3159",
-          "weight": "490",
+          "price": 3159,
+          "weight": 490,
           "weightUnit": "г"
         },
         {
-          "size": "35",
+          "size": 35,
           "sizeUnit": "см",
-          "price": "3750"
+          "price": 3750
         }
       ],
       "type": "pizzas"
@@ -398,21 +398,21 @@
       "ingredients": "Пепперони из цыпленка, увеличенная порция моцареллы, томаты, томатный соус",
       "variants": [
         {
-          "size": "25",
+          "size": 25,
           "sizeUnit": "см",
-          "price": "2290"
+          "price": 2290
         },
         {
-          "size": "30",
+          "size": 30,
           "sizeUnit": "см",
-          "price": "3390",
-          "weight": "620",
+          "price": 3390,
+          "weight": 620,
           "weightUnit": "г"
         },
         {
-          "size": "35",
+          "size": 35,
           "sizeUnit": "см",
-          "price": "3990"
+          "price": 3990
         }
       ],
       "type": "pizzas"
@@ -426,21 +426,21 @@
       "ingredients": "Ветчина из цыпленка, моцарелла, соус альфредо",
       "variants": [
         {
-          "size": "25",
+          "size": 25,
           "sizeUnit": "см",
-          "price": "2290"
+          "price": 2290
         },
         {
-          "size": "30",
+          "size": 30,
           "sizeUnit": "см",
-          "price": "3390",
-          "weight": "490",
+          "price": 3390,
+          "weight": 490,
           "weightUnit": "г"
         },
         {
-          "size": "35",
+          "size": 35,
           "sizeUnit": "см",
-          "price": "3990"
+          "price": 3990
         }
       ],
       "type": "pizzas"
@@ -454,24 +454,24 @@
       "ingredients": "Томатный соус, моцарелла, острая чоризо из цыпленка , сладкий перец",
       "variants": [
         {
-          "size": "25",
+          "size": 25,
           "sizeUnit": "см",
-          "price": "2030",
-          "weight": "340",
+          "price": 2030,
+          "weight": 340,
           "weightUnit": "г"
         },
         {
-          "size": "30",
+          "size": 30,
           "sizeUnit": "см",
-          "price": "3150",
-          "weight": "490",
+          "price": 3150,
+          "weight": 490,
           "weightUnit": "г"
         },
         {
-          "size": "35",
+          "size": 35,
           "sizeUnit": "см",
-          "price": "3750",
-          "weight": "640",
+          "price": 3750,
+          "weight": 640,
           "weightUnit": "г"
         }
       ],
@@ -486,11 +486,11 @@
       "ingredients": "Горячая закуска с цыпленком, перцем халапеньо, маринованными огурчиками, томатами, моцареллой и соусом барбекю в тонкой пшеничной лепешке",
       "variants": [
         {
-          "size": "1",
+          "size": 1.0,
           "sizeUnit": "шт",
-          "weight": "190",
+          "weight": 190,
           "weightUnit": "г",
-          "price": "1790"
+          "price": 1790
         }
       ],
       "type": "snacks"
@@ -504,11 +504,11 @@
       "ingredients": "Ролл с цыпленком, свежим салатом, томатами, чеддером, пармезаном, соус ранч",
       "variants": [
         {
-          "size": "1",
+          "size": 1.0,
           "sizeUnit": "шт",
-          "weight": "170",
+          "weight": 170,
           "weightUnit": "г",
-          "price": "1550"
+          "price": 1550
         }
       ],
       "type": "snacks"
@@ -522,11 +522,11 @@
       "ingredients": "Хрустящая чиабатта с шужуком, томатами, красным луком, моцареллой, соус ранч",
       "variants": [
         {
-          "size": "1",
+          "size": 1.0,
           "sizeUnit": "шт",
-          "weight": "220",
+          "weight": 220,
           "weightUnit": "г",
-          "price": "1900"
+          "price": 1900
         }
       ],
       "type": "snacks"
@@ -542,9 +542,9 @@
         {
           "size": "Большая",
           "sizeUnit": "",
-          "weight": "160",
+          "weight": 160,
           "weightUnit": "г",
-          "price": "1300"
+          "price": 1300
         }
       ],
       "type": "snacks"
@@ -558,11 +558,11 @@
       "ingredients": "Цыпленок, салат айсберг, томаты черри, сыры чеддер и пармезан, соус цезарь, пшеничные гренки, итальянские травы",
       "variants": [
         {
-          "size": "1",
+          "size": 1.0,
           "sizeUnit": "порция",
-          "weight": "170",
+          "weight": 170,
           "weightUnit": "г",
-          "price": "2100"
+          "price": 2100
         }
       ],
       "type": "snacks"
@@ -576,11 +576,11 @@
       "ingredients": "Легендарная горячая закуска с цыплёнком, томатами, моцареллой, соусом ранч в тонкой пшеничной лепешке",
       "variants": [
         {
-          "size": "1",
+          "size": 1.0,
           "sizeUnit": "шт",
-          "weight": "200",
+          "weight": 200,
           "weightUnit": "г",
-          "price": "1790"
+          "price": 1790
         }
       ],
       "type": "snacks"
@@ -594,11 +594,11 @@
       "ingredients": "Горячая закуска с шампиньонами, моцареллой и соусом ранч в тонкой пшеничной лепешке",
       "variants": [
         {
-          "size": "1",
+          "size": 1,
           "sizeUnit": "шт",
-          "weight": "150",
+          "weight": 150,
           "weightUnit": "г",
-          "price": "1550"
+          "price": 1550
         }
       ],
       "type": "snacks"
@@ -612,14 +612,14 @@
       "ingredients": "",
       "variants": [
         {
-          "size": "0,5",
+          "size": 0.5,
           "sizeUnit": "л",
-          "price": "700"
+          "price": 700
         },
         {
-          "size": "1",
+          "size": 1,
           "sizeUnit": "л",
-          "price": "990"
+          "price": 990
         }
       ],
       "type": "drinks"
@@ -633,14 +633,14 @@
       "ingredients": "",
       "variants": [
         {
-          "size": "0,5",
+          "size": 0.5,
           "sizeUnit": "л",
-          "price": "700"
+          "price": 700
         },
         {
-          "size": "1",
+          "size": 1,
           "sizeUnit": "л",
-          "price": "990"
+          "price": 990
         }
       ],
       "type": "drinks"
@@ -654,14 +654,14 @@
       "ingredients": "Сочетание нежности, сливочной текстуры и тонкого вкуса фисташки",
       "variants": [
         {
-          "size": "0,3",
+          "size": 0.3,
           "sizeUnit": "л",
-          "price": "1990"
+          "price": 1990
         },
         {
-          "size": "0,6",
+          "size": 0.6,
           "sizeUnit": "л",
-          "price": "2990"
+          "price": 2990
         }
       ],
       "type": "cocktails"
@@ -675,14 +675,14 @@
       "ingredients": "В мире так много коктейлей, но классика — вечна. Попробуйте наш молочный напиток с мороженым",
       "variants": [
         {
-          "size": "0,3",
+          "size": 0.3,
           "sizeUnit": "л",
-          "price": "1700"
+          "price": 1700
         },
         {
-          "size": "0,6",
+          "size": 0.6,
           "sizeUnit": "л",
-          "price": "2550"
+          "price": 2550
         }
       ],
       "type": "cocktails"
@@ -696,11 +696,11 @@
       "ingredients": "Если не шоколад, то карамель! А капучино с карамельным сиропом особенно хорош",
       "variants": [
         {
-          "size": "0.3",
+          "size": 0.3,
           "sizeUnit": "л",
           "weight": "",
           "weightUnit": "",
-          "price": "1200"
+          "price": 1200
         }
       ],
       "type": "coffee"
@@ -714,17 +714,17 @@
       "ingredients": "Король среди кофейных напитков — классический капучино. Для любителей сбалансированного кофейно-молочного вкуса",
       "variants": [
         {
-          "size": "0.3",
+          "size": 0.3,
           "sizeUnit": "л",
           "weight": "",
           "weightUnit": "",
-          "price": "1000"
+          "price": 1000
         },
         {
-          "size": "0.4",
+          "size": 0.4,
           "sizeUnit": "л",
-          "weight": "",
-          "weightUnit": "",
+          "weight": 456,
+          "weightUnit": "г",
           "price": "1100"
         }
       ],
@@ -739,18 +739,18 @@
       "ingredients": "Горячий напиток на основе эспрессо с увеличенной порцией молока и кокосовым сиропом",
       "variants": [
         {
-          "size": "0.3",
+          "size": 0.3,
           "sizeUnit": "л",
-          "weight": "",
-          "weightUnit": "",
-          "price": "1200"
+          "weight": 300,
+          "weightUnit": "г",
+          "price": 1200
         },
         {
-          "size": "0.4",
+          "size": 0.4,
           "sizeUnit": "л",
-          "weight": "",
-          "weightUnit": "",
-          "price": "1300"
+          "weight": 356,
+          "weightUnit": "г",
+          "price": 1300
         }
       ],
       "type": "coffee"
@@ -764,18 +764,18 @@
       "ingredients": "Горячий напиток на основе эспрессо",
       "variants": [
         {
-          "size": "0.3",
+          "size": 0.3,
           "sizeUnit": "л",
-          "weight": "330",
+          "weight": 330,
           "weightUnit": "г",
-          "price": "800"
+          "price": 800
         },
         {
-          "size": "0.4",
+          "size": 0.4,
           "sizeUnit": "л",
-          "weight": "380",
+          "weight": 380,
           "weightUnit": "г",
-          "price": "900"
+          "price": 900
         }
       ],
       "type": "coffee"
@@ -785,9 +785,9 @@
       "title": "Сырный",
       "available": true,
       "image": "https://i.ibb.co.com/MDT68sSC/Cheesy.webp",
-      "price": "400",
+      "price": 400,
       "ingredients": "Фирменный соус со вкусом расплавленного сыра для бортиков пиццы и горячих закусок",
-      "weight": "25",
+      "weight": 25,
       "type": "sauces"
     },
     {
@@ -796,9 +796,9 @@
       "available": true,
       "title": "Чесночный",
       "image": "https://i.ibb.co.com/8nHNN0fM/019570dcbd6e76f1a307f4551b945e0d.webp",
-      "price": "300",
+      "price": 300,
       "ingredients": "Фирменный соус с чесночным вкусом для бортиков пиццы и горячих закусок",
-      "weight": "25",
+      "weight": 25,
       "type": "sauces"
     },
     {
@@ -807,7 +807,7 @@
       "available": true,
       "title": "Барбекю",
       "image": "https://i.ibb.co.com/RGtQZD8L/bbq.webp",
-      "price": "300",
+      "price": 300,
       "ingredients": "Фирменный соус с дымным ароматом для бортиков пиццы и горячих закусок",
       "weight": "25",
       "type": "sauces"
@@ -818,9 +818,9 @@
       "available": true,
       "title": "Медово-горчичный",
       "image": "https://i.ibb.co.com/sJF2Mx9z/Honey-Mustard.webp",
-      "price": "300",
+      "price": 300,
       "ingredients": "Фирменный медово-горчичный соус со жгучей сладостью для бортиков пиццы и горячих закусок",
-      "weight": "25",
+      "weight": 25,
       "type": "sauces"
     },
     {
@@ -829,9 +829,9 @@
       "available": true,
       "title": "Соус Цезарь",
       "image": "https://i.ibb.co.com/BVDqZYmQ/Caesar-sauce.webp",
-      "price": "300",
+      "price": 300,
       "ingredients": "Мягкий соус для заправки овощных салатов и салата «Цезарь»",
-      "weight": "30",
+      "weight": 30,
       "type": "sauces"
     },
     {
@@ -840,9 +840,9 @@
       "available": true,
       "title": "Малиновое варенье",
       "image": "https://i.ibb.co.com/C3CG01Rq/Raspberry-jam.webp",
-      "price": "400",
+      "price": 400,
       "ingredients": "Идеально к сырникам",
-      "weight": "25",
+      "weight": 25,
       "type": "sauces"
     }
   ]

@@ -2,7 +2,7 @@
   display: flex;
   height: 100%;
   width: 100%;
-  height: 768px;
+  max-height: 768px;
 
   .image_combo {
     margin: 22px 0 0 22px;
@@ -124,12 +124,21 @@
       }
     }
   }
+
+  .wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 650px;
+    justify-content: space-between;
+  }
   .info_wrapper {
     width: 437px;
     padding: 24px;
     background-color: var(--light-gray);
+    overflow: auto;
     position: relative;
-
+    height: 100%;
     .title {
       padding-bottom: 5px;
       font-size: var(--font-size24);
@@ -168,6 +177,13 @@
 
       .info {
         padding-bottom: 5px;
+
+        .extra_price {
+          font-size: var(--font-size16);
+          padding-top: 10px;
+
+          font-weight: 600;
+        }
       }
 
       .title {
@@ -286,24 +302,46 @@
     .item_card_active {
       outline: 1px solid var(--color-dark-orange);
     }
+  }
+  .price_wrapper {
+    bottom: 0;
+    padding: 24px;
+    height: auto;
+    background-color: #fafafab3;
 
-    .price_wrapper {
-      position: absolute;
-      bottom: 0;
-      padding: 24px;
-      height: 96px;
-      left: 0;
-      right: 0;
-      background-color: #ffffffb3;
+    display: flex;
+    flex-direction: column;
+
+    .extra_price {
       display: flex;
+      flex-direction: column;
+      font-size: var(--font-size14);
+      border-bottom: 1px solid var(--light-dark-gray);
+      margin-bottom: 10px;
+      padding-bottom: 10px;
+
+      
+      .price_combo,
+      .price_extra {
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+
+    .total_price {
+      display: flex;
+      justify-content: space-between;
       align-items: center;
-      gap: 12px;
-      .price {
-        flex: 1;
-      }
-      .button {
-        flex: 1;
-      }
+    }
+
+    .price {
+      font-size: var(--font-size24);
+      font-weight: 600;
+      flex: 1;
+    }
+
+    .button {
+      flex: 1;
     }
   }
 }

@@ -89,6 +89,19 @@
         padding-bottom: 12px;
 
         .itemInfoWrapper {
+          .comboItem {
+            padding-bottom: 8px;
+            .itemName {
+              font-size: var(--font-size12);
+              font-weight: 400;
+              color: #000;
+            }
+            .extras {
+              font-size: var(--font-size12);
+              text-transform: lowercase;
+              color: var(--dark-gray);
+            }
+          }
           .itemDetails {
             font-size: var(--font-size12);
             color: var(--dark-gray);

@@ -1,8 +1,9 @@
+"use client";
 import Image from "next/image";
 import styles from "./Sauces.module.scss";
 import data from "@/data/data.json";
 import { CartCloseSVG } from "../svg/CartCloseSVG";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import {
   addToCart,
   decreaseQuantity,
@@ -12,7 +13,9 @@ import { PlusSvg } from "../svg/PlusSvg";
 import { MinusSvg } from "../svg/MinusSvg";
 import { useEffect, useRef } from "react";
 
-const sauces = data.sauces;
+
+const sauces = data.items.filter((item) => item.type === "sauces");
+
 
 const Sauces = ({ openSauces, onClose, itemsList }) => {
   if (!openSauces) return null;

@@ -1,8 +1,14 @@
 import styles from "./AddToCartButton.module.scss";
 
-const AddToCartButton = ({ onAddToCart, totalPrice, className = "" }) => {
+const AddToCartButton = ({
+  disabled,
+  onAddToCart,
+  totalPrice,
+  className = "",
+}) => {
   return (
     <button
+      disabled={disabled}
       onClick={onAddToCart}
       className={`${styles.to_cart_button} ${className}`}
     >

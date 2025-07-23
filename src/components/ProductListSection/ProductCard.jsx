@@ -32,9 +32,11 @@ const ProductCard = ({ item, onOpenModal }) => {
         <div className={styles.price_wrapper}>
           <div className={styles.price}>
             {item.variants?.[0]?.price
-              ? `от ${item.variants[0].price} тг.`
+              ? `от ${Number(item.variants[0].price).toLocaleString(
+                  "ru-RU"
+                )} тг.`
               : item.price
-              ? `${item.price} тг.`
+              ? `${Number(item.price).toLocaleString("ru-RU")} тг.`
               : "Цена не указана"}
           </div>
           <button onClick={handleAddToCart}>{`${

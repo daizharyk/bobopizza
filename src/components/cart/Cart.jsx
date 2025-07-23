@@ -22,7 +22,6 @@ const Cart = ({ isOpen, onClose }) => {
   const [isBrowser, setIsBrowser] = useState(false);
   const [openSauces, setOpenSauces] = useState(false);
 
-
   const dispatch = useDispatch();
 
   const handleDeleteFromCart = (item) => {
@@ -53,6 +52,8 @@ const Cart = ({ isOpen, onClose }) => {
       return `До минимальной суммы на доставку ${remaining} тг`;
     }
   };
+
+
 
   useEffect(() => {
     setIsBrowser(true);
@@ -130,17 +131,43 @@ const Cart = ({ isOpen, onClose }) => {
 
                       <div className={styles.itemInfoWrapper}>
                         <div className={styles.itemName}>{item.title}</div>
-
-                        {item.customizable ? (
+                        {item.comboItems ? (
+                          <div className={styles.comboDetails}>
+                            {item.comboItems.map((comboItem, i) => (
+                              <div key={i} className={styles.comboItem}>
+                                <div className={styles.itemName}>
+                                  {" "}
+                                  {comboItem.title}
+                                </div>
+                                <div className={styles.itemSize}>
+                                  {comboItem.size}
+                                  {comboItem.sizeUnit &&
+                                    ` ${comboItem.sizeUnit}`}{" "}
+                                  {comboItem.thickness &&
+                                    `, ${comboItem.thickness.value} тесто`}
+                                  {comboItem.weight && comboItem.weightUnit
+                                    ? `, ${comboItem.weight} ${comboItem.weightUnit}`
+                                    : ""}
+                                </div>
+                                {comboItem.extras &&
+                                  comboItem.extras.length > 0 && (
+                                    <div className={styles.extras}>
+                                      + {comboItem.extras.join(", ")}
+                                    </div>
+                                  )}
+                              </div>
+                            ))}
+                          </div>
+                        ) : item.customizable ? (
                           <div className={styles.itemDetails}>
-                            <div>
+                            <div className={styles.itemSize}>
                               {`${item.size} ${item.sizeUnit}`}
+                              {item.weight &&
+                                item.weightUnit &&
+                                `, ${item.weight} ${item.weightUnit}`}
                               {item.thickness?.value &&
-                                `, ${item.thickness.value} тесто ${
-                                  item.size ? item.size : ""
-                                }`}
+                                `, ${item.thickness.value} тесто`}
                             </div>
-
                             {item.extras && (
                               <div className={styles.extras}>
                                 + {item.extras}

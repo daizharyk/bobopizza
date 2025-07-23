@@ -50,6 +50,7 @@ const PizzaModal = ({ item, onClose }) => {
   const selectedVariant = item.variants?.find(
     (variant) => variant.size === selectedSize
   );
+  console.log("selectedVariant", selectedVariant);
 
   const totalPrice = useMemo(() => {
     const totalExtrasPrice = pizzaExtras
@@ -63,14 +64,13 @@ const PizzaModal = ({ item, onClose }) => {
     selectedThickness.key
   }_${selectedExtras.sort().join("-")}`;
 
-
-  
   const pizzaToAdd = {
     id: customId,
     title: item.title,
     image: item.image,
     size: selectedVariant.size,
     price: totalPrice,
+    sizeUnit: selectedVariant.sizeUnit,
     thickness: selectedThickness,
     extras: selectedExtrasTitles,
     customizable: item.customizable,
@@ -211,6 +211,7 @@ const PizzaModal = ({ item, onClose }) => {
             />
           </div>
           <AddToCartButton
+            className={styles.to_cart_button}
             totalPrice={totalPrice}
             onAddToCart={handleAddToCart}
           />
