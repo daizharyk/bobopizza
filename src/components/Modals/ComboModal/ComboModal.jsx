@@ -11,18 +11,22 @@ import { addItemToCart } from "@/components/utils/addItemToCart";
 import { useDispatch } from "react-redux";
 
 const allItems = [...data.items];
-const thicknessOptions = [
+
+const selectedOptions = [
   { value: "Традиционное", key: "traditional" },
   { value: "Тонкое", key: "thin" },
 ];
 
 const ComboModal = ({ item, onClose }) => {
   const [replaceItemIndex, setReplaceItemIndex] = useState(null);
+  const [replaceItemType, setReplaceItemType] = useState(null);
   const [comboItems, setComboItems] = useState(item.items);
   const [showExtras, setShowExtras] = useState(false);
   const [selectedExtrasMap, setSelectedExtrasMap] = useState({});
-  const [selectedThicknessMap, setSelectedThicknessMap] = useState({});
+  const [selectedOptionMap, setSelectedOptionMap] = useState({});
   const [lastActiveIndex, setLastActiveIndex] = useState(null);
+
+  console.log("selectedOptionMap", selectedOptionMap);
 
   const indicatorRef = useRef(null);
   const traditionalRef = useRef(null);
@@ -55,12 +59,10 @@ const ComboModal = ({ item, onClose }) => {
     });
   };
 
-  console.log("item", item);
-
   const customId = comboItems
     .map((item, index) => {
       const size = item.preferredSize;
-      const thickness = selectedThicknessMap[index]?.key || "none";
+      const thickness = selectedOptionMap[index]?.key || "none";
       const extras = (selectedExtrasMap[index] || []).sort().join("-");
       return `${item.defaultId}_${size}_${thickness}_${extras}`;
     })
@@ -68,16 +70,18 @@ const ComboModal = ({ item, onClose }) => {
 
   const selectedVariants = comboItems.map((item) => {
     const product = allItems.find((p) => p.id === item.defaultId);
-    const preferredSize = item.preferredSize;
 
-    const selectedVariant = product.variants?.find(
-      (variant) => variant.size === preferredSize
-    );
+    const selectedVariant =
+      item.preferredSize && product.variants.length > 1
+        ? product.variants.find(
+            (variant) => variant.size === item.preferredSize
+          )
+        : product.variants?.[0];
 
     return selectedVariant;
   });
 
-  const pizzaPrice = selectedVariants
+  const itemsPrice = selectedVariants
     .filter(Boolean)
     .reduce((total, variant) => total + variant.price, 0);
 
@@ -88,7 +92,7 @@ const ComboModal = ({ item, onClose }) => {
       return total + (extra ? Number(extra.price) : 0);
     }, 0);
 
-  const totalPrice = pizzaPrice + selectedExtrasPrice;
+  const totalPrice = itemsPrice + selectedExtrasPrice;
   const formattedPrice = totalPrice.toLocaleString("ru-RU");
 
   const preparedComboItems = comboItems.map((item, index) => {
@@ -110,7 +114,7 @@ const ComboModal = ({ item, onClose }) => {
 
       weightUnit: selectedVariant?.weightUnit || "",
 
-      thickness: selectedThicknessMap[index] || "",
+      thickness: selectedOptionMap[index] || "",
 
       extras: (selectedExtrasMap[index] || []).map((extraId) => {
         const extra = pizzaExtras.find((e) => e.id === extraId);
@@ -133,16 +137,16 @@ const ComboModal = ({ item, onClose }) => {
   };
 
   useEffect(() => {
-    if (replaceItemIndex !== null && !selectedThicknessMap[replaceItemIndex]) {
-      setSelectedThicknessMap((prev) => ({
+    if (replaceItemIndex !== null && !selectedOptionMap[replaceItemIndex]) {
+      setSelectedOptionMap((prev) => ({
         ...prev,
-        [replaceItemIndex]: thicknessOptions[0],
+        [replaceItemIndex]: selectedOptions[0],
       }));
     }
   }, [replaceItemIndex]);
 
   useEffect(() => {
-    const currentThickness = selectedThicknessMap[replaceItemIndex];
+    const currentThickness = selectedOptionMap[replaceItemIndex];
     const currentRef =
       currentThickness?.key === "traditional" ? traditionalRef : thinRef;
     const indicator = indicatorRef.current;
@@ -157,14 +161,14 @@ const ComboModal = ({ item, onClose }) => {
 
       indicator.style.transform = `translate(${offsetLeft}px, -50%)`;
     }
-  }, [replaceItemIndex, selectedThicknessMap]);
+  }, [replaceItemIndex, selectedOptionMap]);
 
   useEffect(() => {
     const defaultThickness = {};
     comboItems.forEach((_, index) => {
-      defaultThickness[index] = thicknessOptions[0]; // традиционное
+      defaultThickness[index] = selectedOptions[0];
     });
-    setSelectedThicknessMap(defaultThickness);
+    setSelectedOptionMap(defaultThickness);
   }, [comboItems]);
 
   return (
@@ -174,28 +178,28 @@ const ComboModal = ({ item, onClose }) => {
           {replaceItemIndex !== null ? (
             <div className={styles.pizza_list}>
               {allItems
-                .filter((item) => item.type === "pizzas")
-                .map((pizza) => {
+                .filter((item) => item.type === replaceItemType)
+                .map((item) => {
                   const isSelected =
-                    pizza.id === comboItems[replaceItemIndex].defaultId;
+                    item.id === comboItems[replaceItemIndex].defaultId;
 
                   return (
                     <div
                       onClick={() => {
-                        replaceItem(pizza);
+                        replaceItem(item);
                       }}
-                      key={pizza.id}
+                      key={item.id}
                       className={`${styles.pizza_option} ${
                         isSelected ? styles.pissa_active : ""
                       }`}
                     >
                       <Image
-                        src={pizza.image}
-                        alt={pizza.title}
+                        src={item.image}
+                        alt={item.title}
                         width={156}
                         height={156}
                       />
-                      <p>{pizza.title}</p>
+                      <p>{item.title}</p>
                     </div>
                   );
                 })}
@@ -253,12 +257,16 @@ const ComboModal = ({ item, onClose }) => {
             </div>
             {comboItems.map((item, index) => {
               const product = allItems.find((p) => p.id === item.defaultId);
-              const preferredSize = item.preferredSize;
 
-              const selectedVariant = product.variants?.find(
-                (variant) => variant.size === preferredSize
-              );
-              console.log("selectedVariant", selectedVariant);
+              let selectedVariant;
+
+              if (item.preferredSize && product?.variants?.length > 1) {
+                selectedVariant = product.variants.find(
+                  (variant) => variant.size === item.preferredSize
+                );
+              } else {
+                selectedVariant = product?.variants?.[0];
+              }
 
               const selectedExtrasTitles = (selectedExtrasMap[index] || [])
                 .map((id) => pizzaExtras.find((e) => e.id === id)?.title)
@@ -301,7 +309,7 @@ const ComboModal = ({ item, onClose }) => {
                         <h3 className={styles.title}>{product.title}</h3>
                         <div className={styles.size}>
                           {selectedVariant.size} {selectedVariant.sizeUnit} ,{" "}
-                          {selectedThicknessMap[index]?.value}{" "}
+                          {selectedOptionMap[index]?.value}{" "}
                           {selectedVariant.size} , {selectedVariant.weight}{" "}
                           {selectedVariant.weightUnit}
                         </div>
@@ -342,20 +350,24 @@ const ComboModal = ({ item, onClose }) => {
                           <button
                             onClick={(e) => {
                               e.stopPropagation();
-                              setReplaceItemIndex((prev) =>
-                                prev === index ? null : index
-                              );
+                              if (replaceItemIndex === index) {
+                                setReplaceItemIndex(null);
+                                setReplaceItemType(null);
+                              } else {
+                                setReplaceItemIndex(index);
+                                setReplaceItemType(item.type); // Сохраняем тип!
+                              }
                             }}
                             className={styles.replace}
                           >
                             Заменить
                           </button>
                         )}
-                        {!showExtras && (
+                        {product.type === "pizzas" && !showExtras && (
                           <button
                             onClick={(e) => {
                               e.stopPropagation();
-                              setReplaceItemIndex(index); // запомни, какую карточку редактируем
+                              setReplaceItemIndex(index);
                               setLastActiveIndex(index);
                               setShowExtras(true);
                             }}
@@ -374,8 +386,63 @@ const ComboModal = ({ item, onClose }) => {
                       className={styles.thicknessGroup}
                     >
                       <div ref={indicatorRef} className={styles.selected}></div>
+                      {product.options?.map((optionGroup, groupIndex) => {
+                        console.log("  🔹 optionGroup:", optionGroup);
 
-                      {thicknessOptions.map((option) => (
+                        return (
+                          <div key={groupIndex} className={styles.optionGroup}>
+                            {optionGroup.choices.map((choice) => {
+                              const isChecked =
+                                selectedOptionMap[optionGroup.type]?.key ===
+                                choice.key;
+
+                              console.log(
+                                `🔸 Рендер опции: "${choice.label}" (key: ${choice.key}) — выбран: ${isChecked}`
+                              );
+
+                              return (
+                                <div
+                                  className={styles.wrapper_option}
+                                  key={choice.key}
+                                >
+                                  <input
+                                    type="radio"
+                                    id={`${optionGroup.type}_${choice.key}_${item.id}`}
+                                    name={`${optionGroup.type}_${item.id}`}
+                                    value={choice.key}
+                                    className={styles.hiddenInput}
+                                    checked={isChecked}
+                                    onChange={() => {
+                                      console.log("✅ Клик по опции:");
+                                      console.log(
+                                        "   ➕ БЫЛО:",
+                                        selectedOptionMap
+                                      );
+                                      const updatedMap = {
+                                        ...selectedOptionMap,
+                                        [optionGroup.type]: {
+                                          key: choice.key,
+                                          label: choice.label,
+                                        },
+                                      };
+                                      console.log("   ✅ СТАНЕТ:", updatedMap);
+                                      setSelectedOptionMap(updatedMap);
+                                    }}
+                                  />
+                                  <label
+                                    htmlFor={`${optionGroup.type}_${choice.key}_${item.id}`}
+                                    className={styles.thicknessOption}
+                                  >
+                                    {choice.label}
+                                  </label>
+                                </div>
+                              );
+                            })}
+                          </div>
+                        );
+                      })}
+                      
+                      {/* {selectedOptions.map((option) => (
                         <div className={styles.wrapper_option} key={option.key}>
                           <input
                             type="radio"
@@ -384,10 +451,10 @@ const ComboModal = ({ item, onClose }) => {
                             value={option.value}
                             className={styles.hiddenInput}
                             checked={
-                              selectedThicknessMap[index]?.key === option.key
+                              selectedOptionMap[index]?.key === option.key
                             }
                             onChange={() =>
-                              setSelectedThicknessMap((prev) => ({
+                              setSelectedOptionMap((prev) => ({
                                 ...prev,
                                 [index]: option,
                               }))
@@ -405,7 +472,7 @@ const ComboModal = ({ item, onClose }) => {
                             {option.value}
                           </label>
                         </div>
-                      ))}
+                      ))} */}
                     </div>
                   )}
                 </article>
@@ -416,7 +483,7 @@ const ComboModal = ({ item, onClose }) => {
             {Object.values(selectedExtrasMap).some((arr) => arr.length > 0) && (
               <div className={styles.extra_price}>
                 <div className={styles.price_combo}>
-                  Комбо <span>{pizzaPrice.toLocaleString("ru-RU")} тг.</span>
+                  Комбо <span>{itemsPrice.toLocaleString("ru-RU")} тг.</span>
                 </div>
                 {Object.entries(selectedExtrasMap).map(([index, extras]) => {
                   const comboItem = comboItems[index];

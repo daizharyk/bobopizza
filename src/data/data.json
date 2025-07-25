@@ -163,29 +163,31 @@
     },
     {
       "id": 1004,
-      "title": "Комбо за 3990 ₸",
+      "title": "Комбо Завтрак на двоих",
       "available": true,
       "description": "Кому-кому только одному. Маленькая пицца, закуска, напиток и соус. Цена комбо зависит от выбранных продуктов и может быть увеличена",
       "image": "https://i.ibb.co/bjjmcpPs/Combo-Breakfast-for-two.webp",
       "items": [
         {
-          "type": "pizzas",
-          "defaultId": null,
+          "type": "snacks",
+          "defaultId": 14357,
           "replaceable": true
         },
         {
           "type": "snacks",
-          "defaultId": null,
+          "defaultId": 14357,
           "replaceable": true
         },
         {
-          "type": "drinks",
-          "defaultId": null,
+          "type": "coffee",
+          "defaultId": 22463,
+          "preferredSize": 0.3,
           "replaceable": true
         },
         {
-          "type": "sauces",
-          "defaultId": null,
+          "type": "coffee",
+          "defaultId": 22463,
+          "preferredSize": 0.3,
           "replaceable": true
         }
       ]
@@ -199,46 +201,48 @@
       "items": [
         {
           "type": "pizzas",
-          "defaultId": null,
+          "defaultId": 10,
           "replaceable": true,
           "preferredSize": 30
         },
         {
           "type": "snacks",
-          "defaultId": null,
+          "defaultId": 14,
           "replaceable": true
         },
         {
           "type": "snacks",
-          "defaultId": null,
+          "defaultId": 16,
           "replaceable": true
         }
       ]
     },
     {
       "id": 1006,
-      "title": "Завтрак для двоих",
-      "description": "Идеальное начало дня: две закуски и два напитка. Отлично подойдёт для утренней энергии",
+      "title": "Комбо за 3990 ₸",
+      "description": "Кому-кому только одному. Маленькая пицца, закуска, напиток и соус. Цена комбо зависит от выбранных продуктов и может быть увеличена",
       "image": "https://i.ibb.co/XrD2YdZd/Combo-for-3990.webp",
       "items": [
         {
-          "type": "snacks",
-          "defaultId": null,
+          "type": "pizzas",
+          "defaultId": 284,
+          "preferredSize": 25,
           "replaceable": true
         },
         {
           "type": "snacks",
-          "defaultId": null,
+          "defaultId": 1551,
           "replaceable": true
         },
         {
           "type": "drinks",
-          "defaultId": null,
+          "defaultId": 18,
+          "preferredSize": 0.5,
           "replaceable": true
         },
         {
-          "type": "drinks",
-          "defaultId": null,
+          "type": "sauces",
+          "defaultId": 25,
           "replaceable": true
         }
       ]
@@ -275,6 +279,17 @@
           "weightUnit": "г"
         }
       ],
+      "options": [
+        {
+          "title": "Основа",
+          "type": "thickness",
+          "default": "traditional",
+          "choices": [
+            { "key": "thin", "label": "Тонкое" },
+            { "key": "traditional", "label": "Традиционное" }
+          ]
+        }
+      ],
       "type": "pizzas"
     },
     {
@@ -301,6 +316,17 @@
           "size": 35,
           "sizeUnit": "см",
           "price": 3990
+        }
+      ],
+      "options": [
+        {
+          "title": "Основа",
+          "type": "thickness",
+          "default": "traditional",
+          "choices": [
+            { "key": "thin", "label": "Тонкое" },
+            { "key": "traditional", "label": "Традиционное" }
+          ]
         }
       ],
       "type": "pizzas"
@@ -331,6 +357,17 @@
           "price": 6130
         }
       ],
+      "options": [
+        {
+          "title": "Основа",
+          "type": "thickness",
+          "default": "traditional",
+          "choices": [
+            { "key": "thin", "label": "Тонкое" },
+            { "key": "traditional", "label": "Традиционное" }
+          ]
+        }
+      ],
       "type": "pizzas"
     },
     {
@@ -357,6 +394,17 @@
           "size": 35,
           "sizeUnit": "см",
           "price": 4790
+        }
+      ],
+      "options": [
+        {
+          "title": "Основа",
+          "type": "thickness",
+          "default": "traditional",
+          "choices": [
+            { "key": "thin", "label": "Тонкое" },
+            { "key": "traditional", "label": "Традиционное" }
+          ]
         }
       ],
       "type": "pizzas"
@@ -387,6 +435,17 @@
           "price": 3750
         }
       ],
+      "options": [
+        {
+          "title": "Основа",
+          "type": "thickness",
+          "default": "traditional",
+          "choices": [
+            { "key": "thin", "label": "Тонкое" },
+            { "key": "traditional", "label": "Традиционное" }
+          ]
+        }
+      ],
       "type": "pizzas"
     },
     {
@@ -415,6 +474,17 @@
           "price": 3990
         }
       ],
+      "options": [
+        {
+          "title": "Основа",
+          "type": "thickness",
+          "default": "traditional",
+          "choices": [
+            { "key": "thin", "label": "Тонкое" },
+            { "key": "traditional", "label": "Традиционное" }
+          ]
+        }
+      ],
       "type": "pizzas"
     },
     {
@@ -441,6 +511,17 @@
           "size": 35,
           "sizeUnit": "см",
           "price": 3990
+        }
+      ],
+      "options": [
+        {
+          "title": "Основа",
+          "type": "thickness",
+          "default": "traditional",
+          "choices": [
+            { "key": "thin", "label": "Тонкое" },
+            { "key": "traditional", "label": "Традиционное" }
+          ]
         }
       ],
       "type": "pizzas"
@@ -473,6 +554,17 @@
           "price": 3750,
           "weight": 640,
           "weightUnit": "г"
+        }
+      ],
+      "options": [
+        {
+          "title": "Основа",
+          "type": "thickness",
+          "default": "traditional",
+          "choices": [
+            { "key": "thin", "label": "Тонкое" },
+            { "key": "traditional", "label": "Традиционное" }
+          ]
         }
       ],
       "type": "pizzas"
@@ -604,6 +696,24 @@
       "type": "snacks"
     },
     {
+      "id": 14357,
+      "customizable": false,
+      "available": true,
+      "title": "Омлет с томатами в пите",
+      "image": "https://i.ibb.co/wFTmw32x/019635f913d4750895be6059c02cb10c.jpg",
+      "ingredients": "Легкий и питательный завтрак: омлет из печи с томатами и моцареллой в пшеничной пите. Удобно брать с собой",
+      "variants": [
+        {
+          "size": 1,
+          "sizeUnit": "шт",
+          "weight": 150,
+          "weightUnit": "г",
+          "price": 1500
+        }
+      ],
+      "type": "snacks"
+    },
+    {
       "id": 180,
       "customizable": true,
       "available": true,
@@ -620,6 +730,17 @@
           "size": 1,
           "sizeUnit": "л",
           "price": 990
+        }
+      ],
+      "options": [
+        {
+          "title": "Объем",
+          "type": "volume",
+          "default": "0.5",
+          "choices": [
+            { "key": "0.5", "label": "0,5 л", "available": true },
+            { "key": "1", "label": "1 л", "available": true }
+          ]
         }
       ],
       "type": "drinks"
@@ -643,6 +764,17 @@
           "price": 990
         }
       ],
+      "options": [
+        {
+          "title": "Объем",
+          "type": "volume",
+          "default": "0.5",
+          "choices": [
+            { "key": "0.5", "label": "0,5 л", "available": true },
+            { "key": "1", "label": "1 л", "available": true }
+          ]
+        }
+      ],
       "type": "drinks"
     },
     {
@@ -664,6 +796,17 @@
           "price": 2990
         }
       ],
+      "options": [
+        {
+          "title": "Объем",
+          "type": "volume",
+          "default": "0.3",
+          "choices": [
+            { "key": "0.3", "label": "0,3 л", "available": true },
+            { "key": "0.6", "label": "0,6 л", "available": true }
+          ]
+        }
+      ],
       "type": "cocktails"
     },
     {
@@ -683,6 +826,17 @@
           "size": 0.6,
           "sizeUnit": "л",
           "price": 2550
+        }
+      ],
+      "options": [
+        {
+          "title": "Объем",
+          "type": "volume",
+          "default": "0.3",
+          "choices": [
+            { "key": "0.3", "label": "0,3 л", "available": true },
+            { "key": "0.6", "label": "0,6 л", "available": true }
+          ]
         }
       ],
       "type": "cocktails"
@@ -725,7 +879,55 @@
           "sizeUnit": "л",
           "weight": 456,
           "weightUnit": "г",
-          "price": "1100"
+          "price": 1100
+        }
+      ],
+      "options": [
+        {
+          "title": "Объем",
+          "type": "volume",
+          "default": "0.3",
+          "choices": [
+            { "key": "0.3", "label": "0,3 л", "available": true },
+            { "key": "0.4", "label": "0,4 л", "available": true }
+          ]
+        }
+      ],
+
+      "type": "coffee"
+    },
+    {
+      "id": 22463,
+      "customizable": true,
+      "available": true,
+      "title": "Кофе Латте",
+      "image": "https://i.ibb.co/20NKxX60/11ee7d5fe022e6adbbb9536f9aef79f7.jpg",
+      "ingredients": "Когда хочется нежную молочную пенку, на помощь приходит классический латте",
+      "variants": [
+        {
+          "size": 0.3,
+          "sizeUnit": "л",
+          "weight": 280,
+          "weightUnit": "г",
+          "price": 1000
+        },
+        {
+          "size": 0.4,
+          "sizeUnit": "л",
+          "weight": 330,
+          "weightUnit": "г",
+          "price": 1100
+        }
+      ],
+      "options": [
+        {
+          "title": "Объем",
+          "type": "volume",
+          "default": "0.3",
+          "choices": [
+            { "key": "0.3", "label": "0,3 л", "available": true },
+            { "key": "0.4", "label": "0,4 л", "available": true }
+          ]
         }
       ],
       "type": "coffee"
@@ -753,6 +955,17 @@
           "price": 1300
         }
       ],
+      "options": [
+        {
+          "title": "Объем",
+          "type": "volume",
+          "default": "0.3",
+          "choices": [
+            { "key": "0.3", "label": "0,3 л", "available": true },
+            { "key": "0.4", "label": "0,4 л", "available": true }
+          ]
+        }
+      ],
       "type": "coffee"
     },
     {
@@ -778,6 +991,17 @@
           "price": 900
         }
       ],
+      "options": [
+        {
+          "title": "Объем",
+          "type": "volume",
+          "default": "0.3",
+          "choices": [
+            { "key": "0.3", "label": "0,3 л", "available": true },
+            { "key": "0.4", "label": "0,4 л", "available": true }
+          ]
+        }
+      ],
       "type": "coffee"
     },
     {
@@ -785,10 +1009,15 @@
       "title": "Сырный",
       "available": true,
       "image": "https://i.ibb.co.com/MDT68sSC/Cheesy.webp",
-      "price": 400,
       "ingredients": "Фирменный соус со вкусом расплавленного сыра для бортиков пиццы и горячих закусок",
-      "weight": 25,
-      "type": "sauces"
+      "type": "sauces",
+      "variants": [
+        {
+          "size": 25,
+          "sizeUnit": "г",
+          "price": 400
+        }
+      ]
     },
     {
       "id": 26,
@@ -796,10 +1025,15 @@
       "available": true,
       "title": "Чесночный",
       "image": "https://i.ibb.co.com/8nHNN0fM/019570dcbd6e76f1a307f4551b945e0d.webp",
-      "price": 300,
       "ingredients": "Фирменный соус с чесночным вкусом для бортиков пиццы и горячих закусок",
-      "weight": 25,
-      "type": "sauces"
+      "type": "sauces",
+      "variants": [
+        {
+          "size": 25,
+          "sizeUnit": "г",
+          "price": 300
+        }
+      ]
     },
     {
       "id": 27,
@@ -807,10 +1041,15 @@
       "available": true,
       "title": "Барбекю",
       "image": "https://i.ibb.co.com/RGtQZD8L/bbq.webp",
-      "price": 300,
       "ingredients": "Фирменный соус с дымным ароматом для бортиков пиццы и горячих закусок",
-      "weight": "25",
-      "type": "sauces"
+      "type": "sauces",
+      "variants": [
+        {
+          "size": 25,
+          "sizeUnit": "г",
+          "price": 300
+        }
+      ]
     },
     {
       "id": 28,
@@ -818,10 +1057,15 @@
       "available": true,
       "title": "Медово-горчичный",
       "image": "https://i.ibb.co.com/sJF2Mx9z/Honey-Mustard.webp",
-      "price": 300,
       "ingredients": "Фирменный медово-горчичный соус со жгучей сладостью для бортиков пиццы и горячих закусок",
-      "weight": 25,
-      "type": "sauces"
+      "type": "sauces",
+      "variants": [
+        {
+          "size": 25,
+          "sizeUnit": "г",
+          "price": 300
+        }
+      ]
     },
     {
       "id": 29,
@@ -829,10 +1073,15 @@
       "available": true,
       "title": "Соус Цезарь",
       "image": "https://i.ibb.co.com/BVDqZYmQ/Caesar-sauce.webp",
-      "price": 300,
       "ingredients": "Мягкий соус для заправки овощных салатов и салата «Цезарь»",
-      "weight": 30,
-      "type": "sauces"
+      "type": "sauces",
+      "variants": [
+        {
+          "size": 30,
+          "sizeUnit": "г",
+          "price": 300
+        }
+      ]
     },
     {
       "id": 30,
@@ -840,10 +1089,15 @@
       "available": true,
       "title": "Малиновое варенье",
       "image": "https://i.ibb.co.com/C3CG01Rq/Raspberry-jam.webp",
-      "price": 400,
       "ingredients": "Идеально к сырникам",
-      "weight": 25,
-      "type": "sauces"
+      "type": "sauces",
+      "variants": [
+        {
+          "size": 25,
+          "sizeUnit": "г",
+          "price": 400
+        }
+      ]
     }
   ]
 }

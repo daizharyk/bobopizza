@@ -24,6 +24,8 @@ const Cart = ({ isOpen, onClose }) => {
 
   const dispatch = useDispatch();
 
+ 
+  
   const handleDeleteFromCart = (item) => {
     dispatch(removeFromCart(item));
   };

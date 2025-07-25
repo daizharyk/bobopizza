@@ -20,13 +20,12 @@ const SimpleProductModal = ({ item, onClose }) => {
   const selectedVariant = item.variants?.find((v) => v.size === selectedSize);
   const customId = `${item.id}_${selectedSize}`;
 
-  console.log("selectedVariant", selectedVariant);
-
   const preparedItem = {
     id: customId,
     title: item.title,
     image: item.image,
     size: selectedSize,
+    sizeUnit: selectedVariant?.sizeUnit,
     price: selectedVariant?.price,
     customizable: item.customizable,
     type: item.type,
@@ -54,7 +53,6 @@ const SimpleProductModal = ({ item, onClose }) => {
     const frame = requestAnimationFrame(() => setTimeout(updatePosition));
     return () => cancelAnimationFrame(frame);
   }, [selectedSize, item.variants]);
-  console.log("item", item);
 
   return (
     <ModalWrapper onClose={onClose}>

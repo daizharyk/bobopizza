@@ -5,8 +5,41 @@ import { addItemToCart } from "../utils/addItemToCart";
 
 const { default: Image } = require("next/image");
 
-const ProductCard = ({ item, onOpenModal }) => {
+const ProductCard = ({ item, onOpenModal, allItems = [] }) => {
   const dispatch = useDispatch();
+
+  const calculateComboPrice = (item, allItems) => {
+    if (!Array.isArray(item.items)) return 0;
+
+    let total = 0;
+
+    for (const comboItem of item.items) {
+      const product = allItems.find((p) => p.id === comboItem.defaultId);
+      if (!product) continue;
+
+      let price = 0;
+
+      if (
+        comboItem.preferredSize &&
+        product.variants &&
+        product.variants.length > 0
+      ) {
+        const matchedVariant = product.variants.find(
+          (variant) => variant.size === comboItem.preferredSize
+        );
+        price = matchedVariant?.price || 0;
+      } else {
+        // fallback: первый вариант
+        price = product.variants?.[0]?.price || product.price || 0;
+      }
+
+      total += price;
+    }
+    return total;
+  };
+
+  const isCombo = item.comboItems && Array.isArray(item.comboItems);
+  const comboPrice = isCombo ? calculateComboPrice(item, allItems) : null;
 
   const handleAddToCart = () => {
     if (item.customizable) {
@@ -31,7 +64,9 @@ const ProductCard = ({ item, onOpenModal }) => {
         <p className={styles.description}>{item.ingredients}</p>
         <div className={styles.price_wrapper}>
           <div className={styles.price}>
-            {item.variants?.[0]?.price
+            {isCombo
+              ? `${comboPrice.toLocaleString("ru-RU")} тг.`
+              : item.variants?.[0]?.price
               ? `от ${Number(item.variants[0].price).toLocaleString(
                   "ru-RU"
                 )} тг.`

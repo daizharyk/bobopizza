@@ -7,23 +7,15 @@ import { addItemToCart } from "../utils/addItemToCart";
 
 const { items } = data;
 
-const popularPizzaIds = [10, 9, 8,12];
+const popularPizzaIds = [10, 9, 8, 12];
 
-
-
-const popularOrders = items.filter((item) =>
-  popularPizzaIds.includes(item.id)
-);
+const popularOrders = items.filter((item) => popularPizzaIds.includes(item.id));
 
 const PopularOrders = ({ onOpenModal }) => {
-  const dispatch = useDispatch();
+ 
 
   const handleAddToCart = (item) => {
-    if (item.customizable) {
-      onOpenModal(item);
-    } else {
-      addItemToCart(dispatch, item);
-    }
+    onOpenModal(item);
   };
 
   return (

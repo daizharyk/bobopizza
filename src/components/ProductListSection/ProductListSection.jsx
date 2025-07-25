@@ -3,15 +3,20 @@
 import ProductCard from "./ProductCard";
 import styles from "./ProductListSection.module.scss";
 
-const ProductListSection = ({ title, items, id, itemType, onOpenModal }) => {
-
-
-
-  
+const ProductListSection = ({
+  title,
+  items,
+  id,
+  itemType,
+  onOpenModal,
+  allItems,
+}) => {
   const handleOpenModal = (item) => {
     onOpenModal({ ...item, type: item.type || itemType });
   };
 
+ 
+  
   return (
     <section id={id} className={styles.container}>
       <h2>{title}</h2>
@@ -44,6 +49,7 @@ const ProductListSection = ({ title, items, id, itemType, onOpenModal }) => {
             key={item.id}
             item={item}
             onOpenModal={handleOpenModal}
+            allItems={allItems}
           />
         ))}
       </div>

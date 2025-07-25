@@ -32,6 +32,7 @@ export default function Home() {
             items={items}
             itemType={targetId}
             onOpenModal={handleOpenModal}
+            allItems={data.items}
           />
         ) : null;
       })}
