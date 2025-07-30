@@ -7,10 +7,9 @@ import Image from "next/image";
 
 import data from "@/data/data.json";
 import PizzaSvg from "@/components/svg/ModalSvg/PizzaSvg";
-import { useInView } from "@/hooks/useInView";
 import AddToCartButton from "../../AddToCartButton"; // путь должен быть корректным
 
-const pizzas = data["pizzas"];
+const pizzas = data["items"].filter((item) => item.type === "pizzas");
 
 const thicknessOptions = [
   { value: "Традиционное", key: "traditional" },
@@ -20,9 +19,7 @@ const thicknessOptions = [
 const PizzaHalfModal = ({ item, onClose }) => {
   const refs = useRef([]);
 
-  const inView = pizzas.map((_, i) =>
-    useInView((refs.current[i] ||= React.createRef()))
-  );
+  ``;
 
   const [selectedThickness, setSelectedThickness] = useState(
     thicknessOptions[0]
@@ -144,42 +141,38 @@ const PizzaHalfModal = ({ item, onClose }) => {
                 className={styles.pizza_card}
                 onClick={() => handlePizzaClick(pizza)}
               >
-                {inView[index] && (
-                  <>
-                    <div
-                      className={`${
-                        selectedSides.left?.id === pizza.id ||
-                        selectedSides.right?.id === pizza.id
-                          ? styles["selected"]
-                          : ""
-                      }`}
-                    >
-                      {" "}
-                      <div
-                        className={`${styles.pizza_img_wrapper} ${
-                          selectedSides.left?.id === pizza.id
-                            ? styles["left-selected"]
-                            : selectedSides.right?.id === pizza.id
-                            ? styles["right-selected"]
-                            : ""
-                        } `}
-                      >
-                        <Image
-                          src={pizza.image}
-                          alt={pizza.title}
-                          width={138}
-                          height={138}
-                          style={{ objectFit: "contain" }}
-                        />
-                      </div>
-                    </div>
+                <div
+                  className={`${
+                    selectedSides.left?.id === pizza.id ||
+                    selectedSides.right?.id === pizza.id
+                      ? styles["selected"]
+                      : ""
+                  }`}
+                >
+                  {" "}
+                  <div
+                    className={`${styles.pizza_img_wrapper} ${
+                      selectedSides.left?.id === pizza.id
+                        ? styles["left-selected"]
+                        : selectedSides.right?.id === pizza.id
+                        ? styles["right-selected"]
+                        : ""
+                    } `}
+                  >
+                    <Image
+                      src={pizza.image}
+                      alt={pizza.title}
+                      width={138}
+                      height={138}
+                      style={{ objectFit: "contain" }}
+                    />
+                  </div>
+                </div>
 
-                    <h3 className={styles.pizza_title}>{pizza.title}</h3>
-                    <div className={styles.pizza_price}>
-                      {pizza.variants?.[0]?.price || pizza.price} тг.
-                    </div>
-                  </>
-                )}
+                <h3 className={styles.pizza_title}>{pizza.title}</h3>
+                <div className={styles.pizza_price}>
+                  {pizza.variants?.[0]?.price || pizza.price} тг.
+                </div>
               </div>
             ))}
           </div>

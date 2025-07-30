@@ -10,6 +10,8 @@ const CustomProductModal = ({ item, onClose }) => {
   switch (item.type) {
     case "pizzas":
       return <PizzaModal item={item} onClose={onClose} />;
+
+      
     case "half-pizza":
       return <PizzaHalfModal item={item} onClose={onClose} />;
     case "combo":

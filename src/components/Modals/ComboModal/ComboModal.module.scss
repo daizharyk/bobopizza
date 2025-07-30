@@ -247,6 +247,7 @@
         margin: 8px 0;
         display: flex;
         position: relative;
+        width: 100%;
         z-index: 2;
         height: 32px;
         flex-shrink: 0;
@@ -257,8 +258,13 @@
         line-height: 32px;
         min-height: 32px;
 
+        .optionGroup {
+          display: flex;
+          width: 100%;
+        }
         .wrapper_option {
           flex: 1;
+
           display: flex;
           align-items: center;
           justify-content: center;
@@ -320,7 +326,6 @@
       margin-bottom: 10px;
       padding-bottom: 10px;
 
-      
       .price_combo,
       .price_extra {
         display: flex;

@@ -97,6 +97,7 @@
     {
       "id": 1001,
       "available": true,
+      "customizable": true,
       "title": "Салат и закуска",
       "description": "Отличный выбор для теплых сезонов: салат и закуска на выбор",
       "image": "https://i.ibb.co/1f5K1r4g/Salad-appetizer.webp",
@@ -117,6 +118,7 @@
       "id": 1002,
       "title": "2 пиццы",
       "available": true,
+      "customizable": true,
       "description": "Парочка что надо. 2 средние пиццы. Цена комбо зависит от выбранных пицц и может быть увеличена",
       "image": "https://i.ibb.co/yFtJVm7K/2pizza.webp",
       "items": [
@@ -138,6 +140,7 @@
       "id": 1003,
       "title": "3 пиццы",
       "available": true,
+      "customizable": true,
       "description": "3 пиццы 30 см на любой вкус. Для компании из 5–10 человек. Цена комбо зависит от выбранных пицц и может быть увеличена",
       "image": "https://i.ibb.co/JRzLvsc0/3pizza.webp",
       "items": [
@@ -165,6 +168,7 @@
       "id": 1004,
       "title": "Комбо Завтрак на двоих",
       "available": true,
+      "customizable": true,
       "description": "Кому-кому только одному. Маленькая пицца, закуска, напиток и соус. Цена комбо зависит от выбранных продуктов и может быть увеличена",
       "image": "https://i.ibb.co/bjjmcpPs/Combo-Breakfast-for-two.webp",
       "items": [
@@ -196,6 +200,7 @@
       "id": 1005,
       "title": "Пицца и 2 закуски",
       "available": true,
+      "customizable": true,
       "description": "Пицца 30 см и 2 закуски на выбор. Для компании из 2–4 человек. Пиццы в комбо можно менять",
       "image": "https://i.ibb.co/ynhD9dXd/Pizza-and-2-appetizers.webp",
       "items": [
@@ -220,6 +225,7 @@
     {
       "id": 1006,
       "title": "Комбо за 3990 ₸",
+      "customizable": true,
       "description": "Кому-кому только одному. Маленькая пицца, закуска, напиток и соус. Цена комбо зависит от выбранных продуктов и может быть увеличена",
       "image": "https://i.ibb.co/XrD2YdZd/Combo-for-3990.webp",
       "items": [
@@ -1013,8 +1019,10 @@
       "type": "sauces",
       "variants": [
         {
-          "size": 25,
-          "sizeUnit": "г",
+          "weight": 25,
+          "weightUnit": "г",
+          "size": 1,
+          "sizeUnit": "шт",
           "price": 400
         }
       ]
@@ -1029,8 +1037,10 @@
       "type": "sauces",
       "variants": [
         {
-          "size": 25,
-          "sizeUnit": "г",
+          "weight": 25,
+          "weightUnit": "г",
+          "size": 1,
+          "sizeUnit": "шт",
           "price": 300
         }
       ]
@@ -1045,8 +1055,10 @@
       "type": "sauces",
       "variants": [
         {
-          "size": 25,
-          "sizeUnit": "г",
+          "weight": 25,
+          "weightUnit": "г",
+          "size": 1,
+          "sizeUnit": "шт",
           "price": 300
         }
       ]
@@ -1061,8 +1073,10 @@
       "type": "sauces",
       "variants": [
         {
-          "size": 25,
-          "sizeUnit": "г",
+          "weight": 25,
+          "weightUnit": "г",
+          "size": 1,
+          "sizeUnit": "шт",
           "price": 300
         }
       ]
@@ -1077,8 +1091,10 @@
       "type": "sauces",
       "variants": [
         {
-          "size": 30,
-          "sizeUnit": "г",
+          "weight": 30,
+          "weightUnit": "г",
+          "size": 1,
+          "sizeUnit": "шт",
           "price": 300
         }
       ]
@@ -1093,8 +1109,10 @@
       "type": "sauces",
       "variants": [
         {
-          "size": 25,
-          "sizeUnit": "г",
+          "weight": 25,
+          "weightUnit": "г",
+          "size": 1,
+          "sizeUnit": "шт",
           "price": 400
         }
       ]
