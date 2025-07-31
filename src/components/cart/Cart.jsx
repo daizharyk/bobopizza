@@ -17,6 +17,7 @@ import {
 import EmptyCartMessage from "./EmptyCartMessage";
 import ArrowLeft from "../svg/ArrowLeftSvg";
 
+
 const Cart = ({ isOpen, onClose }) => {
   const itemsList = useSelector((state) => state.cart.items);
   const [isBrowser, setIsBrowser] = useState(false);

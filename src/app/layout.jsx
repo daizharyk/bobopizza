@@ -6,6 +6,7 @@ import { ReduxProvider } from "./providers";
 import NewsSlider from "@/components/NewsSlider/NewsSlider";
 import { Toaster } from "react-hot-toast";
 import CartLoader from "@/components/CartLoadr";
+import LoginModalWrapper from "@/features/authByPhone/ui/LoginModal";
 
 export const metadata = {
   title: "DodoPizza Clone",
@@ -19,6 +20,7 @@ export default function RootLayout({ children }) {
         <ReduxProvider>
           <CartLoader />
           <Header />
+          <LoginModalWrapper />
           <CategoriesBar />
           <Toaster
             position="top-right"

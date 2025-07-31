@@ -1,0 +1,33 @@
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background-color: rgba(0, 0, 0, 0.75); /* затемнение фона */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ outline: 3px solid red;
+  .modalContent {
+    position: relative;
+
+    .closeButton {
+    position: absolute;
+    right: -60px;
+    top: 20px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    font-size: var(--font-size30);
+    transition: 0.2s transform ease-out;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+  }
+  
+}

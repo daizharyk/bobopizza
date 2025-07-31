@@ -5,8 +5,16 @@ const loginModalSlice = createSlice({
   name: "loginModal",
   initialState: {
     isOpen: false,
+    step: "phone",
+    phone: "",
   },
   reducers: {
+    setStep: (state, action) => {
+      state.step = action.payload;
+    },
+    setPhone: (state, action) => {
+      state.phone = action.payload;
+    },
     openLoginModal: (state) => {
       state.isOpen = true;
     },
@@ -17,5 +25,6 @@ const loginModalSlice = createSlice({
   },
 });
 
-export const { openLoginModal, closeLoginModal } = loginModalSlice.actions;
+export const { openLoginModal, closeLoginModal, setPhone,setStep } =
+  loginModalSlice.actions;
 export default loginModalSlice.reducer;
