@@ -6,8 +6,10 @@
   display: flex;
   flex-direction: column;
 
+  @media (max-width: 1430px) {
+    max-width: 1024px;
+  }
   header {
-
     display: flex;
     justify-content: space-between;
     padding: 24px 0 16px 0;

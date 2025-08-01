@@ -2,10 +2,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  
+
   font-weight: 600;
   font-size: 14px;
   padding: 12px 0;
+
+
 }
 .languageButton {
   display: flex;
@@ -14,7 +16,7 @@
   background-color: transparent;
   border: none;
   position: relative;
- 
+
   cursor: pointer;
   font-weight: 500;
   span {

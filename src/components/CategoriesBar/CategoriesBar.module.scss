@@ -2,8 +2,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  justify-content: center;
   width: 100%;
-  
+  padding: 0 20px;
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -35,7 +36,7 @@
     display: flex;
     align-items: center;
     gap: 6px;
-    
+
     border: none;
     cursor: pointer;
 
@@ -46,7 +47,7 @@
     position: relative;
     display: flex;
     align-items: center;
-    
+
     width: 30px;
     height: 20px;
   }
@@ -54,7 +55,7 @@
   .count,
   .arrow {
     position: absolute;
-  
+
     left: 0;
     transition: opacity 0.3s ease, transform 0.3s ease;
   }
@@ -66,7 +67,7 @@
   .arrow {
     opacity: 0;
     display: flex;
-  
+
     justify-content: center;
     align-items: center;
     transform: translateY(5px);
@@ -85,6 +86,7 @@
 .logo {
   display: none;
   left: -50px;
+  
 }
 .wrapper {
   display: flex;

@@ -21,10 +21,15 @@
         height: 216px;
         border-radius: 15px;
         line-height: 24px;
+
+        @media (max-width: 1350px) {
+          width: 300px;
+          font-size: var(--font-size16);
+          height: 250px;
+        }
       }
     }
     .svgSec {
-      width: 25%;
       position: relative;
 
       .secSvgOne {
@@ -66,6 +71,13 @@
         .secSvgThree {
           opacity: 1;
           transform: translateX(0);
+        }
+      }
+      @media (max-width: 1350px) {
+        .secSvgOne,
+        .secSvgTwo,
+        .secSvgThree {
+          width: 300px;
         }
       }
     }

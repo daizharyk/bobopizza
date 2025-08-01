@@ -1,12 +1,24 @@
 .article {
   display: flex;
   justify-content: center;
+  width: 290px;
   flex-direction: column;
   align-items: center;
   cursor: pointer;
   height: 100%;
+  @media (max-width: 1430px) {
+    width: 233px;
+  }
 }
 .image {
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+
+  @media (max-width: 1430px) {
+    max-width: 233px;
+  }
+
   transition: transform 0.3s ease;
 
   &:hover {
@@ -59,4 +71,8 @@
 .price {
   font-size: var(--font-size20);
   font-weight: 600;
+
+  @media (max-width: 1430px) {
+    font-size: var(--font-size16);
+  }
 }
