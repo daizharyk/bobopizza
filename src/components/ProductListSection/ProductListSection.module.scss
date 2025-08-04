@@ -8,6 +8,22 @@
     font-size: var(--font-size36);
     padding: 32px 0;
   }
+
+  @media (max-width: 450px) {
+    .container {
+      display: flex;
+
+    }
+
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      padding: 0 16px;
+     
+      grid-row-gap: 16px;
+    }
+  }
 }
 
 .wrapper {
@@ -16,7 +32,6 @@
   grid-template-rows: 1fr;
   grid-column-gap: 38px;
   grid-row-gap: 60px;
-
 
   @media (max-width: 1200px) {
     grid-column-gap: 20px;

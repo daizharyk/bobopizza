@@ -2,11 +2,30 @@
 import { useDispatch } from "react-redux";
 import styles from "./ProductCard.module.scss";
 import { addItemToCart } from "../utils/addItemToCart";
+import { useState, useEffect } from "react";
 
 const { default: Image } = require("next/image");
 
 const ProductCard = ({ item, onOpenModal, allItems = [] }) => {
   const dispatch = useDispatch();
+  const [isMobile, setIsMobile] = useState(false);
+
+useEffect(() => {
+  const mediaQuery = window.matchMedia('(max-width: 450px)');
+
+
+  const handleChange = (event) => {
+    setIsMobile(event.matches);
+  };
+
+  handleChange(mediaQuery); 
+  mediaQuery.addEventListener('change', handleChange);
+
+  return () => {
+    mediaQuery.removeEventListener('change', handleChange);
+  };
+}, []);
+
 
   const calculateComboPrice = (item, allItems) => {
     if (!Array.isArray(item.items)) return 0;
@@ -74,9 +93,23 @@ const ProductCard = ({ item, onOpenModal, allItems = [] }) => {
               ? `${Number(item.price).toLocaleString("ru-RU")} тг.`
               : "Цена не указана"}
           </div>
-          <button onClick={handleAddToCart}>{`${
-            item.half ? "Собрать" : item.customizable ? "Выбрать" : "В корзину"
-          }`}</button>
+          <button onClick={handleAddToCart}>
+            {isMobile
+              ? isCombo
+                ? `${comboPrice.toLocaleString("ru-RU")} тг.`
+                : item.variants?.[0]?.price
+                ? `от ${Number(item.variants[0].price).toLocaleString(
+                    "ru-RU"
+                  )} тг.`
+                : item.price
+                ? `${Number(item.price).toLocaleString("ru-RU")} тг.`
+                : "Цена не указана"
+              : item.half
+              ? "Собрать"
+              : item.customizable
+              ? "Выбрать"
+              : "В корзину"}
+          </button>
         </div>
       </div>
     </article>

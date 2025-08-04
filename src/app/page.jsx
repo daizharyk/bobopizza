@@ -13,6 +13,8 @@ export default function Home() {
   const [selectedItem, setSelectedItem] = useState(null);
 
   const handleOpenModal = (item) => setSelectedItem(item);
+
+
   const handleCloseModal = () => setSelectedItem(null);
   return (
     <>

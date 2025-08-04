@@ -1,7 +1,8 @@
 .section {
   display: flex;
   flex-direction: column;
-
+  align-items: center;
+  justify-content: center;
   img {
     border-radius: 15px;
     padding: 5px 0;
@@ -11,9 +12,9 @@
     width: 100%;
     .couple {
       display: flex;
-      width: 600px;
+      
       border-radius: 15px;
-      justify-content: space-between;
+      flex-direction: column;
       gap: 10px;
     }
 
