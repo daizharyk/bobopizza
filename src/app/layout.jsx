@@ -1,5 +1,5 @@
 import "../styles/global.scss";
-import Header from "../components/Header/Header";
+
 import Footer from "@/components/footer/Footer";
 import CategoriesBar from "@/components/CategoriesBar/CategoriesBar";
 import { ReduxProvider } from "./providers";
@@ -7,6 +7,11 @@ import NewsSlider from "@/components/NewsSlider/NewsSlider";
 import { Toaster } from "react-hot-toast";
 import CartLoader from "@/components/CartLoadr";
 import LoginModalWrapper from "@/features/authByPhone/ui/LoginModal";
+import Header from "@/widgets/Header/ui/Header/Header";
+
+import PopularOrders from "@/components/PopularOrders/PopularOrders";
+import { ModalProvider } from "./context/ModalContext";
+import ResponsiveLayout from "./ResponsiveLayout";
 
 export const metadata = {
   title: "DodoPizza Clone",
@@ -24,7 +29,6 @@ export default function RootLayout({ children }) {
           <CartLoader />
           <Header />
           <LoginModalWrapper />
-          <CategoriesBar />
           <Toaster
             position="top-right"
             toastOptions={{
@@ -32,10 +36,7 @@ export default function RootLayout({ children }) {
               duration: 2500,
             }}
           />
-          <NewsSlider />
-          <div className="container">
-            <main>{children}</main>
-          </div>
+          <ResponsiveLayout>{children}</ResponsiveLayout>
           <Footer />
           <div id="modal-root" />
         </ReduxProvider>

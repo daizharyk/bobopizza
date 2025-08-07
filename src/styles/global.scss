@@ -27,8 +27,6 @@ body {
 .container {
   max-width: 1280px;
   margin: 0 auto;
-
-
 }
 
 a {
@@ -48,10 +46,11 @@ a {
   --light-dark-gray: #73798c;
   --light-dark-gray-2: rgb(226, 226, 233);
   --color-black: #181818;
-
+  --border-color: rgba(255, 255, 255, 0.2);
   --main-font: "dodo", sans-serif;
 
   --font-size12: 12px;
+  --font-size13: 13px;
   --font-size14: 14px;
   --font-size15: 15px;
   --font-size16: 16px;

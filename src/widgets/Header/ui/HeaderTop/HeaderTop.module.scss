@@ -6,8 +6,6 @@
   font-weight: 600;
   font-size: 14px;
   padding: 12px 0;
-
-
 }
 .languageButton {
   display: flex;
@@ -48,5 +46,35 @@
   .activeLink {
     color: var(--color-orange);
     text-decoration: none;
+  }
+}
+
+@media (max-width: 450px) {
+  .headerTop {
+    color: var(--white);
+  }
+
+  .nav {
+    display: flex;
+    flex-direction: column;
+    margin-left: 36px;
+    padding: 16px 0;
+    gap: 0;
+    font-weight: 400;
+    a {
+      padding: 16px 0;
+      color: var(--white);
+      font-size: var(--font-size20);
+    }
+    color: var(--white);
+    button {
+      display: flex;
+      padding: 16px 0;
+      font-size: var(--font-size20);
+      cursor: pointer;
+      border: none;
+      color: var(--white);
+      background: none;
+    }
   }
 }

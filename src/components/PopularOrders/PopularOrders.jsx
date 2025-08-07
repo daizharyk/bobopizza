@@ -4,6 +4,7 @@ import data from "@/data/data.json";
 import Image from "next/image";
 import { useDispatch } from "react-redux";
 import { addItemToCart } from "../utils/addItemToCart";
+import { useModal } from "@/app/context/ModalContext";
 
 const { items } = data;
 
@@ -11,11 +12,11 @@ const popularPizzaIds = [10, 9, 8, 12];
 
 const popularOrders = items.filter((item) => popularPizzaIds.includes(item.id));
 
-const PopularOrders = ({ onOpenModal }) => {
- 
+const PopularOrders = () => {
+  const { selectedItem, openModal, closeModal } = useModal();
 
   const handleAddToCart = (item) => {
-    onOpenModal(item);
+    openModal(item);
   };
 
   return (
@@ -24,7 +25,7 @@ const PopularOrders = ({ onOpenModal }) => {
       <div className={styles.wrapper}>
         {popularOrders.map((item) => (
           <article onClick={() => handleAddToCart(item)} key={item.id}>
-            <Image src={item.image} alt={item.title} width={80} height={80} />
+            <Image src={item.image} alt={item.title} width={92} height={92} />
             <div className={styles.info_wrapper}>
               <h3>{item.title}</h3>
               <div className={styles.price}>

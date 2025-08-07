@@ -6,19 +6,14 @@ import ProductListSection from "@/components/ProductListSection/ProductListSecti
 import Label from "@/components/svg/WithoutPigLabel";
 import data from "@/data/data.json";
 import { useState } from "react";
+import { useModal } from "./context/ModalContext";
 
 export default function Home() {
   if (!data.items) return null;
 
-  const [selectedItem, setSelectedItem] = useState(null);
-
-  const handleOpenModal = (item) => setSelectedItem(item);
-
-
-  const handleCloseModal = () => setSelectedItem(null);
+  const { selectedItem, openModal, closeModal } = useModal();
   return (
     <>
-      <PopularOrders onOpenModal={handleOpenModal} />
       <Label />
       {data.categories.map(({ label, targetId }) => {
         const items =
@@ -33,14 +28,14 @@ export default function Home() {
             title={label}
             items={items}
             itemType={targetId}
-            onOpenModal={handleOpenModal}
+            onOpenModal={openModal}
             allItems={data.items}
           />
         ) : null;
       })}
       <DeliveryInfo />
       {selectedItem && (
-        <CustomProductModal item={selectedItem} onClose={handleCloseModal} />
+        <CustomProductModal item={selectedItem} onClose={closeModal} />
       )}
     </>
   );

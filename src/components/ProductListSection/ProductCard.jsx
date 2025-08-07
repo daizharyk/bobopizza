@@ -2,30 +2,14 @@
 import { useDispatch } from "react-redux";
 import styles from "./ProductCard.module.scss";
 import { addItemToCart } from "../utils/addItemToCart";
-import { useState, useEffect } from "react";
+import { useIsMobile } from "@/shared/lib/hooks/useIsMobile";
 
 const { default: Image } = require("next/image");
 
 const ProductCard = ({ item, onOpenModal, allItems = [] }) => {
   const dispatch = useDispatch();
-  const [isMobile, setIsMobile] = useState(false);
 
-useEffect(() => {
-  const mediaQuery = window.matchMedia('(max-width: 450px)');
-
-
-  const handleChange = (event) => {
-    setIsMobile(event.matches);
-  };
-
-  handleChange(mediaQuery); 
-  mediaQuery.addEventListener('change', handleChange);
-
-  return () => {
-    mediaQuery.removeEventListener('change', handleChange);
-  };
-}, []);
-
+  const isMobile = useIsMobile();
 
   const calculateComboPrice = (item, allItems) => {
     if (!Array.isArray(item.items)) return 0;

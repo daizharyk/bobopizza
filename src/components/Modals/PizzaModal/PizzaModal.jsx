@@ -20,6 +20,7 @@ const PizzaModal = ({ item, onClose }) => {
   const [selectedSize, setSelectedSize] = useState(
     item.variants[1]?.size || ""
   );
+
   const [selectedExtras, setSelectedExtras] = useState([]);
 
   const [selectedThickness, setSelectedThickness] = useState(
@@ -50,7 +51,6 @@ const PizzaModal = ({ item, onClose }) => {
   const selectedVariant = item.variants?.find(
     (variant) => variant.size === selectedSize
   );
-  console.log("selectedVariant", selectedVariant);
 
   const totalPrice = useMemo(() => {
     const totalExtrasPrice = pizzaExtras
@@ -128,21 +128,31 @@ const PizzaModal = ({ item, onClose }) => {
     <ModalWrapper onClose={onClose}>
       <div className={styles.content}>
         <div className={styles.content_img}>
-          <Image
-            width={480}
-            height={480}
-            src={item.image}
-            alt="Изображение пицы"
+          <div
             style={{
+              width: "480px",
+              height: "480px",
+              transition: "transform 0.3s ease",
               transform:
                 selectedSize === "35"
                   ? "scale(1)"
                   : selectedSize === "30"
                   ? "scale(0.8)"
                   : "scale(0.7)",
-              transition: "transform 0.3s ease",
             }}
-          />
+          >
+            <Image
+              width={480}
+              height={480}
+              src={item.image}
+              alt="Изображение пиццы"
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "contain",
+              }}
+            />
+          </div>
         </div>
         <div className={styles.conten__info_wrapper}>
           <div className={styles.content_info}>

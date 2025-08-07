@@ -1,14 +1,14 @@
 "use client";
 import Link from "next/link";
-import styles from "./Header.module.scss";
+import styles from "./DesktopHeader.module.scss";
 import HeaderTop from "../HeaderTop/HeaderTop";
-import LogoSvg from "../svg/LogoFullSvg";
-import RaitingStarSvg from "../svg/RaitingStarSvg";
-import DodoCoinSvg from "../svg/DodoCoinSvg";
+import LogoSvg from "../../../../components/svg/LogoFullSvg";
+import RaitingStarSvg from "../../../../components/svg/RaitingStarSvg";
+import DodoCoinSvg from "../../../../components/svg/DodoCoinSvg";
 import { useDispatch } from "react-redux";
 import { openLoginModal } from "@/features/authByPhone/model/slices/loginModalSlice";
 
-const Header = () => {
+const DesktopHeader = () => {
   const dispatch = useDispatch();
 
   const handleClick = () => {
@@ -52,4 +52,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default DesktopHeader;

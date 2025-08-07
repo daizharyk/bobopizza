@@ -1,11 +1,12 @@
-const LogoSvg = () => {
+const LogoFullSvg = (className) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="250"
       height="42"
-      fill="none"
+      fill="currentColor"
       viewBox="0 0 250 42"
+      className={className}
     >
       <g>
         <path
@@ -31,4 +32,4 @@ const LogoSvg = () => {
   );
 };
 
-export default LogoSvg;
+export default LogoFullSvg;

@@ -15,8 +15,9 @@ const NewsSlider = () => {
 
       <div className={styles.images_wrapper}>
         {news.map((cover) => (
-          <article key={cover.id}>
+          <article className={styles.article} key={cover.id}>
             <Image
+            className={styles.img}
               src={cover.cover}
               alt={`Обложка ${cover.id}`}
               width={1280}
