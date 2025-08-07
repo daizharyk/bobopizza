@@ -1,20 +1,20 @@
 "use client";
 
 import Link from "next/link";
-import LogoSvg from "../svg/LogoSvg";
+import LogoSvg from "../../../components/svg/LogoSvg";
 import styles from "./CategoriesBar.module.scss";
 import data from "@/data/data.json";
 import { useEffect, useRef, useState } from "react";
-import Cart from "../cart/Cart";
-import { useDispatch, useSelector } from "react-redux";
-import { FaArrowRight } from "react-icons/fa";
+import Cart from "../../../components/cart/Cart";
+import { useSelector } from "react-redux";
+import CartButton from "@/shared/ui/cart-button/CartButton";
+import { useCart } from "@/app/context/CartContext";
 
 const categories = data["categories"];
 
 const CategoriesBar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const { isOpen, setIsOpen } = useCart();
   const [isSticky, setIsSticky] = useState(false);
-  const [isHovered, setIsHovered] = useState(false);
   const [isClient, setIsClient] = useState(false);
   const itemsList = useSelector((state) => state.cart.items);
 
@@ -67,32 +67,7 @@ const CategoriesBar = () => {
             </nav>
             <Link href="/bonusactions">Акции</Link>
           </div>
-          <button
-            className={styles.cartButton}
-            onClick={() => setIsOpen(true)}
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
-          >
-            <span className={styles.text}>Корзина</span>
-            {isClient && totalQuantity > 0 && (
-              <span className={styles.countWrapper}>
-                <span
-                  className={`${styles.count} ${
-                    isHovered ? styles.hidden : ""
-                  }`}
-                >
-                  | {totalQuantity}
-                </span>
-                <span
-                  className={`${styles.arrow} ${
-                    isHovered ? styles.visible : ""
-                  }`}
-                >
-                  | <FaArrowRight />
-                </span>
-              </span>
-            )}
-          </button>
+          <CartButton />
         </div>
       </nav>
       <Cart isOpen={isOpen} onClose={() => setIsOpen(false)} />

@@ -2,8 +2,6 @@
 import styles from "./PopularOrders.module.scss";
 import data from "@/data/data.json";
 import Image from "next/image";
-import { useDispatch } from "react-redux";
-import { addItemToCart } from "../utils/addItemToCart";
 import { useModal } from "@/app/context/ModalContext";
 
 const { items } = data;
@@ -13,7 +11,7 @@ const popularPizzaIds = [10, 9, 8, 12];
 const popularOrders = items.filter((item) => popularPizzaIds.includes(item.id));
 
 const PopularOrders = () => {
-  const { selectedItem, openModal, closeModal } = useModal();
+  const {  openModal } = useModal();
 
   const handleAddToCart = (item) => {
     openModal(item);

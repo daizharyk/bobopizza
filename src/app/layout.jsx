@@ -1,16 +1,11 @@
 import "../styles/global.scss";
 
 import Footer from "@/components/footer/Footer";
-import CategoriesBar from "@/components/CategoriesBar/CategoriesBar";
 import { ReduxProvider } from "./providers";
-import NewsSlider from "@/components/NewsSlider/NewsSlider";
 import { Toaster } from "react-hot-toast";
 import CartLoader from "@/components/CartLoadr";
 import LoginModalWrapper from "@/features/authByPhone/ui/LoginModal";
 import Header from "@/widgets/Header/ui/Header/Header";
-
-import PopularOrders from "@/components/PopularOrders/PopularOrders";
-import { ModalProvider } from "./context/ModalContext";
 import ResponsiveLayout from "./ResponsiveLayout";
 
 export const metadata = {

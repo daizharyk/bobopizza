@@ -5,6 +5,7 @@
   justify-content: center;
   width: 100%;
   padding: 0 20px;
+
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -86,7 +87,6 @@
 .logo {
   display: none;
   left: -50px;
-  
 }
 .wrapper {
   display: flex;
@@ -120,6 +120,40 @@
       transition: 0.2s color ease-in-out;
       &:hover {
         color: var(--color-orange);
+      }
+    }
+  }
+}
+
+@media (max-width: 450px) {
+
+  .container {
+    height: 54px;
+    justify-content: flex-start;
+    overflow: auto;
+
+    &.blur-active {
+      backdrop-filter: blur(5px);
+      background-color: var(--white); // опционально
+    }
+
+    .categoryButton {
+      padding: 0 16px;
+      color: var(--dark-gray);
+      margin: 4px;
+      line-height: 32px;
+      font-size: var(--font-size14);
+      border-radius: 16px;
+      background-color: var(--light-gray-2);
+    }
+
+    .categoriesWrapper {
+      font-weight: 400;
+      ul {
+        gap: 0;
+      }
+      li {
+        padding: 0;
       }
     }
   }

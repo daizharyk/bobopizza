@@ -3,6 +3,12 @@ import styles from "./WithoutPigLabel.module.scss";
 const Label = () => {
   return (
     <section className={styles.container}>
+      <div className={styles.wrapper}>
+        <div>Без свинины</div>
+        <div className={styles.description}>
+          Мы готовим из цыпленка и говядины
+        </div>
+      </div>
       <svg
         width="45"
         height="45"
@@ -119,10 +125,6 @@ const Label = () => {
           fill="white"
         />
       </svg>
-      <div className={styles.wrapper}>
-        <div>Без свинины</div>
-        <div>Мы готовим из цыпленка и говядины</div>
-      </div>
     </section>
   );
 };

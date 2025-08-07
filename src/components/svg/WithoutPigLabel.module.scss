@@ -1,12 +1,19 @@
 .container {
   display: flex;
+  width: fit-content;
   justify-content: center;
-  gap: 12px;
-  padding: 32px 0;
   align-items: center;
+  gap: 20px;
+  padding: 12px 15px;
+  margin: 15px;
+
+  border: 1px solid rgb(224, 224, 224);
+  border-radius: 12px;
 }
 
 .wrapper {
-  font-size: var(--font-size16);
-  
+  font-size: var(--font-size15);
+}
+.description {
+  color: var(--light-dark-gray);
 }

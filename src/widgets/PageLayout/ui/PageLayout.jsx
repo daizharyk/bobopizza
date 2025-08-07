@@ -2,7 +2,7 @@
 
 import { useIsMobile } from "@/shared/lib/hooks/useIsMobile";
 import Header from "@/widgets/Header/ui/Header/Header";
-import CategoriesBar from "@/components/CategoriesBar/CategoriesBar";
+import CategoriesBar from "@/widgets/categories-bar/ui/CategoriesBar";
 import NewsSlider from "@/components/NewsSlider/NewsSlider";
 
 import Footer from "@/components/footer/Footer";

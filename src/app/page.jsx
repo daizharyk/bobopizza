@@ -1,11 +1,10 @@
 "use client";
 import DeliveryInfo from "@/components/Delivery Info/DeliveryInfo";
 import CustomProductModal from "@/components/Modals/CustomProductModal";
-import PopularOrders from "@/components/PopularOrders/PopularOrders";
 import ProductListSection from "@/components/ProductListSection/ProductListSection";
 import Label from "@/components/svg/WithoutPigLabel";
 import data from "@/data/data.json";
-import { useState } from "react";
+
 import { useModal } from "./context/ModalContext";
 
 export default function Home() {
@@ -14,7 +13,10 @@ export default function Home() {
   const { selectedItem, openModal, closeModal } = useModal();
   return (
     <>
-      <Label />
+      <div className="labelWrapper">
+        <Label />
+      </div>
+
       {data.categories.map(({ label, targetId }) => {
         const items =
           targetId === "combo"
