@@ -5,7 +5,7 @@ const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
-  console.log("isOpen in CartProvider", isOpen);
+
 
   return (
     <CartContext.Provider value={{ isOpen, setIsOpen }}>

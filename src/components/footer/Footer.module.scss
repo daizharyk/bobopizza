@@ -83,3 +83,16 @@
   display: flex;
   justify-content: flex-end;
 }
+
+@media (max-width: 450px){
+
+
+  .blockBot{
+  flex-direction: column;
+  margin: 20px  15px  ;
+
+  .section{
+    margin-bottom: 30px;
+  }
+  }
+}

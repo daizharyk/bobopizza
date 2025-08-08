@@ -3,9 +3,11 @@
 import Image from "next/image";
 import styles from "./DeliveryInfo.module.scss";
 import { useEffect, useState } from "react";
+import { useIsMobile } from "@/shared/lib/hooks/useIsMobile";
 
 const DeliveryInfo = () => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     if (!isPopupOpen) return;
@@ -21,7 +23,6 @@ const DeliveryInfo = () => {
           controls: ["zoomControl"],
         });
 
-        // Удалим лишние контролы
         map.controls.remove("trafficControl");
         map.controls.remove("geolocationControl");
         map.controls.remove("searchControl");
@@ -37,7 +38,7 @@ const DeliveryInfo = () => {
     };
     document.body.appendChild(script);
   }, [isPopupOpen]);
-
+  if (isMobile) return null;
   return (
     <section className={styles.container}>
       <h2>Доставка и оплата</h2>

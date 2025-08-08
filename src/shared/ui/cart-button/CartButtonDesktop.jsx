@@ -7,7 +7,7 @@ import { useCart } from "@/app/context/CartContext";
 export default function CartButtonDesktop() {
   const { isOpen, setIsOpen } = useCart(); 
 
-  console.log("isOpen", isOpen);
+
 
   const [isHovered, setIsHovered] = useState(false);
   const itemsList = useSelector((state) => state.cart.items);

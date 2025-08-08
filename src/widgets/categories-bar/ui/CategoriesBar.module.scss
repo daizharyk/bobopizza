@@ -21,7 +21,6 @@
     height: auto;
     padding: 8px 20px;
     color: var(--white);
-    font-family: var(--dodo);
     font-size: var(--font-size16);
     line-height: 24px;
     border-radius: 20px;
@@ -42,46 +41,6 @@
     cursor: pointer;
 
     font-size: 16px;
-  }
-
-  .countWrapper {
-    position: relative;
-    display: flex;
-    align-items: center;
-
-    width: 30px;
-    height: 20px;
-  }
-
-  .count,
-  .arrow {
-    position: absolute;
-
-    left: 0;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-  }
-
-  .count {
-    opacity: 1;
-  }
-
-  .arrow {
-    opacity: 0;
-    display: flex;
-
-    justify-content: center;
-    align-items: center;
-    transform: translateY(5px);
-  }
-
-  .hidden {
-    opacity: 0;
-    transform: translateY(-5px);
-  }
-
-  .visible {
-    opacity: 1;
-    transform: translateY(0);
   }
 }
 .logo {
@@ -115,6 +74,10 @@
     li {
       padding: 22px 0;
     }
+    .active {
+      color: var(--color-dark-orange);
+    
+    }
     a {
       display: flex;
       transition: 0.2s color ease-in-out;
@@ -126,7 +89,6 @@
 }
 
 @media (max-width: 450px) {
-
   .container {
     height: 54px;
     justify-content: flex-start;
@@ -146,9 +108,12 @@
       border-radius: 16px;
       background-color: var(--light-gray-2);
     }
-
+    .active {
+      color: var(--color-dark-orange);
+      background-color: var(--color-light-orange);
+    }
     .categoriesWrapper {
-      font-weight: 400;
+      font-weight: 600;
       ul {
         gap: 0;
       }
