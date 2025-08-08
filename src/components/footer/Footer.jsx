@@ -1,20 +1,30 @@
-const { default: SecretBuyer } = require("../svg/SecterBuyer");
+"use client";
+import { useIsMobile } from "@/shared/lib/hooks/useIsMobile";
 import AppStoreSvg from "../svg/AppStoreSvg";
 import PlayMarketSvg from "../svg/PlayMarketSvg";
+import SecretBuyer from "../svg/SecterBuyer";
 import styles from "./Footer.module.scss";
 import Link from "next/link";
 
+import ArrowLeft from "../svg/ArrowLeftSvg";
+
 const Footer = () => {
+  const isMobile = useIsMobile();
+
   return (
     <footer className={styles.footer}>
       <div className={styles.container}>
         <div className={styles.wrapper}>
           <div className={`${styles.block} ${styles.blockTop}`}>
             <SecretBuyer className={styles.svg} />
-            <div className={styles.text}>
-              Проверьте нашу кухню и получите додокоины — хватит на две пиццы
-            </div>
-            <button>Заполнить анкету</button>
+            <div className={styles.text}>Проверьте нашу кухню</div>
+            {!isMobile ? (
+              <button>Заполнить анкету</button>
+            ) : (
+              <Link href="/dodobook">
+                <ArrowLeft className={styles.arrow} />
+              </Link>
+            )}
           </div>
         </div>
         <div className={styles.foterInfoWrapper}>
