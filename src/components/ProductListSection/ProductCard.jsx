@@ -66,18 +66,21 @@ const ProductCard = ({ item, onOpenModal, allItems = [] }) => {
         <h3>{item.title}</h3>
         <p className={styles.description}>{item.ingredients}</p>
         <div className={styles.price_wrapper}>
-          <div className={styles.price}>
-            {isCombo
-              ? `${comboPrice.toLocaleString("ru-RU")} тг.`
-              : item.variants?.[0]?.price
-              ? `от ${Number(item.variants[0].price).toLocaleString(
-                  "ru-RU"
-                )} тг.`
-              : item.price
-              ? `${Number(item.price).toLocaleString("ru-RU")} тг.`
-              : "Цена не указана"}
-          </div>
-          <button onClick={handleAddToCart}>
+          {!isMobile && (
+            <div className={styles.price}>
+              {isCombo
+                ? `${comboPrice.toLocaleString("ru-RU")} тг.`
+                : item.variants?.[0]?.price
+                ? `от ${Number(item.variants[0].price).toLocaleString(
+                    "ru-RU"
+                  )} тг.`
+                : item.price
+                ? `${Number(item.price).toLocaleString("ru-RU")} тг.`
+                : "Цена не указана"}
+            </div>
+          )}
+
+          <button className={styles.addToCardButton} onClick={handleAddToCart}>
             {isMobile
               ? isCombo
                 ? `${comboPrice.toLocaleString("ru-RU")} тг.`

@@ -2,7 +2,6 @@
 import { useIsMobile } from "@/shared/lib/hooks/useIsMobile";
 import AppStoreSvg from "../svg/AppStoreSvg";
 import PlayMarketSvg from "../svg/PlayMarketSvg";
-import SecretBuyer from "../svg/SecterBuyer";
 import styles from "./Footer.module.scss";
 import Link from "next/link";
 
@@ -16,8 +15,8 @@ const Footer = () => {
       <div className={styles.container}>
         <div className={styles.wrapper}>
           <div className={`${styles.block} ${styles.blockTop}`}>
-            <SecretBuyer className={styles.svg} />
-            <div className={styles.text}>Проверьте нашу кухню</div>
+           
+            <div className={styles.text}>Станьте инспектором кухни</div>
             {!isMobile ? (
               <button>Заполнить анкету</button>
             ) : (

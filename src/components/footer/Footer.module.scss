@@ -34,7 +34,6 @@
 }
 
 .text {
-  padding-left: 20px;
   font-size: var(--font-size18);
   color: var(--white);
 }
@@ -84,8 +83,10 @@
 }
 
 @media (max-width: 450px) {
-  .wrapper {
+  .blockTop {
+    display: flex;
     justify-content: space-between;
+    padding: 0 20px;
   }
   .blockBot {
     flex-direction: column;
@@ -101,8 +102,10 @@
     width: 30px;
     height: 30px;
     align-items: center;
-
+    opacity: 0.6;
     display: flex;
     color: var(--white);
   }
+
+ 
 }

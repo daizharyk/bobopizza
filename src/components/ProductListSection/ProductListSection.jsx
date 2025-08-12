@@ -15,11 +15,12 @@ const ProductListSection = ({
     onOpenModal({ ...item, type: item.type || itemType });
   };
 
- 
-  
   return (
     <section id={id} className={styles.container}>
-      <h2>{title}</h2>
+      <div className={styles.title}>
+        <h2>{title}</h2>
+      </div>
+
       <div className={styles.wrapper}>
         {itemType === "pizzas" && (
           <ProductCard
