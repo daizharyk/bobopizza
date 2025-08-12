@@ -9,7 +9,7 @@ import ArrowLeft from "../svg/ArrowLeftSvg";
 
 const Footer = () => {
   const isMobile = useIsMobile();
-
+if (isMobile === null) return null;
   return (
     <footer className={styles.footer}>
       <div className={styles.container}>

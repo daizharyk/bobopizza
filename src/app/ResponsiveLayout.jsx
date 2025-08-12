@@ -9,6 +9,7 @@ import { CartProvider } from "./context/CartContext";
 
 export default function ResponsiveLayout({ children }) {
   const isMobile = useIsMobile();
+  if (isMobile === null) return null;
   return (
     <CartProvider>
       <ModalProvider>

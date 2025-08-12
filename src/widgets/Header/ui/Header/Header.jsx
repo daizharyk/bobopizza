@@ -6,6 +6,8 @@ import MobileHeader from "./MobileHeader";
 const Header = () => {
   const isMobile = useIsMobile();
 
+  if (isMobile === null) return null;
+  
   return isMobile ? <MobileHeader /> : <DesktopHeader />;
 };
 export default Header;

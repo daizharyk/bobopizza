@@ -10,7 +10,7 @@ const ProductCard = ({ item, onOpenModal, allItems = [] }) => {
   const dispatch = useDispatch();
 
   const isMobile = useIsMobile();
-
+if (isMobile === null) return null;
   const calculateComboPrice = (item, allItems) => {
     if (!Array.isArray(item.items)) return 0;
 
