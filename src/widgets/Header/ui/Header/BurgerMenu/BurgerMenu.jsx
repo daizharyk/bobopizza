@@ -22,6 +22,7 @@ const BurgerMenu = () => {
     }
 
     return () => {
+      document.documentElement.style.overflow = "";
       document.body.style.overflow = "";
     };
   }, [isOpen]);
