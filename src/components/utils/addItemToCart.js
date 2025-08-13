@@ -1,6 +1,6 @@
 // utils/addItemToCart.js
 
-import { addToCart } from "@/store/slices/cartSlice";
+import { addToCart } from "@/entites/cart/model/cartSlice";
 import { toast } from "react-hot-toast";
 
 export const addItemToCart = (dispatch, item, onClose) => {

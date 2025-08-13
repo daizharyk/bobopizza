@@ -2,31 +2,29 @@
 
 import Image from "next/image";
 import styles from "./Cart.module.scss";
-import Sauces from "./Sauces";
-import { CartCloseSVG } from "../svg/CartCloseSVG";
-import { createPortal } from "react-dom";
+import Sauces from "../../../components/cart/Sauces";
+import { CartCloseSVG } from "../../../components/svg/CartCloseSVG";
+
 import { useEffect, useState } from "react";
-import { MinusSvg } from "../svg/MinusSvg";
-import { PlusSvg } from "../svg/PlusSvg";
+import { MinusSvg } from "../../../components/svg/MinusSvg";
+import { PlusSvg } from "../../../components/svg/PlusSvg";
 import { useDispatch, useSelector } from "react-redux";
 import {
   decreaseQuantity,
   increaseQuantity,
   removeFromCart,
-} from "@/store/slices/cartSlice";
-import EmptyCartMessage from "./EmptyCartMessage";
-import ArrowLeft from "../svg/ArrowLeftSvg";
+} from "@/entites/cart/model/cartSlice";
+import EmptyCartMessage from "../../../components/cart/EmptyCartMessage";
+import ArrowLeft from "../../../components/svg/ArrowLeftSvg";
 
-
-const Cart = ({ isOpen, onClose }) => {
+const Cart = ({ onClose }) => {
   const itemsList = useSelector((state) => state.cart.items);
-  const [isBrowser, setIsBrowser] = useState(false);
+console.log("itemsList", itemsList);
+
   const [openSauces, setOpenSauces] = useState(false);
 
   const dispatch = useDispatch();
 
- 
-  
   const handleDeleteFromCart = (item) => {
     dispatch(removeFromCart(item));
   };
@@ -58,30 +56,8 @@ const Cart = ({ isOpen, onClose }) => {
 
 
 
-  useEffect(() => {
-    setIsBrowser(true);
-  }, []);
-
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-
-    return () => {
-      setOpenSauces(false);
-      document.body.style.overflow = "";
-    };
-  }, [isOpen]);
-
-  if (!isOpen || !isBrowser) return null;
-
-  const modalContent = (
+  return (
     <>
-      <div className={styles.overlay} onClick={onClose}>
-        {" "}
-      </div>
       <section
         className={`${styles.cart} ${openSauces ? styles.cartBlur : ""}`}
         onClick={(e) => e.stopPropagation()}
@@ -216,7 +192,6 @@ const Cart = ({ isOpen, onClose }) => {
                   </article>
                 ))}
               </div>
-
               <div className={styles.addToOrder}>
                 <h3 className={styles.title}>Добавить к заказу?</h3>
                 <button
@@ -263,8 +238,6 @@ const Cart = ({ isOpen, onClose }) => {
       />
     </>
   );
-
-  return createPortal(modalContent, document.getElementById("modal-root"));
 };
 
 export default Cart;

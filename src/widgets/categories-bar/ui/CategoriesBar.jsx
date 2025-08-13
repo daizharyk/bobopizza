@@ -5,20 +5,21 @@ import LogoSvg from "../../../components/svg/LogoSvg";
 import styles from "./CategoriesBar.module.scss";
 import data from "@/data/data.json";
 import { useEffect, useRef, useState } from "react";
-import Cart from "../../../components/cart/Cart";
 
 import CartButton from "@/shared/ui/cart-button/CartButton";
 import { useCart } from "@/app/context/CartContext";
+import CartModal from "@/features/cart-modal/ui/CartModal";
 
 const categories = data["categories"];
 
 const CategoriesBar = () => {
   const { isOpen, setIsOpen } = useCart();
   const [isSticky, setIsSticky] = useState(false);
-  const [isClient, setIsClient] = useState(false);
+
   const [activeCategory, setActiveCategory] = useState(null);
 
-  const containerRef = useRef(null);
+  const categoryRefs = useRef({});
+  const sentinelRef = useRef(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -28,13 +29,13 @@ const CategoriesBar = () => {
       { threshold: 0.1 }
     );
 
-    if (containerRef.current) {
-      observer.observe(containerRef.current);
+    if (sentinelRef.current) {
+      observer.observe(sentinelRef.current);
     }
 
     return () => {
-      if (containerRef.current) {
-        observer.unobserve(containerRef.current);
+      if (sentinelRef.current) {
+        observer.unobserve(sentinelRef.current);
       }
     };
   }, []);
@@ -61,19 +62,28 @@ const CategoriesBar = () => {
         }
       }
 
-      setActiveCategory(active); // даже если null
+      setActiveCategory(active);
     };
 
-    handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (activeCategory && categoryRefs.current[activeCategory]) {
+      categoryRefs.current[activeCategory].scrollIntoView({
+        behavior: "smooth",
+        inline: "center",
+        block: "nearest",
+      });
+    }
+  }, [activeCategory]);
+
   return (
     <>
+      <div ref={sentinelRef} style={{ height: 1 }}></div>
       <nav
-        ref={containerRef}
         className={`${styles.container} ${
           isSticky ? styles["blur-active"] : ""
         }`}
@@ -82,7 +92,7 @@ const CategoriesBar = () => {
           <div
             className={styles.categoriesWrapper}
             style={{
-              transform: `translateX(${isSticky ? 0 : -50}px)`,
+              transform: `translateX(${isSticky ? 0 : -60}px)`,
               transition: "transform 0.3s ease",
             }}
           >
@@ -90,7 +100,10 @@ const CategoriesBar = () => {
             <nav className={styles.categories}>
               <ul>
                 {categories.map((categori, index) => (
-                  <li key={index}>
+                  <li
+                    key={index}
+                    ref={(el) => (categoryRefs.current[categori.targetId] = el)}
+                  >
                     <Link
                       href={`/#${categori.targetId}`}
                       className={`${styles.categoryButton} ${
@@ -110,7 +123,7 @@ const CategoriesBar = () => {
           <CartButton />
         </div>
       </nav>
-      <Cart isOpen={isOpen} onClose={() => setIsOpen(false)} />
+      <CartModal isOpen={isOpen} onClose={() => setIsOpen(false)} />
     </>
   );
 };

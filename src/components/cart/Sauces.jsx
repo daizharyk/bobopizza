@@ -8,21 +8,37 @@ import {
   addToCart,
   decreaseQuantity,
   increaseQuantity,
-} from "@/store/slices/cartSlice";
+} from "@/entites/cart/model/cartSlice";
 import { PlusSvg } from "../svg/PlusSvg";
 import { MinusSvg } from "../svg/MinusSvg";
 import { useEffect, useRef } from "react";
-
+import { addItemToCart } from "../utils/addItemToCart";
 
 const sauces = data.items.filter((item) => item.type === "sauces");
-
 
 const Sauces = ({ openSauces, onClose, itemsList }) => {
   if (!openSauces) return null;
 
+
+
   const saucesRef = useRef(null);
 
   const dispatch = useDispatch();
+
+  // const preparedItem = {
+  //   id: sauces.id,
+  //   title: item.title,
+  //   image: item.image,
+  //   size: selectedSize,
+  //   sizeUnit: selectedVariant?.sizeUnit,
+  //   price: selectedVariant?.price,
+  //   customizable: item.customizable,
+  //   type: item.type,
+  // };
+
+  const handleAddToCart = () => {
+    addItemToCart(dispatch, preparedItem, onClose);
+  };
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -50,6 +66,7 @@ const Sauces = ({ openSauces, onClose, itemsList }) => {
       <div className={styles.sauces_wrapper}>
         {sauces.map((sauce) => {
           const sauceInCart = itemsList.find((item) => item.id === sauce.id);
+          console.log("sauceInCart", sauceInCart);
 
           return (
             <div ef={saucesRef} key={sauce.id} className={styles.wrapper}>
@@ -87,7 +104,7 @@ const Sauces = ({ openSauces, onClose, itemsList }) => {
                     onClick={() => dispatch(addToCart(sauce))}
                     className={styles.price}
                   >
-                    {sauce.price} тг
+                    {sauce.variants?.[0]?.price} тг
                   </button>
                 )}
               </div>

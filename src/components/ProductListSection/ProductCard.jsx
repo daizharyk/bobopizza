@@ -3,16 +3,20 @@ import { useDispatch } from "react-redux";
 import styles from "./ProductCard.module.scss";
 import { addItemToCart } from "../utils/addItemToCart";
 import { useIsMobile } from "@/shared/lib/hooks/useIsMobile";
+import DiscountSvg from "../svg/DiscountSvg";
 
 const { default: Image } = require("next/image");
 
 const ProductCard = ({ item, onOpenModal, allItems = [] }) => {
   const dispatch = useDispatch();
 
+  // console.log("item", item);
+
   const isMobile = useIsMobile();
-if (isMobile === null) return null;
+  if (isMobile === null) return null;
+
   const calculateComboPrice = (item, allItems) => {
-    if (!Array.isArray(item.items)) return 0;
+    if (!Array.isArray(item.items)) return { original: 0, discounted: 0 };
 
     let total = 0;
 
@@ -32,16 +36,27 @@ if (isMobile === null) return null;
         );
         price = matchedVariant?.price || 0;
       } else {
-        // fallback: первый вариант
         price = product.variants?.[0]?.price || product.price || 0;
       }
 
       total += price;
     }
-    return total;
+
+    // Цена без скидки
+    const originalPrice = total;
+
+    // Цена со скидкой и округлением на …90
+    let discountedPrice = total * 0.8;
+    discountedPrice = Math.ceil(discountedPrice / 100) * 100 - 10;
+
+    return {
+      original: originalPrice,
+      discounted: discountedPrice,
+    };
   };
 
-  const isCombo = item.comboItems && Array.isArray(item.comboItems);
+  // Использование
+  const isCombo = Array.isArray(item.items);
   const comboPrice = isCombo ? calculateComboPrice(item, allItems) : null;
 
   const handleAddToCart = () => {
@@ -67,36 +82,55 @@ if (isMobile === null) return null;
         <p className={styles.description}>{item.ingredients}</p>
         <div className={styles.price_wrapper}>
           {!isMobile && (
-            <div className={styles.price}>
-              {isCombo
-                ? `${comboPrice.toLocaleString("ru-RU")} тг.`
-                : item.variants?.[0]?.price
-                ? `от ${Number(item.variants[0].price).toLocaleString(
-                    "ru-RU"
-                  )} тг.`
-                : item.price
-                ? `${Number(item.price).toLocaleString("ru-RU")} тг.`
-                : "Цена не указана"}
+            <div className={styles.priceWrapper}>
+              {" "}
+              <div className={styles.price}>
+                {isCombo
+                  ? `${comboPrice.discounted.toLocaleString("ru-RU")} тг.`
+                  : item.variants?.[0]?.price
+                  ? `от ${Number(item.variants[0].price).toLocaleString(
+                      "ru-RU"
+                    )} тг.`
+                  : item.price
+                  ? `${Number(item.price).toLocaleString("ru-RU")} тг.`
+                  : "Цена не указана"}
+              </div>
+              {isCombo && (
+                <div className={styles.discountPrice}>
+                  <DiscountSvg className={styles.discountSvg} />
+                  <div className={styles.discountPriceText}>
+                    {comboPrice.original.toLocaleString("ru-RU")} тг.
+                  </div>
+                </div>
+              )}
             </div>
           )}
 
           <button className={styles.addToCardButton} onClick={handleAddToCart}>
             {isMobile
               ? isCombo
-                ? `${comboPrice.toLocaleString("ru-RU")} тг.`
+                ? `${comboPrice.discounted.toLocaleString("ru-RU")} тг.`
                 : item.variants?.[0]?.price
                 ? `от ${Number(item.variants[0].price).toLocaleString(
                     "ru-RU"
                   )} тг.`
                 : item.price
                 ? `${Number(item.price).toLocaleString("ru-RU")} тг.`
-                : "Цена не указана"
+                : "Собрать"
               : item.half
               ? "Собрать"
               : item.customizable
               ? "Выбрать"
               : "В корзину"}
           </button>
+          {isMobile && isCombo && (
+            <div className={styles.discountPrice}>
+              <DiscountSvg className={styles.discountSvg} />
+              <div className={styles.discountPriceText}>
+                {comboPrice.original.toLocaleString("ru-RU")} тг.
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </article>

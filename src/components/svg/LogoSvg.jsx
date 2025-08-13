@@ -3,8 +3,8 @@ const LogoSvg = (className) => {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 64 64"
-      width={26}
-      height={26}
+      width={32}
+      height={32}
       className={className}
     >
       <path

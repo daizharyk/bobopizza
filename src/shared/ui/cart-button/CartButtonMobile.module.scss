@@ -1,7 +1,33 @@
 .mobileCartButton {
   position: fixed;
-  bottom: 0;
-  width: 100%;
+  bottom: 16px;
+
   z-index: 1002;
-  
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  box-shadow: rgba(6, 5, 50, 0.56) 0px 2px 16px;
+  right: 16px;
+}
+
+
+
+.badge {
+  background-color: var(--color-orange);
+  width: 21px;
+  height: 21px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffff;
+  border-radius: 50%;
+  font-size: var(--font-size14);
+  position: absolute;
+
+  top: -0;
+  right: -0;
 }

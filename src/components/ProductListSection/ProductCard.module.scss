@@ -85,7 +85,7 @@
     }
   }
 }
-.price {
+.price.discountPriceText {
   font-size: var(--font-size20);
   font-weight: 600;
 
@@ -93,7 +93,26 @@
     font-size: var(--font-size16);
   }
 }
+
+.discountPrice {
+  position: relative;
+
+  .discountSvg {
+    position: absolute;
+    top: 5px;
+  }
+  .discountPriceText {
+    color: var(--light-dark-gray);
+  }
+}
 @media (max-width: 450px) {
+  .price_wrapper {
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+    margin-top: 16px;
+    align-items: center;
+  }
   .article {
     padding: 16px 0;
   }

@@ -1,6 +1,6 @@
 "use client";
 
-import { setCartItems } from "@/store/slices/cartSlice";
+import { setCartItems } from "@/entites/cart/model/cartSlice";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 

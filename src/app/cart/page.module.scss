@@ -1,0 +1,29 @@
+.container {
+  z-index: 9999;
+  position: absolute;
+  top: 0;
+  background-color: white;
+  height: 100vh;
+  width: 100%;
+
+  .cartTop {
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color2);
+    gap: 5px;
+    .arrow {
+      padding: 3px;
+
+      width: 35px;
+      height: 35px;
+      border-right: 1px solid var(--border-color2);
+    }
+    .logo {
+      height: 26px;
+      width: fit-content;
+      padding: 0 16px;
+    }
+  }
+}
