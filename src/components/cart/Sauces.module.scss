@@ -6,11 +6,13 @@
   position: relative;
   border-radius: 10px;
   position: fixed;
-  width: 430px;
+  width: 100%;
   right: 0;
   bottom: 0;
   z-index: 9996;
- 
+  @media (min-width: 450px) {
+    width: 430px;
+  }
 
   .close_button {
     position: absolute;
