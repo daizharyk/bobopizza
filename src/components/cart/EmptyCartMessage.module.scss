@@ -16,4 +16,13 @@
     font-size: var(--font-size14);
     white-space: pre-wrap;
   }
+  .button {
+    border-radius: 9999px;
+    background-color: var(--color-orange);
+    font-size: var(--font-size16);
+    padding: 16px 24px;
+    line-height: 24px;
+    margin-top: 10px;
+    color: var(--white);
+  }
 }

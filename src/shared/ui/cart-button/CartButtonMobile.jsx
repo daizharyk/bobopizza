@@ -8,6 +8,8 @@ export default function CartButtonMobile() {
   const itemsList = useSelector((state) => state.cart.items);
   const totalQuantity = itemsList.reduce((acc, i) => acc + i.quantity, 0);
 
+  if (itemsList.length === 0) return null;
+  
   const cartButtonMobile = (
     <Link href="/cart" className={styles.mobileCartButton}>
       <CartSvg />

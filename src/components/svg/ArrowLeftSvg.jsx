@@ -1,4 +1,4 @@
-const ArrowLeft = ({ className }) => {
+const ArrowLeft = ({ className, onClick }) => {
   return (
     <svg
       className={className}
@@ -7,6 +7,7 @@ const ArrowLeft = ({ className }) => {
       height="16"
       fill="currentColor"
       viewBox="0 0 16 16"
+      onClick={onClick}
     >
       <path
         fill="currentColor"

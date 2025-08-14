@@ -7,13 +7,13 @@ import BurgerMenu from "./BurgerMenu/BurgerMenu";
 
 const MobileHeader = () => {
   return (
-    <div className={styles.container}>
+    <header className={styles.container}>
       <Link className={styles.logoWrapper} href={"/"}>
         <LogoSvg className={styles.logo} />
         <span>ДОДО ПИЦЦА</span>
       </Link>
       <BurgerMenu className={styles.wrapper} />
-    </div>
+    </header>
   );
 };
 

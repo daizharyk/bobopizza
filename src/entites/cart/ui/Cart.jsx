@@ -5,7 +5,7 @@ import styles from "./Cart.module.scss";
 import Sauces from "../../../components/cart/Sauces";
 import { CartCloseSVG } from "../../../components/svg/CartCloseSVG";
 
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import { MinusSvg } from "../../../components/svg/MinusSvg";
 import { PlusSvg } from "../../../components/svg/PlusSvg";
 import { useDispatch, useSelector } from "react-redux";
@@ -19,7 +19,7 @@ import ArrowLeft from "../../../components/svg/ArrowLeftSvg";
 
 const Cart = ({ onClose }) => {
   const itemsList = useSelector((state) => state.cart.items);
-console.log("itemsList", itemsList);
+
 
   const [openSauces, setOpenSauces] = useState(false);
 
@@ -79,6 +79,8 @@ console.log("itemsList", itemsList);
               </div>
               <div className={styles.itemsList}>
                 {itemsList.map((item) => (
+          
+                  
                   <article key={item.id} className={styles.itemCart}>
                     <div className={styles.itemTop}>
                       {item.half ? (

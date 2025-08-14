@@ -6,18 +6,28 @@ import PopularOrders from "@/components/PopularOrders/PopularOrders";
 import { ModalProvider } from "./context/ModalContext";
 import { useIsMobile } from "@/shared/lib/hooks/useIsMobile";
 import { CartProvider } from "./context/CartContext";
+import { usePathname } from "next/navigation";
+import Header from "@/widgets/Header/ui/Header/Header";
+import Footer from "@/components/footer/Footer";
 
 export default function ResponsiveLayout({ children }) {
+  const pathname = usePathname();
+  const hideHeaderFooter = pathname.startsWith("/cart");
   const isMobile = useIsMobile();
   if (isMobile === null) return null;
   return (
     <CartProvider>
+      {!hideHeaderFooter && <Header />}
       <ModalProvider>
         {isMobile ? (
           <>
-            <NewsSlider />
-            <PopularOrders />
-            <CategoriesBar />
+            {!hideHeaderFooter && (
+              <>
+                <NewsSlider />
+                <PopularOrders />
+                <CategoriesBar />
+              </>
+            )}
           </>
         ) : (
           <>
@@ -26,10 +36,11 @@ export default function ResponsiveLayout({ children }) {
             <PopularOrders />
           </>
         )}
-        <div className="container">
-          <main>{children}</main>
-        </div>
+        <main className="container">
+          <>{children}</>
+        </main>
       </ModalProvider>
+      {!hideHeaderFooter && <Footer />}
     </CartProvider>
   );
 }
