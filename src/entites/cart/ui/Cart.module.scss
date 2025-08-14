@@ -7,7 +7,7 @@
   display: flex;
   padding: 0;
   margin: 0;
-  width: 430px;
+  width: 100%;
   top: 0;
   display: flex;
   flex-direction: column;
@@ -17,6 +17,7 @@
   right: 0;
   @media (min-width: 450px) {
     position: fixed;
+    width: 430px;
   }
   .closeButton {
     position: absolute;
@@ -198,7 +199,7 @@
     display: flex;
     flex-direction: column;
     background-color: var(--white);
-    box-shadow: 0px -6px 20px rgba(6, 5, 50, 0.3);
+    box-shadow: 0px -1px 5px rgba(6, 5, 10, 0.1);
     z-index: 2;
     padding: 16px 24px;
     .item_count {
