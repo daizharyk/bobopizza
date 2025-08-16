@@ -1,6 +1,6 @@
 import Image from "next/image";
 import styles from "./PizzaExtrasSelector.module.scss";
-import SelectedSvg from "../svg/ModalSvg/SelectedSvg";
+import SelectedSvg from "../../components/svg/ModalSvg/SelectedSvg";
 
 // components/PizzaExtrasSelector.jsx
 const PizzaExtrasSelector = ({
@@ -34,7 +34,7 @@ const PizzaExtrasSelector = ({
                   <SelectedSvg />
                 </div>
               )}
-              <Image src={item.image} alt={item.title} width={88} height={88} />
+              <Image className={styles.image} src={item.image} alt={item.title} width={88} height={88} />
               <h4 className={styles.title}>{item.title}</h4>
               <p className={styles.price}>{item.price}тг.</p>
             </button>

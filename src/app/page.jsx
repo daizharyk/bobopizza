@@ -1,7 +1,7 @@
 "use client";
 import DeliveryInfo from "@/components/Delivery Info/DeliveryInfo";
-import CustomProductModal from "@/components/Modals/CustomProductModal";
-import ProductListSection from "@/components/ProductListSection/ProductListSection";
+import CustomProductModal from "@/features/open-product-modal/ui/CustomProductModal";
+import ProductListSection from "@/entites/product/ui/ProductListSection";
 import Label from "@/components/svg/WithoutPigLabel";
 import data from "@/data/data.json";
 

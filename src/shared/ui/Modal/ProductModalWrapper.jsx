@@ -1,7 +1,7 @@
 // components/ModalWrapper.jsx
 import { createPortal } from "react-dom";
 import { useEffect, useState } from "react";
-import styles from "./ModalWrapper.module.scss";
+import styles from "./ProductModalWrapper.module.scss";
 
 const ModalWrapper = ({ children, onClose }) => {
   const [visible, setVisible] = useState(false);
@@ -13,7 +13,7 @@ const ModalWrapper = ({ children, onClose }) => {
       document.body.style.overflow = "";
     };
   }, []);
-  
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setVisible(true);

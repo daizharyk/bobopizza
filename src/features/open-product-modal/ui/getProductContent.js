@@ -1,29 +1,25 @@
+import ComboModal from "@/features/select-combo-product/ui/ComboContent";
+import PizzaHalfModal from "@/features/select-half-pizza/ui/PizzaHalfContent";
+import PizzaModal from "@/features/select-pizza-product/ui/PizzaContent";
+import SimpleProductModal from "@/features/select-simple-product/ui/SimpleProductContent";
 
-import ComboModal from "./ComboModal/ComboModal";
-import PizzaHalfModal from "./PizzaModal/PizzaHalfModal/PizzaHalfModal";
-import PizzaModal from "./PizzaModal/PizzaModal";
-import SimpleProductModal from "./SimpleProductModal/SimpleProductModal";
-
-const CustomProductModal = ({ item, onClose }) => {
+export const getProductContent = (item, onClose) => {
   if (!item) return null;
-
+  
   switch (item.type) {
     case "pizzas":
       return <PizzaModal item={item} onClose={onClose} />;
-
-      
     case "half-pizza":
       return <PizzaHalfModal item={item} onClose={onClose} />;
     case "combo":
       return <ComboModal item={item} onClose={onClose} />;
-
     case "cocktails":
     case "coffee":
     case "snacks":
+    case "sauces":
+    case "drinks":
       return <SimpleProductModal item={item} onClose={onClose} />;
     default:
       return null;
   }
 };
-
-export default CustomProductModal;

@@ -1,8 +1,15 @@
 .extra_content {
   padding: 14px 0 24px 0;
+  @media (max-width: 450px) {
+    padding: 0 10px;
+  }
   width: 100%;
   h3 {
     padding: 14px 0;
+    @media (max-width: 450px) {
+      font-size: var(--font-size16);
+      padding: 24px 0 12px 0;
+    }
   }
 }
 
@@ -10,6 +17,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0;
+
   &.pizza .article {
     margin: 0 8px 8px 0;
   }
@@ -33,6 +41,14 @@
     border-radius: 10px;
     transition: 0.2s all ease;
 
+    .image {
+      width: 100%;
+    }
+    @media (max-width: 450px) {
+      width: 118px;
+      height: 188px;
+    }
+
     &:hover {
       box-shadow: rgba(6, 5, 50, 0.12) 0px 0px 8px;
     }
@@ -45,7 +61,12 @@
     transition: opacity 0.3s ease, transform 0.3s ease;
   }
   .title {
+    font-weight: normal;
     font-size: var(--font-size12);
+  }
+  .price {
+    font-weight: 600;
+    font-size: var(--font-size16);
   }
   .selected {
     border: 1px solid var(--color-orange);

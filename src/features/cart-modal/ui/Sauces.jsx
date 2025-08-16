@@ -2,17 +2,17 @@
 import Image from "next/image";
 import styles from "./Sauces.module.scss";
 import data from "@/data/data.json";
-import { CartCloseSVG } from "../svg/CartCloseSVG";
+import { CartCloseSVG } from "../../../components/svg/CartCloseSVG";
 import { useDispatch } from "react-redux";
 import {
   addToCart,
   decreaseQuantity,
   increaseQuantity,
 } from "@/entites/cart/model/cartSlice";
-import { PlusSvg } from "../svg/PlusSvg";
-import { MinusSvg } from "../svg/MinusSvg";
+import { PlusSvg } from "../../../components/svg/PlusSvg";
+import { MinusSvg } from "../../../components/svg/MinusSvg";
 import { useEffect, useRef } from "react";
-import { addItemToCart } from "../utils/addItemToCart";
+import { addItemToCart } from "../../../components/utils/addItemToCart";
 
 const sauces = data.items.filter((item) => item.type === "sauces");
 

@@ -12,16 +12,21 @@ import Footer from "@/components/footer/Footer";
 
 export default function ResponsiveLayout({ children }) {
   const pathname = usePathname();
-  const hideHeaderFooter = pathname.startsWith("/cart");
+  const hiddenRoutes = ["/cart", "/product"];
+
+  const shouldHideLayout = hiddenRoutes.some((route) =>
+    pathname.startsWith(route)
+  );
+
   const isMobile = useIsMobile();
   if (isMobile === null) return null;
   return (
     <CartProvider>
-      {!hideHeaderFooter && <Header />}
+      {!shouldHideLayout && <Header />}
       <ModalProvider>
         {isMobile ? (
           <>
-            {!hideHeaderFooter && (
+            {!shouldHideLayout && (
               <>
                 <NewsSlider />
                 <PopularOrders />
@@ -40,7 +45,7 @@ export default function ResponsiveLayout({ children }) {
           <>{children}</>
         </main>
       </ModalProvider>
-      {!hideHeaderFooter && <Footer />}
+      {!shouldHideLayout && <Footer />}
     </CartProvider>
   );
 }

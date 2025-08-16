@@ -1,16 +1,17 @@
 "use client";
 import { useDispatch } from "react-redux";
 import styles from "./ProductCard.module.scss";
-import { addItemToCart } from "../utils/addItemToCart";
+import { addItemToCart } from "../../../components/utils/addItemToCart";
 import { useIsMobile } from "@/shared/lib/hooks/useIsMobile";
-import DiscountSvg from "../svg/DiscountSvg";
+import DiscountSvg from "../../../components/svg/DiscountSvg";
+import { useRouter } from "next/navigation";
 
 const { default: Image } = require("next/image");
 
 const ProductCard = ({ item, onOpenModal, allItems = [] }) => {
   const dispatch = useDispatch();
+  const router = useRouter();
 
-  // console.log("item", item);
 
   const isMobile = useIsMobile();
   if (isMobile === null) return null;
@@ -59,9 +60,17 @@ const ProductCard = ({ item, onOpenModal, allItems = [] }) => {
   const isCombo = Array.isArray(item.items);
   const comboPrice = isCombo ? calculateComboPrice(item, allItems) : null;
 
+  const handleCardClick = () => {
+    if (isMobile) {
+      router.push(`/product/${item.id}`);
+    } else {
+      onOpenModal(item);
+    }
+  };
+
   const handleAddToCart = () => {
     if (item.customizable) {
-      onOpenModal(item);
+      handleCardClick();
     } else {
       addItemToCart(dispatch, item);
     }
@@ -75,7 +84,7 @@ const ProductCard = ({ item, onOpenModal, allItems = [] }) => {
         alt={item.title}
         width={280}
         height={280}
-        onClick={() => onOpenModal(item)}
+        onClick={handleCardClick}
       />
       <div className={styles.info}>
         <h3>{item.title}</h3>

@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import styles from "./Cart.module.scss";
-import Sauces from "../../../components/cart/Sauces";
+import Sauces from "../../../features/cart-modal/ui/Sauces";
 import { CartCloseSVG } from "../../../components/svg/CartCloseSVG";
 
 import {  useState } from "react";
@@ -14,7 +14,7 @@ import {
   increaseQuantity,
   removeFromCart,
 } from "@/entites/cart/model/cartSlice";
-import EmptyCartMessage from "../../../components/cart/EmptyCartMessage";
+import EmptyCartMessage from "../../../features/cart-modal/ui/EmptyCartMessage";
 import ArrowLeft from "../../../components/svg/ArrowLeftSvg";
 
 const Cart = ({ onClose }) => {
