@@ -21,7 +21,7 @@ export default function Home() {
         const items =
           targetId === "combo"
             ? data.combo
-            : data.items?.filter((item) => item.type === targetId);
+            : data.items?.filter((item) => item.category === targetId);
 
         return items.length > 0 ? (
           <ProductListSection

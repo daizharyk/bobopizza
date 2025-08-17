@@ -5,19 +5,20 @@ import SimpleProductModal from "@/features/select-simple-product/ui/SimpleProduc
 
 export const getProductContent = (item, onClose) => {
   if (!item) return null;
+
   
   switch (item.type) {
-    case "pizzas":
+    case "pizza":
       return <PizzaModal item={item} onClose={onClose} />;
     case "half-pizza":
       return <PizzaHalfModal item={item} onClose={onClose} />;
     case "combo":
       return <ComboModal item={item} onClose={onClose} />;
-    case "cocktails":
+    case "cocktail":
     case "coffee":
-    case "snacks":
-    case "sauces":
-    case "drinks":
+    case "snack":
+    case "sauce":
+    case "drink":
       return <SimpleProductModal item={item} onClose={onClose} />;
     default:
       return null;

@@ -13,6 +13,7 @@ const ProductCard = ({ item, onOpenModal, allItems = [] }) => {
   const router = useRouter();
 
 
+
   const isMobile = useIsMobile();
   if (isMobile === null) return null;
 
@@ -67,6 +68,18 @@ const ProductCard = ({ item, onOpenModal, allItems = [] }) => {
       onOpenModal(item);
     }
   };
+  function getMinVariantPrice(item) {
+    if (!item?.variants || item.variants.length === 0) {
+      return "Собрать";
+    }
+
+    if (item.variants.length === 1) {
+      return `${Number(item.variants[0].price).toLocaleString("ru-RU")} тг.`;
+    }
+
+    const minPrice = Math.min(...item.variants.map((v) => Number(v.price)));
+    return `от ${minPrice.toLocaleString("ru-RU")} тг.`;
+  }
 
   const handleAddToCart = () => {
     if (item.customizable) {
@@ -96,13 +109,7 @@ const ProductCard = ({ item, onOpenModal, allItems = [] }) => {
               <div className={styles.price}>
                 {isCombo
                   ? `${comboPrice.discounted.toLocaleString("ru-RU")} тг.`
-                  : item.variants?.[0]?.price
-                  ? `от ${Number(item.variants[0].price).toLocaleString(
-                      "ru-RU"
-                    )} тг.`
-                  : item.price
-                  ? `${Number(item.price).toLocaleString("ru-RU")} тг.`
-                  : "Цена не указана"}
+                  : getMinVariantPrice(item) || "Цена не указана"}
               </div>
               {isCombo && (
                 <div className={styles.discountPrice}>
@@ -118,17 +125,9 @@ const ProductCard = ({ item, onOpenModal, allItems = [] }) => {
           <button className={styles.addToCardButton} onClick={handleAddToCart}>
             {isMobile
               ? isCombo
-                ? `${comboPrice.discounted.toLocaleString("ru-RU")} тг.`
-                : item.variants?.[0]?.price
-                ? `от ${Number(item.variants[0].price).toLocaleString(
-                    "ru-RU"
-                  )} тг.`
-                : item.price
-                ? `${Number(item.price).toLocaleString("ru-RU")} тг.`
-                : "Собрать"
-              : item.half
-              ? "Собрать"
-              : item.customizable
+                ? `от ${comboPrice.discounted.toLocaleString("ru-RU")} тг.`
+                : getMinVariantPrice(item)
+              : item.variants?.length > 1
               ? "Выбрать"
               : "В корзину"}
           </button>

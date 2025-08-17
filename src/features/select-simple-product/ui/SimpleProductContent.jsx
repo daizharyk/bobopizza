@@ -12,6 +12,8 @@ const SimpleProductModal = ({ item, onClose }) => {
   const [selectedSize, setSelectedSize] = useState(
     item.variants?.[0]?.size || ""
   );
+
+  
   const sizeGroupRef = useRef(null);
   const sizeLabelRefs = useRef([]);
   const sizeIndicatorRef = useRef(null);
@@ -105,7 +107,7 @@ const SimpleProductModal = ({ item, onClose }) => {
         </div>
 
         <AddToCartButton
-          selectedVariant={selectedVariant?.price}
+          totalPrice={selectedVariant?.price}
           onAddToCart={handleAddToCart}
           className={styles.cartBottomSpacing}
         />

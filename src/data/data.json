@@ -18,7 +18,7 @@
     },
     {
       "label": "Кофе",
-      "targetId": "coffee"
+      "targetId": "coffes"
     },
     {
       "label": "Напитки",
@@ -103,12 +103,14 @@
       "image": "https://i.ibb.co/1f5K1r4g/Salad-appetizer.webp",
       "items": [
         {
-          "type": "snacks",
+          "category": "snacks",
+          "type": "snack",
           "defaultId": 15,
           "replaceable": false
         },
         {
-          "type": "snacks",
+          "category": "snacks",
+          "type": "snack",
           "defaultId": 16,
           "replaceable": true
         }
@@ -123,13 +125,15 @@
       "image": "https://i.ibb.co/yFtJVm7K/2pizza.webp",
       "items": [
         {
-          "type": "pizzas",
+          "category": "pizzas",
+          "type": "pizza",
           "defaultId": 9,
           "replaceable": true,
           "preferredSize": 30
         },
         {
-          "type": "pizzas",
+          "category": "pizzas",
+          "type": "pizza",
           "defaultId": 284,
           "replaceable": true,
           "preferredSize": 30
@@ -145,19 +149,22 @@
       "image": "https://i.ibb.co/JRzLvsc0/3pizza.webp",
       "items": [
         {
-          "type": "pizzas",
+          "category": "pizzas",
+          "type": "pizza",
           "defaultId": 10,
           "replaceable": true,
           "preferredSize": 30
         },
         {
-          "type": "pizzas",
+          "category": "pizzas",
+          "type": "pizza",
           "defaultId": 9,
           "replaceable": true,
           "preferredSize": 30
         },
         {
-          "type": "pizzas",
+          "category": "pizzas",
+          "type": "pizza",
           "defaultId": 284,
           "replaceable": true,
           "preferredSize": 30
@@ -173,22 +180,26 @@
       "image": "https://i.ibb.co/bjjmcpPs/Combo-Breakfast-for-two.webp",
       "items": [
         {
-          "type": "snacks",
+          "category": "snacks",
+          "type": "snack",
           "defaultId": 14357,
           "replaceable": true
         },
         {
-          "type": "snacks",
+          "category": "snacks",
+          "type": "snack",
           "defaultId": 14357,
           "replaceable": true
         },
         {
+          "category": "coffes",
           "type": "coffee",
           "defaultId": 22463,
           "preferredSize": 0.3,
           "replaceable": true
         },
         {
+          "category": "coffes",
           "type": "coffee",
           "defaultId": 22463,
           "preferredSize": 0.3,
@@ -205,18 +216,21 @@
       "image": "https://i.ibb.co/ynhD9dXd/Pizza-and-2-appetizers.webp",
       "items": [
         {
-          "type": "pizzas",
+          "category": "pizzas",
+          "type": "pizza",
           "defaultId": 10,
           "replaceable": true,
           "preferredSize": 30
         },
         {
-          "type": "snacks",
+          "category": "snacks",
+          "type": "snack",
           "defaultId": 14,
           "replaceable": true
         },
         {
-          "type": "snacks",
+          "category": "snacks",
+          "type": "snack",
           "defaultId": 16,
           "replaceable": true
         }
@@ -230,24 +244,28 @@
       "image": "https://i.ibb.co/XrD2YdZd/Combo-for-3990.webp",
       "items": [
         {
-          "type": "pizzas",
+          "category": "pizzas",
+          "type": "pizza",
           "defaultId": 284,
           "preferredSize": 25,
           "replaceable": true
         },
         {
-          "type": "snacks",
+          "category": "snacks",
+          "type": "snack",
           "defaultId": 1551,
           "replaceable": true
         },
         {
-          "type": "drinks",
+          "category": "drinks",
+          "type": "drink",
           "defaultId": 18,
           "preferredSize": 0.5,
           "replaceable": true
         },
         {
-          "type": "sauces",
+          "category": "sauces",
+          "type": "sauce",
           "defaultId": 25,
           "replaceable": true
         }
@@ -255,6 +273,18 @@
     }
   ],
   "items": [
+    {
+      "id": 9999,
+      "customizable": true,
+      "available": true,
+      "title": "Пицца из половинок",
+      "ingredients": "Соберите свою пиццу 35 см с двумя разными вкусами",
+      "image": "https://i.ibb.co.com/50ttRbf/0195dc96b2da74aabee7a671f52b731b.webp",
+      "variants": [],
+      "type": "half-pizza",
+      "category": "pizzas",
+      "half": true
+    },
     {
       "id": 5,
       "customizable": true,
@@ -296,7 +326,8 @@
           ]
         }
       ],
-      "type": "pizzas"
+      "category": "pizzas",
+      "type": "pizza"
     },
     {
       "id": 6,
@@ -335,7 +366,8 @@
           ]
         }
       ],
-      "type": "pizzas"
+      "category": "pizzas",
+      "type": "pizza"
     },
     {
       "id": 7,
@@ -374,7 +406,8 @@
           ]
         }
       ],
-      "type": "pizzas"
+      "category": "pizzas",
+      "type": "pizza"
     },
     {
       "id": 8,
@@ -413,7 +446,8 @@
           ]
         }
       ],
-      "type": "pizzas"
+      "category": "pizzas",
+      "type": "pizza"
     },
     {
       "id": 9,
@@ -452,7 +486,8 @@
           ]
         }
       ],
-      "type": "pizzas"
+      "category": "pizzas",
+      "type": "pizza"
     },
     {
       "id": 10,
@@ -491,7 +526,8 @@
           ]
         }
       ],
-      "type": "pizzas"
+      "category": "pizzas",
+      "type": "pizza"
     },
     {
       "id": 11,
@@ -530,7 +566,8 @@
           ]
         }
       ],
-      "type": "pizzas"
+      "category": "pizzas",
+      "type": "pizza"
     },
     {
       "id": 284,
@@ -573,7 +610,8 @@
           ]
         }
       ],
-      "type": "pizzas"
+      "category": "pizzas",
+      "type": "pizza"
     },
     {
       "id": 1551,
@@ -591,7 +629,8 @@
           "price": 1790
         }
       ],
-      "type": "snacks"
+      "category": "snacks",
+      "type": "snack"
     },
     {
       "id": 12,
@@ -609,7 +648,8 @@
           "price": 1550
         }
       ],
-      "type": "snacks"
+      "category": "snacks",
+      "type": "snack"
     },
     {
       "id": 13,
@@ -627,29 +667,38 @@
           "price": 1900
         }
       ],
-      "type": "snacks"
+      "category": "snacks",
+      "type": "snack"
     },
     {
       "id": 14,
-      "customizable": false,
+      "customizable": true,
       "available": true,
       "title": "Картофель из печи",
       "image": "https://i.ibb.co.com/60f0mBvg/free.webp",
       "ingredients": "Запеченная в печи картошка, привычный вкус, мало масла",
       "variants": [
         {
+          "size": "Стандартная",
+          "sizeUnit": "",
+          "weight": 80,
+          "weightUnit": "г",
+          "price": 950
+        },
+        {
           "size": "Большая",
           "sizeUnit": "",
           "weight": 160,
           "weightUnit": "г",
-          "price": 1300
+          "price": 1350
         }
       ],
-      "type": "snacks"
+      "category": "snacks",
+      "type": "snack"
     },
     {
       "id": 15,
-      "customizable": false,
+      "customizable": true,
       "available": true,
       "title": "Салат Цезарь",
       "image": "https://i.ibb.co.com/PGRZ7v5n/salat-sezar.webp",
@@ -663,11 +712,12 @@
           "price": 2100
         }
       ],
-      "type": "snacks"
+      "category": "snacks",
+      "type": "snack"
     },
     {
       "id": 16,
-      "customizable": false,
+      "customizable": true,
       "available": true,
       "title": "Додстер",
       "image": "https://i.ibb.co.com/tpDnL3M4/Dodster.webp",
@@ -681,11 +731,12 @@
           "price": 1790
         }
       ],
-      "type": "snacks"
+      "category": "snacks",
+      "type": "snack"
     },
     {
       "id": 17,
-      "customizable": false,
+      "customizable": true,
       "available": true,
       "title": "Грибной Стартер",
       "image": "https://i.ibb.co.com/JWvMbC1Q/Mushroom-Starter.webp",
@@ -699,11 +750,12 @@
           "price": 1550
         }
       ],
-      "type": "snacks"
+      "category": "snacks",
+      "type": "snack"
     },
     {
       "id": 14357,
-      "customizable": false,
+      "customizable": true,
       "available": true,
       "title": "Омлет с томатами в пите",
       "image": "https://i.ibb.co/wFTmw32x/019635f913d4750895be6059c02cb10c.jpg",
@@ -717,7 +769,8 @@
           "price": 1500
         }
       ],
-      "type": "snacks"
+      "category": "snacks",
+      "type": "snack"
     },
     {
       "id": 180,
@@ -749,7 +802,8 @@
           ]
         }
       ],
-      "type": "drinks"
+      "category": "drinks",
+      "type": "drink"
     },
     {
       "id": 18,
@@ -781,7 +835,8 @@
           ]
         }
       ],
-      "type": "drinks"
+      "category": "drinks",
+      "type": "drink"
     },
     {
       "id": 19,
@@ -813,7 +868,8 @@
           ]
         }
       ],
-      "type": "cocktails"
+      "category": "cocktails",
+      "type": "cocktail"
     },
     {
       "id": 20,
@@ -845,7 +901,8 @@
           ]
         }
       ],
-      "type": "cocktails"
+      "category": "cocktails",
+      "type": "cocktail"
     },
     {
       "id": 21,
@@ -863,6 +920,7 @@
           "price": 1200
         }
       ],
+      "category": "coffes",
       "type": "coffee"
     },
     {
@@ -900,6 +958,7 @@
         }
       ],
 
+      "category": "coffes",
       "type": "coffee"
     },
     {
@@ -936,6 +995,7 @@
           ]
         }
       ],
+      "category": "coffes",
       "type": "coffee"
     },
     {
@@ -972,6 +1032,7 @@
           ]
         }
       ],
+      "category": "coffes",
       "type": "coffee"
     },
     {
@@ -1008,6 +1069,7 @@
           ]
         }
       ],
+      "category": "coffes",
       "type": "coffee"
     },
     {
@@ -1016,7 +1078,8 @@
       "available": true,
       "image": "https://i.ibb.co.com/MDT68sSC/Cheesy.webp",
       "ingredients": "Фирменный соус со вкусом расплавленного сыра для бортиков пиццы и горячих закусок",
-      "type": "sauces",
+      "category": "sauces",
+      "type": "sauce",
       "variants": [
         {
           "weight": 25,
@@ -1034,7 +1097,8 @@
       "title": "Чесночный",
       "image": "https://i.ibb.co.com/8nHNN0fM/019570dcbd6e76f1a307f4551b945e0d.webp",
       "ingredients": "Фирменный соус с чесночным вкусом для бортиков пиццы и горячих закусок",
-      "type": "sauces",
+      "category": "sauces",
+      "type": "sauce",
       "variants": [
         {
           "weight": 25,
@@ -1052,7 +1116,8 @@
       "title": "Барбекю",
       "image": "https://i.ibb.co.com/RGtQZD8L/bbq.webp",
       "ingredients": "Фирменный соус с дымным ароматом для бортиков пиццы и горячих закусок",
-      "type": "sauces",
+      "category": "sauces",
+      "type": "sauce",
       "variants": [
         {
           "weight": 25,
@@ -1070,7 +1135,8 @@
       "title": "Медово-горчичный",
       "image": "https://i.ibb.co.com/sJF2Mx9z/Honey-Mustard.webp",
       "ingredients": "Фирменный медово-горчичный соус со жгучей сладостью для бортиков пиццы и горячих закусок",
-      "type": "sauces",
+      "category": "sauces",
+      "type": "sauce",
       "variants": [
         {
           "weight": 25,
@@ -1088,7 +1154,8 @@
       "title": "Соус Цезарь",
       "image": "https://i.ibb.co.com/BVDqZYmQ/Caesar-sauce.webp",
       "ingredients": "Мягкий соус для заправки овощных салатов и салата «Цезарь»",
-      "type": "sauces",
+      "category": "sauces",
+      "type": "sauce",
       "variants": [
         {
           "weight": 30,
@@ -1106,7 +1173,8 @@
       "title": "Малиновое варенье",
       "image": "https://i.ibb.co.com/C3CG01Rq/Raspberry-jam.webp",
       "ingredients": "Идеально к сырникам",
-      "type": "sauces",
+      "category": "sauces",
+      "type": "sauce",
       "variants": [
         {
           "weight": 25,
