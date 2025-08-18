@@ -3,27 +3,26 @@ import { useEffect, useMemo, useState, useRef } from "react";
 import { calculatePrice } from "../../services/calculatePrice";
 import { buildHalfPizza } from "../../services/buildHalfPizza";
 import thicknessOptions from "../../config/thicknessOptions";
+import { useIsMobile } from "@/shared/lib/hooks/useIsMobile";
 
 export function usePizzaHalf(item, onClose, addItemToCart, dispatch) {
   const [selectedThickness, setSelectedThickness] = useState(
     thicknessOptions[0]
   );
+  const [showInfo, setShowInfo] = useState(false);
   const [showWarning, setShowWarning] = useState(false);
   const [selectedSides, setSelectedSides] = useState({
     left: null,
     right: null,
   });
+  const { totalPrice, left, right } = calculatePrice(selectedSides);
 
   const groupRef = useRef(null);
   const traditionalRef = useRef(null);
   const thinRef = useRef(null);
   const indicatorRef = useRef(null);
   const refs = useRef([]);
-  const totalPrice = useMemo(
-    () => calculatePrice(selectedSides),
-    [selectedSides]
-  );
-
+  const isMobile = useIsMobile();
   const halfPizza = useMemo(
     () => buildHalfPizza(item, selectedSides, selectedThickness, totalPrice),
     [item, selectedSides, selectedThickness, totalPrice]
@@ -81,5 +80,10 @@ export function usePizzaHalf(item, onClose, addItemToCart, dispatch) {
     refs,
     thicknessOptions,
     setSelectedSides,
+    isMobile,
+    left,
+    right,
+    showInfo,
+    setShowInfo,
   };
 }

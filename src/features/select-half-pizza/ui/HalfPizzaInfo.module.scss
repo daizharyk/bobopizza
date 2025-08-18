@@ -5,6 +5,31 @@
   width: 410px;
   padding: 15px;
 
+  &.dragging {
+    transition: none; // во время таща убираем плавность
+  }
+
+  .go_to_button {
+    width: fit-content;
+    transform: rotate(-90deg);
+  }
+  @media (max-width: 450px) {
+    position: absolute;
+    bottom: 0;
+    background-color: #fff;
+    width: 100%;
+    z-index: 9999;
+    overflow: auto;
+
+    transform: translate3d(0, 100%, 0); /* по умолчанию спрятан снизу */
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+
+    &.active {
+      transform: translate3d(0, 0, 0); /* выезжает вверх */
+      opacity: 1;
+    }
+  }
   .content_info {
     display: flex;
     flex-direction: column;
@@ -15,6 +40,11 @@
       justify-content: center;
       display: flex;
 
+      @media (max-width: 450px) {
+        padding-left: 17px;
+        width: 343px;
+        height: 343px;
+      }
       .left_image {
         position: absolute;
 
@@ -24,6 +54,11 @@
           black 48%,
           transparent 48%
         );
+
+        @media (max-width: 450px) {
+          width: 100%;
+          height: 100%;
+        }
       }
 
       .right_image {
@@ -35,6 +70,11 @@
           transparent 48%,
           black 48%
         );
+
+        @media (max-width: 450px) {
+          width: 100%;
+          height: 100%;
+        }
       }
 
       .pizza_svg_top {

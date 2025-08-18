@@ -4,6 +4,7 @@ import styles from "./HalfPizzaInfo.module.scss";
 import PizzaSvg from "@/components/svg/ModalSvg/PizzaSvg";
 import AddToCartButton from "@/shared/ui/AddToCartButton/AddToCartButton";
 import GoToButton from "@/shared/ui/GoToButton/GoToButton";
+import { useBottomSheet } from "@/shared/ui/useBottomSheet/useBottomSheet";
 
 const HalfPizzaInfo = ({
   selectedSides,
@@ -18,10 +19,39 @@ const HalfPizzaInfo = ({
   traditionalRef,
   thinRef,
   setShowInfo,
+  isMobile,
+  showInfo,
 }) => {
+  const {
+    panelRef,
+    dragging,
+    dragOffset,
+    handleTouchStart,
+    handleTouchMove,
+    handleTouchEnd,
+  } = useBottomSheet({
+    onClose: () => setShowInfo(false),
+    isActive: showInfo,
+    isMobile,
+  });
+
   return (
-    <div className={styles.content__info_wrapper}>
-      <GoToButton onClick={() => setShowInfo(false)} />
+    <div
+      ref={panelRef}
+      className={`${styles.content__info_wrapper} ${
+        showInfo ? styles.active : ""
+      } ${dragging ? styles.dragging : ""}`}
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
+      style={
+        isMobile && showInfo && dragging
+          ? { transform: `translate3d(0, ${dragOffset}px, 0)` }
+          : undefined
+      }
+    >
+      {isMobile && <GoToButton className={styles.go_to_button} onClick={() => setShowInfo(false)} />}
+
       <div className={styles.content_info}>
         <div className={styles.top_image_wrapper}>
           {selectedSides.left && (
