@@ -80,5 +80,6 @@ export function usePizzaHalf(item, onClose, addItemToCart, dispatch) {
     totalPrice,
     refs,
     thicknessOptions,
+    setSelectedSides,
   };
 }

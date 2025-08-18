@@ -3,6 +3,7 @@ import Image from "next/image";
 import styles from "./HalfPizzaInfo.module.scss";
 import PizzaSvg from "@/components/svg/ModalSvg/PizzaSvg";
 import AddToCartButton from "@/shared/ui/AddToCartButton/AddToCartButton";
+import GoToButton from "@/shared/ui/GoToButton/GoToButton";
 
 const HalfPizzaInfo = ({
   selectedSides,
@@ -16,9 +17,11 @@ const HalfPizzaInfo = ({
   showWarning,
   traditionalRef,
   thinRef,
+  setShowInfo,
 }) => {
   return (
     <div className={styles.content__info_wrapper}>
+      <GoToButton onClick={() => setShowInfo(false)} />
       <div className={styles.content_info}>
         <div className={styles.top_image_wrapper}>
           {selectedSides.left && (
@@ -43,7 +46,6 @@ const HalfPizzaInfo = ({
         </div>
 
         <div className={styles.pizza_info}>
-
           <div className={styles.pizza_label_wrapper}>
             <div className={styles.image_wrapper}>
               {selectedSides.left && (
@@ -75,7 +77,6 @@ const HalfPizzaInfo = ({
             )}
           </div>
 
-     
           <div className={styles.pizza_label_wrapper}>
             <div className={styles.image_wrapper}>
               {selectedSides.right && (

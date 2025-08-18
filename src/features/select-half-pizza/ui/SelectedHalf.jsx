@@ -1,8 +1,18 @@
 import Image from "next/image";
 
 import styles from "./SelectedHalf.module.scss";
+import { useIsMobile } from "@/shared/lib/hooks/useIsMobile";
 
-const SelectedHalf = ({ pizzas, selectedSides, handlePizzaClick, refs }) => {
+const SelectedHalf = ({
+  pizzas,
+  selectedSides,
+  handlePizzaClick,
+  refs,
+  bothSelected,
+  setShowInfo,
+  totalPrice,
+}) => {
+  const isMobile = useIsMobile();
   return (
     <div className={styles.select_half}>
       <h2 className={styles.title}>
@@ -39,6 +49,7 @@ const SelectedHalf = ({ pizzas, selectedSides, handlePizzaClick, refs }) => {
                   alt={pizza.title}
                   width={138}
                   height={138}
+                  className={styles.pizza_img}
                   style={{ objectFit: "contain" }}
                 />
               </div>
@@ -51,6 +62,19 @@ const SelectedHalf = ({ pizzas, selectedSides, handlePizzaClick, refs }) => {
           </div>
         ))}
       </div>
+      {isMobile && (
+        <button
+          className={`${styles.combineBtn} ${
+            !bothSelected ? styles.disabled : ""
+          }`}
+          disabled={!bothSelected}
+          onClick={() => setShowInfo(true)}
+        >
+          {bothSelected
+            ? `Объединить половинку за ${totalPrice} ₸`
+            : "Выберите вторую половинку"}
+        </button>
+      )}
     </div>
   );
 };
