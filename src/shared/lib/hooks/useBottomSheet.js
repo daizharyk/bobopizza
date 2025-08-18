@@ -33,9 +33,6 @@ export function useBottomSheet({ onClose, isActive, isMobile }) {
 
   const handleTouchMove = (e) => {
     if (!dragging) return;
-    if (panelRef.current && panelRef.current.contains(e.target)) {
-      e.preventDefault();
-    }
 
     const y = e.touches[0].clientY;
     const dy = Math.max(0, y - dragStartYRef.current); // только вниз

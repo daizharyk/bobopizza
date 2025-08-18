@@ -4,7 +4,8 @@ import styles from "./HalfPizzaInfo.module.scss";
 import PizzaSvg from "@/components/svg/ModalSvg/PizzaSvg";
 import AddToCartButton from "@/shared/ui/AddToCartButton/AddToCartButton";
 import GoToButton from "@/shared/ui/GoToButton/GoToButton";
-import { useBottomSheet } from "@/shared/ui/useBottomSheet/useBottomSheet";
+import { useBottomSheet } from "@/shared/lib/hooks/useBottomSheet";
+import { useDisablePullToRefresh } from "@/shared/lib/hooks/useDisablePullToRefresh";
 
 const HalfPizzaInfo = ({
   selectedSides,
@@ -35,6 +36,8 @@ const HalfPizzaInfo = ({
     isMobile,
   });
 
+  useDisablePullToRefresh(panelRef, showInfo);
+
   return (
     <div
       ref={panelRef}
@@ -50,7 +53,12 @@ const HalfPizzaInfo = ({
           : undefined
       }
     >
-      {isMobile && <GoToButton className={styles.go_to_button} onClick={() => setShowInfo(false)} />}
+      {isMobile && (
+        <GoToButton
+          className={styles.go_to_button}
+          onClick={() => setShowInfo(false)}
+        />
+      )}
 
       <div className={styles.content_info}>
         <div className={styles.top_image_wrapper}>
