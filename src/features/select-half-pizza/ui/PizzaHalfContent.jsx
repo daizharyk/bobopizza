@@ -7,7 +7,6 @@ import data from "@/data/data.json";
 import { usePizzaHalf } from "../model/hooks/usePizzaHalf";
 import SelectedHalf from "./SelectedHalf";
 import HalfPizzaInfo from "./HalfPizzaInfo";
-import { useState } from "react";
 
 const pizzas = data["items"].filter((item) => item.type === "pizza");
 

@@ -34,7 +34,6 @@ export function useBottomSheet({ onClose, isActive, isMobile }) {
   const handleTouchMove = (e) => {
     if (!dragging) return;
     if (panelRef.current && panelRef.current.contains(e.target)) {
-      // Блокируем pull-to-refresh
       e.preventDefault();
     }
 
