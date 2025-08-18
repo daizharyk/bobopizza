@@ -4,7 +4,7 @@ import GraphSvg from "@/components/svg/AboutUsPageSVG/GraphSvg";
 import styles from "./SameTasteEverywhere.module.scss";
 import SVGComponent from "@/components/svg/AboutUsPageSVG/ThreeSvg";
 import { useRef } from "react";
-import { useInView } from "@/hooks/useInView";
+import { useInView } from "@/shared/lib/hooks/useInView";
 
 const SameTasteEverywhere = () => {
   const svgRef = useRef(null);

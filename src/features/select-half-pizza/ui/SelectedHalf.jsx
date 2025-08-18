@@ -12,6 +12,8 @@ const SelectedHalf = ({
   setShowInfo,
   totalPrice,
 }) => {
+  console.log("selectedSides", selectedSides);
+
   const isMobile = useIsMobile();
   return (
     <div className={styles.select_half}>
@@ -63,17 +65,33 @@ const SelectedHalf = ({
         ))}
       </div>
       {isMobile && (
-        <button
-          className={`${styles.combineBtn} ${
-            !bothSelected ? styles.disabled : ""
-          }`}
-          disabled={!bothSelected}
-          onClick={() => setShowInfo(true)}
-        >
-          {bothSelected
-            ? `Объединить половинку за ${totalPrice} ₸`
-            : "Выберите вторую половинку"}
-        </button>
+        <div className={styles.combine_wrapper}>
+          <div className={styles.selected_pizzas}>
+            <div className={styles.side_wrapper}>
+              <div className={styles.left_side}>
+                {selectedSides.left?.title}
+              </div>
+              <div className={styles.price}></div>
+            </div>
+            <div className={styles.side_wrapper}>
+              <div className={styles.right_side}>
+                {selectedSides.right?.title}
+              </div>
+              <div className={styles.price}>{selectedSides.right?.price}</div>
+            </div>
+          </div>
+          <button
+            className={`${styles.combineBtn} ${
+              !bothSelected ? styles.disabled : ""
+            }`}
+            disabled={!bothSelected}
+            onClick={() => setShowInfo(true)}
+          >
+            {bothSelected
+              ? `Объединить половинку за ${totalPrice} ₸`
+              : "Выберите вторую половинку"}
+          </button>
+        </div>
       )}
     </div>
   );

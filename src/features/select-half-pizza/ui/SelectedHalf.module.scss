@@ -1,18 +1,22 @@
 .select_half {
   padding: 20px;
-
+  position: relative;
   overflow-y: scroll;
 
   @media (max-width: 450px) {
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   .title {
     margin: 20px 12px 10px;
     font-size: var(--font-size26);
     @media (max-width: 450px) {
       font-size: var(--font-size20);
-
+      width: 70%;
       text-align: center;
+      margin: 8px 0;
     }
   }
 
@@ -30,7 +34,10 @@
     text-align: center;
     cursor: pointer;
     width: 138px;
-
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     overflow: hidden;
 
     @media (max-width: 450px) {
@@ -81,24 +88,84 @@
     }
 
     .pizza_title {
-      margin-top: 4px;
+      margin-top: 5px;
       font-weight: 400;
       font-size: var(--font-size16);
+
+      @media (max-width: 450px) {
+        font-size: var(--font-size12);
+      }
     }
 
     .pizza_price {
       color: var(--light-dark-gray);
       line-height: 18px;
       font-size: var(--font-size16);
+
+      @media (max-width: 450px) {
+        font-size: var(--font-size12);
+      }
+    }
+  }
+  .combine_wrapper {
+    position: absolute;
+    background: blur(5px);
+    width: 100%;
+    bottom: 0;
+    border-top: 1px solid var(--light-dark-gray-2);
+
+    .selected_pizzas {
+      padding: 5px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .side_wrapper {
+        display: flex;
+        flex-direction: column;
+      }
+      .left_side {
+        padding: 5px 15px;
+        border-right: 1px solid var(--light-dark-gray-2);
+      }
+      .right_side {
+        padding: 5px 15px;
+      }
+    }
+    .combineBtn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 48px;
+      width: 100%;
+      padding: 12px 24px;
+      font-size: var(--font-size16);
+      border-radius: 9999px;
+      margin: 16px 0;
+      background-color: var(--color-orange);
+      color: #fff;
     }
   }
 }
+
 .selected {
   border: 1px solid var(--color-orange);
   border-radius: 16px;
   transform: scale(0.9);
   width: fit-content;
+  height: fit-content;
+  position: relative;
+
   @media (max-width: 450px) {
     transform: scale(1);
+    &::after {
+      content: "×";
+      position: absolute;
+      top: 0px;
+      right: 6px;
+      font-size: 26px;
+      color: var(--color-orange);
+      pointer-events: none;
+    }
   }
 }

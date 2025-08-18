@@ -3,14 +3,12 @@ import { useDispatch } from "react-redux";
 import pizzaExtras from "@/data/pizzaExtras.json";
 import { addItemToCart } from "@/components/utils/addItemToCart";
 import { useRouter } from "next/navigation";
+import thicknessOptions from "@/features/select-half-pizza/config/thicknessOptions";
 
 export const usePizzaSelection = (item, onClose) => {
   const dispatch = useDispatch();
   const router = useRouter();
-  const thicknessOptions = [
-    { value: "Традиционное", key: "traditional" },
-    { value: "Тонкое", key: "thin" },
-  ];
+
 
   const [selectedSize, setSelectedSize] = useState(
     item.variants[1]?.size || ""

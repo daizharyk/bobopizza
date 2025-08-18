@@ -17,10 +17,10 @@ export default async function ProductPage({ params }) {
   if (!item) {
     return <div>Товар не найден</div>;
   }
-  console.log("item", item);
+
   return (
     <div className={styles.container}>
-      <GoToMenuButton />
+      <GoToMenuButton className={styles.button} />
       <div className={styles.content}>{getProductContent(item)}</div>
     </div>
   );

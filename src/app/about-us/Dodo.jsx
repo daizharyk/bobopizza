@@ -2,7 +2,7 @@
 
 import SVGComponent from "@/components/svg/AboutUsPageSVG/FirstSvg";
 import styles from "./Dodo.module.scss";
-import { useInView } from "@/hooks/useInView";
+import { useInView } from "@/shared/lib/hooks/useInView";
 import { useRef } from "react";
 
 const Dodo = () => {

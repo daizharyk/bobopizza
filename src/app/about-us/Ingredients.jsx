@@ -3,7 +3,7 @@
 import SecondSvg from "@/components/svg/AboutUsPageSVG/SecondSvg";
 import styles from "./Ingredients.module.scss";
 import { useRef } from "react";
-import { useInView } from "@/hooks/useInView";
+import { useInView } from "@/shared/lib/hooks/useInView";
 
 export default function Ingredients() {
   const ref = useRef(null);

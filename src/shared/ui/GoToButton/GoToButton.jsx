@@ -3,7 +3,7 @@ import styles from "./GoToButton.module.scss";
 import ArrowLeft from "@/components/svg/ArrowLeftSvg";
 import { useRouter } from "next/navigation";
 
-export default function GoToButton({ to, onClick, back }) {
+export default function GoToButton({ to, onClick, back, className }) {
   const router = useRouter();
 
   const handleClick = () => {
@@ -18,5 +18,9 @@ export default function GoToButton({ to, onClick, back }) {
     }
   };
 
-  return <ArrowLeft className={styles.arrow} onClick={handleClick} />;
+  return (
+    <div className={className}>
+      <ArrowLeft className={styles.arrow} onClick={handleClick} />
+    </div>
+  );
 }

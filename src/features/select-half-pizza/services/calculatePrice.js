@@ -3,12 +3,18 @@ export const calculatePrice = (selectedSides) => {
 
   let price = 0;
 
+  const get35Price = (pizza) => {
+    if (!pizza?.variants) return 0;
+    const variant = pizza.variants.find((v) => v.size === 35);
+    return variant ? variant.price / 2 : 0;
+  };
+
   if (selectedSides.left) {
-    price += selectedSides.left.variants[2].price / 2;
+    price += get35Price(selectedSides.left);
   }
 
   if (selectedSides.right) {
-    price += selectedSides.right.variants[2].price / 2;
+    price += get35Price(selectedSides.right);
   }
 
   return Math.round(price);

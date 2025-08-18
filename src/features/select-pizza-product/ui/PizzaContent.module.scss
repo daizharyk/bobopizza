@@ -9,6 +9,12 @@
 
   @media (max-width: 450px) {
     flex-direction: column;
+    padding-top: 50px;
+    position: relative;
+    justify-content: flex-start;
+
+    overflow-y: auto;
+    overflow-x: hidden;
     height: 100%;
   }
   .content_img {
