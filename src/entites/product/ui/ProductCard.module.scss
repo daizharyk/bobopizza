@@ -20,14 +20,13 @@
   width: 100%;
   max-width: 280px;
   height: auto;
-
+  transition: transform 0.3s ease;
   @media (max-width: 1430px) {
     max-width: 233px;
   }
   @media (max-width: 450px) {
     max-width: 135px;
   }
-  transition: transform 0.3s ease;
 
   &:hover {
     transform: translateY(10px);

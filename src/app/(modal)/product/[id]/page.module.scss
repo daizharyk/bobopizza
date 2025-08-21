@@ -1,7 +1,7 @@
 .container {
   height: 100vh;
   position: relative;
-  overflow-y: auto;
+  overflow-y: hidden;
 
   .button {
     position: absolute;

@@ -1,11 +1,14 @@
 .container {
   display: flex;
-  justify-content: space-between;
+
   align-items: center;
   justify-content: center;
   width: 100%;
+  height: auto;
   padding: 0 20px;
 
+  margin-left: auto;
+  margin-right: auto;
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -17,18 +20,20 @@
     box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
   }
 
-  button {
+  .categoryButton {
     align-self: center;
     height: auto;
-    padding: 8px 20px;
-    color: var(--white);
-    font-size: var(--font-size16);
+    padding: 22px 0;
+    color: #000;
+
+    font-size: var(--font-size14);
     line-height: 24px;
     border-radius: 20px;
-    background-color: var(--color-orange);
+    background: none;
     transition: 0.2s background ease-in-out;
+
     &:hover {
-      background-color: var(--color-dark-orange);
+      color: var(--color-dark-orange);
     }
   }
 
@@ -46,15 +51,18 @@
 }
 .logo {
   display: none;
-  left: -50px;
 }
 .wrapper {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 1280px;
   margin: 0 auto;
   position: relative;
 
+  @media (max-width: 1430px) {
+    width: 1024px;
+  }
   .popup {
     position: absolute;
     z-index: 9999;
@@ -72,13 +80,11 @@
 
     gap: 20px;
     font-size: var(--font-size14);
-    li {
-      padding: 22px 0;
-    }
+  
     .active {
       color: var(--color-dark-orange);
     }
-    a {
+    .categoryButton {
       display: flex;
       transition: 0.2s color ease-in-out;
       &:hover {

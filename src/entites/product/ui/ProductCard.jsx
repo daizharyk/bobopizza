@@ -5,15 +5,15 @@ import { addItemToCart } from "../../../components/utils/addItemToCart";
 import { useIsMobile } from "@/shared/lib/hooks/useIsMobile";
 import DiscountSvg from "../../../components/svg/DiscountSvg";
 import { useRouter } from "next/navigation";
+import { useScrollRestoration } from "@/shared/lib/hooks/useScrollRestoration";
 
 const { default: Image } = require("next/image");
 
 const ProductCard = ({ item, onOpenModal, allItems = [] }) => {
   const dispatch = useDispatch();
   const router = useRouter();
-
-
-
+ 
+  const saveScroll = useScrollRestoration();
   const isMobile = useIsMobile();
   if (isMobile === null) return null;
 
@@ -62,8 +62,9 @@ const ProductCard = ({ item, onOpenModal, allItems = [] }) => {
   const comboPrice = isCombo ? calculateComboPrice(item, allItems) : null;
 
   const handleCardClick = () => {
+      saveScroll(); 
     if (isMobile) {
-      router.push(`/product/${item.id}`);
+      router.push(`/product/${item.id}`, { shallow: true });
     } else {
       onOpenModal(item);
     }

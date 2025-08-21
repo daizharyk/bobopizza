@@ -6,13 +6,14 @@ import CartLoader from "@/components/CartLoadr";
 import LoginModalWrapper from "@/features/authByPhone/ui/LoginModal";
 
 import ResponsiveLayout from "./ResponsiveLayout";
+import { siteCongfig } from "@/config/site.config";
 
 export const metadata = {
-  title: "DodoPizza Clone",
-  description: "Клон сайта DodoPizza - заказать пиццу онлайн",
+  title: siteCongfig.title,
+  description: siteCongfig.description,
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children, modal }) {
   return (
     <html lang="ru">
       <head>
@@ -21,7 +22,6 @@ export default function RootLayout({ children }) {
       <body>
         <ReduxProvider>
           <CartLoader />
-
           <LoginModalWrapper />
           <Toaster
             position="top-right"
@@ -30,10 +30,10 @@ export default function RootLayout({ children }) {
               duration: 2500,
             }}
           />
- 
-            <ResponsiveLayout>{children}</ResponsiveLayout>
-      
-
+          <ResponsiveLayout>
+            {children}
+            {modal}
+          </ResponsiveLayout>
           <div id="modal-root" />
         </ReduxProvider>
       </body>

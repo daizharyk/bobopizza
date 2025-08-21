@@ -39,7 +39,7 @@ const HalfPizzaInfo = ({
   useDisablePullToRefresh(panelRef, showInfo);
 
   return (
-    <div
+    <section
       ref={panelRef}
       className={`${styles.content__info_wrapper} ${
         showInfo ? styles.active : ""
@@ -82,70 +82,82 @@ const HalfPizzaInfo = ({
           )}
           <PizzaSvg className={styles.pizza_svg_top} />
         </div>
-
-        <div className={styles.pizza_info}>
-          <div className={styles.pizza_label_wrapper}>
-            <div className={styles.image_wrapper}>
-              {selectedSides.left && (
-                <Image
-                  src={selectedSides.left.image}
-                  alt={selectedSides.left.title}
-                  width={68}
-                  height={68}
-                  className={styles.left_image}
+        {!isMobile ? (
+          <article className={styles.pizza_info}>
+            <div className={styles.pizza_label_wrapper}>
+              <div className={styles.image_wrapper}>
+                {selectedSides.left && (
+                  <Image
+                    src={selectedSides.left.image}
+                    alt={selectedSides.left.title}
+                    width={68}
+                    height={68}
+                    className={styles.left_image}
+                  />
+                )}
+                <PizzaSvg
+                  className={`${styles.pizza_svg} ${
+                    selectedSides.left ? styles.svg_faded : ""
+                  }`}
                 />
-              )}
-              <PizzaSvg
-                className={`${styles.pizza_svg} ${
-                  selectedSides.left ? styles.svg_faded : ""
-                }`}
-              />
-            </div>
-            {selectedSides.left ? (
-              <div className={styles.pizza_info}>
-                <div className={styles.pizza_title}>
-                  {selectedSides.left.title}
-                </div>
-                <div className={styles.ingredients_label}>
-                  {selectedSides.left.ingredients}
-                </div>
               </div>
-            ) : (
-              <div className={styles.pizza_label}>Выбери левую половинку</div>
-            )}
-          </div>
+              {selectedSides.left ? (
+                <div className={styles.pizza_info}>
+                  <div className={styles.pizza_title}>
+                    {selectedSides.left.title}
+                  </div>
+                  <div className={styles.ingredients_label}>
+                    {selectedSides.left.ingredients}
+                  </div>
+                </div>
+              ) : (
+                <div className={styles.pizza_label}>Выбери левую половинку</div>
+              )}
+            </div>
 
-          <div className={styles.pizza_label_wrapper}>
-            <div className={styles.image_wrapper}>
-              {selectedSides.right && (
-                <Image
-                  src={selectedSides.right.image}
-                  alt={selectedSides.right.title}
-                  width={68}
-                  height={68}
-                  className={styles.right_image}
+            <div className={styles.pizza_label_wrapper}>
+              <div className={styles.image_wrapper}>
+                {selectedSides.right && (
+                  <Image
+                    src={selectedSides.right.image}
+                    alt={selectedSides.right.title}
+                    width={68}
+                    height={68}
+                    className={styles.right_image}
+                  />
+                )}
+                <PizzaSvg
+                  className={`${styles.pizza_svg} ${
+                    selectedSides.right ? styles.svg_faded : ""
+                  }`}
                 />
-              )}
-              <PizzaSvg
-                className={`${styles.pizza_svg} ${
-                  selectedSides.right ? styles.svg_faded : ""
-                }`}
-              />
-            </div>
-            {selectedSides.right ? (
-              <div className={styles.pizza_info}>
-                <div className={styles.pizza_title}>
-                  {selectedSides.right.title}
-                </div>
-                <div className={styles.ingredients_label}>
-                  {selectedSides.right.ingredients}
-                </div>
               </div>
-            ) : (
-              <div className={styles.pizza_label}>Выбери правую половинку</div>
-            )}
+              {selectedSides.right ? (
+                <div className={styles.pizza_info}>
+                  <div className={styles.pizza_title}>
+                    {selectedSides.right.title}
+                  </div>
+                  <div className={styles.ingredients_label}>
+                    {selectedSides.right.ingredients}
+                  </div>
+                </div>
+              ) : (
+                <div className={styles.pizza_label}>
+                  Выбери правую половинку
+                </div>
+              )}
+            </div>
+          </article>
+        ) : (
+          <div className={styles.info_mobile}>
+            <div
+              className={styles.title}
+            >{`${selectedSides.left?.title} + ${selectedSides.right?.title}`}</div>
+            <div
+              className={styles.size}
+            >{`35см, ${selectedThickness.value} тесто 35`}</div>
           </div>
-        </div>
+        )}
       </div>
 
       <div className={styles.pizza_size_wrapper}>
@@ -176,11 +188,32 @@ const HalfPizzaInfo = ({
             ))}
           </div>
         </div>
+        {isMobile && (
+          <div className={styles.pizza_info_mobile}>
+            <div className={styles.pizza_side}>
+              <div className={styles.pizza_title}>
+                {selectedSides.left?.title}
+              </div>
+              <div className={styles.ingredients}>
+                {selectedSides.left?.ingredients}
+              </div>
+            </div>
 
+            <div className={styles.pizza_side}>
+              <div className={styles.pizza_title}>
+                {selectedSides.right?.title}
+              </div>
+              <div className={styles.ingredients}>
+                {selectedSides.right?.ingredients}
+              </div>
+            </div>
+          </div>
+        )}
         <div className={styles.add_to_cart}>
           <AddToCartButton
             onAddToCart={handleAddToCart}
             totalPrice={totalPrice}
+            className={styles.add_to_cart_button}
           />
           {showWarning && (
             <div className={styles.choose_notice}>
@@ -189,7 +222,7 @@ const HalfPizzaInfo = ({
           )}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

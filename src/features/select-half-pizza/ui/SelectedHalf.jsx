@@ -62,33 +62,14 @@ const SelectedHalf = ({
       </div>
       {isMobile && (
         <div className={styles.combine_wrapper}>
-          {(selectedSides?.left || selectedSides?.right) && (
-            <div className={styles.selected_pizzas}>
-              <div className={styles.side_wrapper}>
-                <div className={styles.left_side}>
-                  {selectedSides.left === null
-                    ? "Левая половина"
-                    : selectedSides.left?.title}
-                </div>
-                <div className={styles.price}>{left}</div>
-              </div>
-              <div className={styles.divider}></div>
-              <div className={styles.side_wrapper}>
-                <div className={styles.right_side}>
-                  {selectedSides.right === null
-                    ? "Правая половина"
-                    : selectedSides.right?.title}
-                </div>
-                <div className={styles.price}>{right}</div>
-              </div>
-            </div>
-          )}
-
           <CombineButton
             bothSelected={bothSelected}
             selectedSides={selectedSides}
             totalPrice={totalPrice}
             setShowInfo={setShowInfo}
+            className={styles.combine_button}
+            left={left}
+            right={right}
           />
         </div>
       )}

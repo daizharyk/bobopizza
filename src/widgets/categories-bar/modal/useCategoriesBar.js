@@ -2,8 +2,6 @@ import { useState, useEffect, useRef } from "react";
 import { categories } from "../lib/categories";
 import { useIsMobile } from "@/shared/lib/hooks/useIsMobile";
 
-
-
 export function useCategoriesBar() {
   const [isSticky, setIsSticky] = useState(false);
 
@@ -11,6 +9,9 @@ export function useCategoriesBar() {
   const categoryRefs = useRef({});
   const sentinelRef = useRef(null);
   const isMobile = useIsMobile();
+
+  const ignoreScroll = useRef(false);
+
 
 
   useEffect(() => {
@@ -31,10 +32,14 @@ export function useCategoriesBar() {
       }
     };
   }, []);
+
   useEffect(() => {
     const handleScroll = () => {
+      if (ignoreScroll.current) return;
+
       const scrollPosition = window.scrollY + window.innerHeight / 3;
 
+ 
       let active = null;
 
       for (let i = 0; i < categories.length; i++) {
@@ -52,7 +57,6 @@ export function useCategoriesBar() {
           }
         }
       }
-
       setActiveCategory(active);
     };
 
@@ -70,7 +74,27 @@ export function useCategoriesBar() {
         block: "nearest",
       });
     }
-  }, [activeCategory, isMobile]);
+  }, [activeCategory]);
 
-  return { isSticky, activeCategory, categoryRefs, sentinelRef };
+  const handleCategoryClick = (targetId) => {
+    ignoreScroll.current = true;
+    setActiveCategory(targetId);
+
+    const el = document.getElementById(targetId);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
+
+    setTimeout(() => {
+      ignoreScroll.current = false;
+    }, 600);
+  };
+
+  return {
+    isSticky,
+    activeCategory,
+    categoryRefs,
+    sentinelRef,
+    handleCategoryClick,
+  };
 }

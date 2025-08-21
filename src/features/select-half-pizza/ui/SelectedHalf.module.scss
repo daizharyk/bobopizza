@@ -5,6 +5,7 @@
 
   @media (max-width: 450px) {
     padding: 0;
+
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -14,8 +15,10 @@
     font-size: var(--font-size26);
     @media (max-width: 450px) {
       font-size: var(--font-size20);
-      width: 70%;
+      width: 60%;
       text-align: center;
+      font-weight: normal;
+
       margin: 8px 0;
     }
   }
@@ -109,44 +112,13 @@
   }
   .combine_wrapper {
     position: absolute;
-    background: blur(5px);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     width: 100%;
     bottom: 0;
     border-top: 1px solid var(--light-dark-gray-2);
 
-    .selected_pizzas {
-      padding: 5px 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-      height: 48px;
-      .side_wrapper {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-        font-size: var(--font-size12);
-        .price {
-          color: var(--light-dark-gray);
-        }
-      }
-
-      .divider {
-        width: 1px;
-        height: 100%;
-        background-color: var(--light-dark-gray-2);
-        margin: 0 16px;
-      }
-
-      .left_side {
-        padding: 5px 15px;
-      }
-      .right_side {
-        padding: 5px 15px;
-      }
-    }
-
+   
   }
   .left-selected {
     clip-path: inset(0 50% 0 0);

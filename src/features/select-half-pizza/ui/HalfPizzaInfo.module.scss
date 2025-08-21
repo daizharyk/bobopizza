@@ -148,6 +148,15 @@
         }
       }
     }
+
+    .info_mobile {
+      .title {
+        font-size: var(--font-size24);
+      }
+      .size {
+        font-size: var(--font-size14);
+      }
+    }
   }
   .pizza_size_wrapper {
     padding-top: 20px;
@@ -248,4 +257,25 @@
 .cartBottomSpacing {
   margin-top: auto;
   margin-bottom: 20px;
+}
+
+@media (max-width: 450px) {
+  .pizza_info_mobile {
+    .divider {
+      border-bottom: 1px solid rgb(226, 226, 233);
+    }
+
+    .pizza_side {
+      padding: 16px 0;
+
+      .pizza_title {
+        margin-bottom: 4px;
+        font-size: var(--font-size20);
+        font-weight: 600;
+      }
+      .ingredients {
+        font-size: var(--font-size14);
+      }
+    }
+  }
 }

@@ -3,49 +3,56 @@
   display: flex;
   align-items: center;
   gap: 6px;
-
+  padding: 12px 24px;
+  height: fit-content;
+  border-radius: 9999px;
   border: none;
   cursor: pointer;
-
+  background-color: var(--color-orange);
+  color: var(--white);
   font-size: 16px;
-}
+  transition: background-color 0.2s ease-in-out;
+  &:hover {
+    background-color: var(--color-dark-orange);
+  }
 
-.countWrapper {
-  position: relative;
-  display: flex;
-  align-items: center;
+  .countWrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
 
-  width: 30px;
-  height: 20px;
-}
+    width: 30px;
+    height: 20px;
+  }
 
-.count,
-.arrow {
-  position: absolute;
+  .count,
+  .arrow {
+    position: absolute;
 
-  left: 0;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
+    left: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
 
-.count {
-  opacity: 1;
-}
+  .count {
+    opacity: 1;
+  }
 
-.arrow {
-  opacity: 0;
-  display: flex;
+  .arrow {
+    opacity: 0;
+    display: flex;
 
-  justify-content: center;
-  align-items: center;
-  transform: translateY(5px);
-}
+    justify-content: center;
+    align-items: center;
+    transform: translateY(5px);
+  }
 
-.hidden {
-  opacity: 0;
-  transform: translateY(-5px);
-}
+  .hidden {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
 
-.visible {
-  opacity: 1;
-  transform: translateY(0);
+  .visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

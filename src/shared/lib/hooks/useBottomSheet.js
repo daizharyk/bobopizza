@@ -10,8 +10,8 @@ export function useBottomSheet({ onClose, isActive, isMobile }) {
   const lastTRef = useRef(0);
   const velocityRef = useRef(0);
 
-  const CLOSE_DISTANCE = 120; // px
-  const CLOSE_VELOCITY = 0.6; // px/ms
+  const CLOSE_DISTANCE = 120; 
+  const CLOSE_VELOCITY = 0.6; 
 
   const handleTouchStart = (e) => {
     if (!isMobile || !isActive) return;

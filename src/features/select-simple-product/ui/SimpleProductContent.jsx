@@ -6,54 +6,64 @@ import Image from "next/image";
 import AddToCartButton from "../../../shared/ui/AddToCartButton/AddToCartButton";
 import { addItemToCart } from "@/components/utils/addItemToCart";
 import styles from "./SimpleProductContent.module.scss";
+import { useSimpleProductModal } from "../model/useSimpleProductModal";
 
 const SimpleProductModal = ({ item, onClose }) => {
-  const dispatch = useDispatch();
-  const [selectedSize, setSelectedSize] = useState(
-    item.variants?.[0]?.size || ""
-  );
+  const {
+    selectedSize,
+    setSelectedSize,
+    selectedVariant,
+    sizeGroupRef,
+    sizeLabelRefs,
+    sizeIndicatorRef,
+    handleAddToCart,
+  } = useSimpleProductModal(item, onClose);
 
-  
-  const sizeGroupRef = useRef(null);
-  const sizeLabelRefs = useRef([]);
-  const sizeIndicatorRef = useRef(null);
+  // const dispatch = useDispatch();
+  // const [selectedSize, setSelectedSize] = useState(
+  //   item.variants?.[0]?.size || ""
+  // );
 
-  const selectedVariant = item.variants?.find((v) => v.size === selectedSize);
-  const customId = `${item.id}_${selectedSize}`;
+  // const sizeGroupRef = useRef(null);
+  // const sizeLabelRefs = useRef([]);
+  // const sizeIndicatorRef = useRef(null);
 
-  const preparedItem = {
-    id: customId,
-    title: item.title,
-    image: item.image,
-    size: selectedSize,
-    sizeUnit: selectedVariant?.sizeUnit,
-    price: selectedVariant?.price,
-    customizable: item.customizable,
-    type: item.type,
-  };
+  // const selectedVariant = item.variants?.find((v) => v.size === selectedSize);
+  // const customId = `${item.id}_${selectedSize}`;
 
-  const handleAddToCart = () => {
-    addItemToCart(dispatch, preparedItem, onClose);
-  };
+  // const preparedItem = {
+  //   id: customId,
+  //   title: item.title,
+  //   image: item.image,
+  //   size: selectedSize,
+  //   sizeUnit: selectedVariant?.sizeUnit,
+  //   price: selectedVariant?.price,
+  //   customizable: item.customizable,
+  //   type: item.type,
+  // };
 
-  useEffect(() => {
-    const indicator = sizeIndicatorRef.current;
-    const group = sizeGroupRef.current;
-    if (!indicator || !group || !selectedSize) return;
+  // const handleAddToCart = () => {
+  //   addItemToCart(dispatch, preparedItem, onClose);
+  // };
 
-    const updatePosition = () => {
-      const index = item.variants.findIndex((v) => v.size === selectedSize);
-      const option = sizeLabelRefs.current[index];
-      if (!option) return;
-      const groupRect = group.getBoundingClientRect();
-      const optionRect = option.getBoundingClientRect();
-      const offsetLeft = optionRect.left - groupRect.left;
-      indicator.style.transform = `translate(${offsetLeft}px, -50%)`;
-    };
+  // useEffect(() => {
+  //   const indicator = sizeIndicatorRef.current;
+  //   const group = sizeGroupRef.current;
+  //   if (!indicator || !group || !selectedSize) return;
 
-    const frame = requestAnimationFrame(() => setTimeout(updatePosition));
-    return () => cancelAnimationFrame(frame);
-  }, [selectedSize, item.variants]);
+  //   const updatePosition = () => {
+  //     const index = item.variants.findIndex((v) => v.size === selectedSize);
+  //     const option = sizeLabelRefs.current[index];
+  //     if (!option) return;
+  //     const groupRect = group.getBoundingClientRect();
+  //     const optionRect = option.getBoundingClientRect();
+  //     const offsetLeft = optionRect.left - groupRect.left;
+  //     indicator.style.transform = `translate(${offsetLeft}px, -50%)`;
+  //   };
+
+  //   const frame = requestAnimationFrame(() => setTimeout(updatePosition));
+  //   return () => cancelAnimationFrame(frame);
+  // }, [selectedSize, item.variants]);
 
   return (
     <div className={styles.content}>

@@ -6,7 +6,6 @@ export function useDisablePullToRefresh(ref, active = true) {
 
     const handleTouchMove = (e) => {
       if (ref.current && ref.current.contains(e.target)) {
-        // блокируем стандартный pull-to-refresh
         e.preventDefault();
       }
     };

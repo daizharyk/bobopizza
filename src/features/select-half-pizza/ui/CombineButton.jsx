@@ -7,9 +7,13 @@ const CombineButton = ({
   selectedSides,
   totalPrice,
   setShowInfo,
+  className,
+  left,
+  right,
 }) => {
   const [warning, setWarning] = useState("");
   const timeoutRef = useRef(null);
+console.log("left", left);
 
   const showWarning = (message) => {
     // сбросить прошлый таймер
@@ -17,10 +21,8 @@ const CombineButton = ({
       clearTimeout(timeoutRef.current);
     }
 
-    // обновить текст сразу
     setWarning(message);
 
-    // запустить новый таймер
     timeoutRef.current = setTimeout(() => {
       setWarning("");
       timeoutRef.current = null;
@@ -38,19 +40,42 @@ const CombineButton = ({
   };
 
   return (
-    <div className={styles.wrapper}>
-      <button
-        className={`${styles.combineBtn} ${
-          !bothSelected ? styles.disabled : ""
-        }`}
-        onClick={handleClick}
-      >
-        {bothSelected
-          ? `Объединить половинку за ${totalPrice} ₸`
-          : "Объединить половинки"}
-      </button>
-      {warning && <div className={styles.warning}>{warning}</div>}
-    </div>
+    <>
+      {(selectedSides?.left || selectedSides?.right) && (
+        <div className={styles.selected_pizzas}>
+          <div className={styles.side_wrapper}>
+            <div className={styles.left_side}>
+              {selectedSides.left === null
+                ? "Левая половина"
+                : selectedSides.left?.title}
+            </div>
+            <div className={styles.price}> {left ? `+ ${left} тг.` : ""}</div>
+          </div>
+          <div className={styles.divider}></div>
+          <div className={styles.side_wrapper}>
+            <div className={styles.right_side}>
+              {selectedSides.right === null
+                ? "Правая половина"
+                : selectedSides.right?.title}
+            </div>
+            <div className={styles.price}>{right ? `+ ${right} тг.` : ""}</div>
+          </div>
+        </div>
+      )}
+      <div className={`${styles.wrapper} ${className || ""}`}>
+        <button
+          className={`${styles.combineBtn} ${
+            !bothSelected ? styles.disabled : ""
+          }`}
+          onClick={handleClick}
+        >
+          {bothSelected
+            ? `Объединить половинку за ${totalPrice} ₸`
+            : "Объединить половинки"}
+        </button>
+        {warning && <div className={styles.warning}>{warning}</div>}
+      </div>
+    </>
   );
 };
 

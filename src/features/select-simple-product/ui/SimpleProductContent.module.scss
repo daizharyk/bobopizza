@@ -7,9 +7,22 @@
   overflow: hidden;
   max-height: 100vh;
 
+  @media (max-width: 450px) {
+    flex-direction: column;
+    overflow: auto;
+    align-items: center;
+    padding: 16px 16px 100px;
+  }
   .content_img {
     display: flex;
     margin: 50px 14px 0 14px;
+
+    @media (max-width: 450px) {
+      img {
+        width: 343px;
+        height: 343px;
+      }
+    }
   }
 
   .conten__info_wrapper {
@@ -21,6 +34,11 @@
     flex-direction: column;
     padding: 30px;
 
+    @media (max-width: 450px) {
+      height: 100%;
+      width: 100%;
+      padding: 0;
+    }
     .content_info {
       flex-direction: column;
       overflow-y: auto;
@@ -30,6 +48,9 @@
 
       width: 400px;
 
+      @media (max-width: 450px) {
+        width: 100%;
+      }
       .singleVariant {
         margin-top: 8px;
         font-size: 14px;
@@ -107,5 +128,15 @@
   .cartBottomSpacing {
     margin-top: auto;
     margin-bottom: 20px;
+
+    @media (max-width: 450px) {
+      position: fixed;
+      bottom: 0;
+      left: 16px;
+      right: 16px;
+      width: auto;
+
+      box-sizing: border-box;
+    }
   }
 }

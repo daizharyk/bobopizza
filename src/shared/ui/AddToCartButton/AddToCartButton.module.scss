@@ -14,15 +14,13 @@
   justify-content: center;
   transition: background-color 0.2s ease-in-out;
 
-
   &:hover {
     background-color: var(--color-dark-orange);
   }
-
 }
 
-  .to_cart_button:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-    pointer-events: none;
-  }
+.to_cart_button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}

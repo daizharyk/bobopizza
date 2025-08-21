@@ -9,8 +9,13 @@ import { useCategoriesBar } from "../modal/useCategoriesBar";
 import { categories } from "../lib/categories";
 
 const CategoriesBar = () => {
-  const { isSticky, sentinelRef, activeCategory, categoryRefs } =
-    useCategoriesBar();
+  const {
+    isSticky,
+    sentinelRef,
+    activeCategory,
+    categoryRefs,
+    handleCategoryClick,
+  } = useCategoriesBar();
 
   const { isOpen, setIsOpen } = useCart();
 
@@ -26,7 +31,7 @@ const CategoriesBar = () => {
           <div
             className={styles.categoriesWrapper}
             style={{
-              transform: `translateX(${isSticky ? 30 : 0}px)`,
+              transform: `translateX(${isSticky ? 10 : 0}px)`,
               transition: "transform 0.3s ease",
             }}
           >
@@ -38,16 +43,16 @@ const CategoriesBar = () => {
                     key={index}
                     ref={(el) => (categoryRefs.current[categori.targetId] = el)}
                   >
-                    <Link
-                      href={`/#${categori.targetId}`}
+                    <button
                       className={`${styles.categoryButton} ${
                         activeCategory === categori.targetId
                           ? styles.active
                           : ""
                       }`}
+                      onClick={() => handleCategoryClick(categori.targetId)} // ⬅️ скроллим вручную
                     >
                       {categori.label}
-                    </Link>
+                    </button>
                   </li>
                 ))}
               </ul>
