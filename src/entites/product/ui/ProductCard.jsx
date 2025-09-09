@@ -13,6 +13,8 @@ const ProductCard = ({ item, onOpenModal, allItems = [] }) => {
   const dispatch = useDispatch();
   const router = useRouter();
  
+ 
+  
   const saveScroll = useScrollRestoration();
   const isMobile = useIsMobile();
   if (isMobile === null) return null;
@@ -69,6 +71,7 @@ const ProductCard = ({ item, onOpenModal, allItems = [] }) => {
       onOpenModal(item);
     }
   };
+
   function getMinVariantPrice(item) {
     if (!item?.variants || item.variants.length === 0) {
       return "Собрать";

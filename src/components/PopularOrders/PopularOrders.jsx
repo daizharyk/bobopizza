@@ -3,6 +3,9 @@ import styles from "./PopularOrders.module.scss";
 import data from "@/data/data.json";
 import Image from "next/image";
 import { useModal } from "@/app/context/ModalContext";
+import { useIsMobile } from "@/shared/lib/hooks/useIsMobile";
+import { useRouter } from "next/navigation";
+
 
 const { items } = data;
 
@@ -11,10 +14,16 @@ const popularPizzaIds = [10, 9, 8, 12];
 const popularOrders = items.filter((item) => popularPizzaIds.includes(item.id));
 
 const PopularOrders = () => {
-  const {  openModal } = useModal();
+  const isMobile = useIsMobile();
+  const router = useRouter();
+  const { openModal } = useModal();
 
   const handleAddToCart = (item) => {
-    openModal(item);
+    if (isMobile) {
+      router.push(`/product/${item.id}`, { shallow: true });
+    } else {
+      openModal(item);
+    }
   };
 
   return (

@@ -6,6 +6,7 @@ import SimpleProductModal from "@/features/select-simple-product/ui/SimpleProduc
 export const getProductContent = (item, onClose) => {
   if (!item) return null;
 
+
   
   switch (item.type) {
     case "pizza":

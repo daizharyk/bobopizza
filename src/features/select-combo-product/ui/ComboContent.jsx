@@ -371,7 +371,7 @@ const ComboModal = ({ item, onClose }) => {
                           Заменить
                         </button>
                       )}
-                      {product.type === "pizzas" && !showExtras && (
+                      {product.type === "pizza" && !showExtras && (
                         <button
                           onClick={(e) => {
                             e.stopPropagation();

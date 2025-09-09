@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 
-export function useBottomSheet({ onClose, isActive, isMobile }) {
+export function useBottomSheet({ onClose }) {
   const panelRef = useRef(null);
   const [dragging, setDragging] = useState(false);
   const [dragOffset, setDragOffset] = useState(0);
@@ -14,7 +14,7 @@ export function useBottomSheet({ onClose, isActive, isMobile }) {
   const CLOSE_VELOCITY = 0.6; 
 
   const handleTouchStart = (e) => {
-    if (!isMobile || !isActive) return;
+    
 
     const panel = panelRef.current;
     if (!panel) return;

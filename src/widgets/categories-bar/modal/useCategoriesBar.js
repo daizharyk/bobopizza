@@ -12,8 +12,6 @@ export function useCategoriesBar() {
 
   const ignoreScroll = useRef(false);
 
-
-
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -39,7 +37,6 @@ export function useCategoriesBar() {
 
       const scrollPosition = window.scrollY + window.innerHeight / 3;
 
- 
       let active = null;
 
       for (let i = 0; i < categories.length; i++) {

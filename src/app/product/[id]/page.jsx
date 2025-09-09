@@ -12,11 +12,16 @@ export default async function ProductModalPage({ params }) {
   let item = data.items?.find((p) => p.id === productIdNum);
 
   if (!item) {
-    item = data.combo?.find((c) => c.id === productIdNum);
+    const comboItem = data.combo?.find((c) => c.id === productIdNum);
+    if (comboItem) {
+      item = { ...comboItem, type: "combo" };
+    }
   }
+
   if (!item) {
     return <div>Товар не найден</div>;
   }
+  
 
   return (
     <MobileProductSheet>

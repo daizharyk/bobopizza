@@ -9,9 +9,8 @@ import { CartProvider } from "./context/CartContext";
 import { usePathname } from "next/navigation";
 import Header from "@/widgets/Header/ui/Header/Header";
 import Footer from "@/components/footer/Footer";
-import ProductSectionsContainer from "@/features/product_sections/ui/ProductSectionsContainer";
 
-export default function ResponsiveLayout({ children, modal }) {
+export default function ResponsiveLayout({ children }) {
   const pathname = usePathname();
   const hiddenRoutes = ["/cart"];
 
@@ -43,11 +42,7 @@ export default function ResponsiveLayout({ children, modal }) {
           </>
         )}
         <main className="container">
-          <>
-            <ProductSectionsContainer />
-            {children}
-            {modal}
-          </>
+          <>{children}</>
         </main>
       </ModalProvider>
       {!shouldHideLayout && <Footer />}

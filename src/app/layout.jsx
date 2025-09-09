@@ -6,14 +6,14 @@ import CartLoader from "@/components/CartLoadr";
 import LoginModalWrapper from "@/features/authByPhone/ui/LoginModal";
 
 import ResponsiveLayout from "./ResponsiveLayout";
-import { siteCongfig } from "@/config/site.config";
+import { siteConfig } from "@/config/site.config";
 
 export const metadata = {
-  title: siteCongfig.title,
-  description: siteCongfig.description,
+  title: siteConfig.title,
+  description: siteConfig.description,
 };
 
-export default function RootLayout({ children, modal }) {
+export default function RootLayout({ children }) {
   return (
     <html lang="ru">
       <head>
@@ -32,7 +32,7 @@ export default function RootLayout({ children, modal }) {
           />
           <ResponsiveLayout>
             {children}
-            {modal}
+   
           </ResponsiveLayout>
           <div id="modal-root" />
         </ReduxProvider>

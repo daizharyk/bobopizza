@@ -13,7 +13,7 @@ const CombineButton = ({
 }) => {
   const [warning, setWarning] = useState("");
   const timeoutRef = useRef(null);
-console.log("left", left);
+
 
   const showWarning = (message) => {
     // сбросить прошлый таймер

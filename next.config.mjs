@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  experimental: {
+    scrollRestoration: true,
+  },
   images: {
     remotePatterns: [
       {
@@ -10,7 +13,7 @@ const nextConfig = {
       },
       {
         protocol: "https",
-        hostname: "i.ibb.co", 
+        hostname: "i.ibb.co",
         port: "",
         pathname: "/**",
       },
