@@ -278,4 +278,15 @@
       }
     }
   }
+
+  .add_to_cart {
+    position: fixed;
+    bottom: 0;
+    z-index: 9999;
+    width: 100%;
+    padding: 0 16px;
+    box-sizing: border-box;
+    background-color: var(--white);
+    box-shadow: 10px 0px 10px rgba(0, 0, 0, 0.1);
+  }
 }

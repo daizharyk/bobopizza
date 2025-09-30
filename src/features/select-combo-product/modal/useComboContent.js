@@ -1,6 +1,5 @@
-
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import data from "@/data/data.json";
 import pizzaExtras from "@/data/pizzaExtras.json";
@@ -15,6 +14,7 @@ export const useComboContent = (item, onClose) => {
   const [showExtras, setShowExtras] = useState(false);
   const [selectedExtrasMap, setSelectedExtrasMap] = useState({});
   const [selectedOptionMap, setSelectedOptionMap] = useState({});
+  const [lastActiveIndex, setLastActiveIndex] = useState(null);
 
   const indicatorRef = useRef(null);
   const groupRef = useRef(null);
@@ -22,6 +22,7 @@ export const useComboContent = (item, onClose) => {
 
   const dispatch = useDispatch();
 
+  // Заменить товар
   const replaceItem = (newItem) => {
     const updated = [...comboItems];
     updated[replaceItemIndex] = {
@@ -31,6 +32,7 @@ export const useComboContent = (item, onClose) => {
     setComboItems(updated);
   };
 
+  // Выбор/отмена "экстры"
   const toggleExtra = (index, extraId) => {
     setSelectedExtrasMap((prev) => {
       const prevExtras = prev[index] || [];
@@ -38,91 +40,113 @@ export const useComboContent = (item, onClose) => {
       const updatedExtras = isSelected
         ? prevExtras.filter((id) => id !== extraId)
         : [...prevExtras, extraId];
-
       return { ...prev, [index]: updatedExtras };
     });
   };
 
-  const selectedVariants = comboItems.map((item) => {
-    const product = allItems.find((p) => p.id === item.defaultId);
-    return item.preferredSize && product?.variants.length > 1
-      ? product.variants.find((v) => v.size === item.preferredSize)
+  // Уникальный id для корзины
+  const customId = comboItems
+    .map((it, index) => {
+      const size = it.preferredSize || "";
+      const option = selectedOptionMap[index]?.key || "";
+      const isPizza = it.itemType === "pizza";
+      const extras = isPizza
+        ? (selectedExtrasMap[index] || []).sort().join("-")
+        : "";
+      return `${it.defaultId}_${size}_${option}_${extras}`;
+    })
+    .join("__");
+
+  // Варианты
+  const selectedVariants = comboItems.map((it) => {
+    const product = allItems.find((p) => p.id === it.defaultId);
+    if (!product) return null;
+    return it.preferredSize && product.variants.length > 1
+      ? product.variants.find((v) => v.size === it.preferredSize)
       : product.variants?.[0];
   });
 
+  // Цена товаров
   const itemsPrice = selectedVariants
     .filter(Boolean)
     .reduce((total, v) => total + v.price, 0);
 
+  // Цена экстрасов
   const selectedExtrasPrice = Object.values(selectedExtrasMap)
     .flat()
-    .reduce((total, id) => {
-      const extra = pizzaExtras.find((e) => e.id === id);
+    .reduce((total, extraId) => {
+      const extra = pizzaExtras.find((e) => e.id === extraId);
       return total + (extra ? Number(extra.price) : 0);
     }, 0);
 
   const totalPrice = itemsPrice + selectedExtrasPrice;
   const formattedPrice = totalPrice.toLocaleString("ru-RU");
 
+  // Список для корзины
+  const preparedComboItems = comboItems.map((it, index) => {
+    const product = allItems.find((p) => p.id === it.defaultId);
+    const preferredSize = it.preferredSize;
+    const selectedVariant = product?.variants?.find(
+      (variant) => variant.size === product.variants[0].size || preferredSize
+    );
+
+    return {
+      title: product?.title || "Без названия",
+      size: selectedVariant?.size || preferredSize || "",
+      sizeUnit: selectedVariant?.sizeUnit || "",
+      weight: selectedVariant?.weight || "",
+      weightUnit: selectedVariant?.weightUnit || "",
+      option: selectedOptionMap[index] || "",
+      extras: (selectedExtrasMap[index] || []).map((extraId) => {
+        const extra = pizzaExtras.find((e) => e.id === extraId);
+        return extra?.title || "Экстра";
+      }),
+    };
+  });
+
   const itemToAdd = {
-    id: comboItems
-      .map((i, idx) => {
-        const extras = (selectedExtrasMap[idx] || []).sort().join("-");
-        return `${i.defaultId}_${i.preferredSize || ""}_${
-          selectedOptionMap[idx]?.key || ""
-        }_${extras}`;
-      })
-      .join("__"),
+    id: customId,
     title: item.title,
     image: item.image,
     price: totalPrice,
-    comboItems: comboItems.map((i, idx) => {
-      const product = allItems.find((p) => p.id === i.defaultId);
-      const variant =
-        product?.variants?.find((v) => v.size === i.preferredSize) ||
-        product?.variants?.[0];
-      return {
-        title: product?.title || "Без названия",
-        size: variant?.size || "",
-        sizeUnit: variant?.sizeUnit || "",
-        weight: variant?.weight || "",
-        weightUnit: variant?.weightUnit || "",
-        option: selectedOptionMap[idx] || "",
-        extras: (selectedExtrasMap[idx] || []).map(
-          (eId) => pizzaExtras.find((e) => e.id === eId)?.title || "Экстра"
-        ),
-      };
-    }),
+    comboItems: preparedComboItems,
   };
 
-  const handleAddToCart = () => addItemToCart(dispatch, itemToAdd, onClose);
+  const handleAddToCart = () => {
+    addItemToCart(dispatch, itemToAdd, onClose);
+  };
 
+  // Перемещение индикатора
   useEffect(() => {
     const currentOption = selectedOptionMap[replaceItemIndex];
-    const optionRef = refs.current[currentOption?.key || ""];
+    const currentRef = refs.current[currentOption?.key || ""];
     const indicator = indicatorRef.current;
     const group = groupRef.current;
-    if (!optionRef || !indicator || !group) return;
-    const offsetLeft =
-      optionRef.getBoundingClientRect().left -
-      group.getBoundingClientRect().left;
+
+    if (!currentRef || !indicator || !group) return;
+    const option = currentRef;
+    const groupRect = group.getBoundingClientRect();
+    const optionRect = option.getBoundingClientRect();
+    const offsetLeft = optionRect.left - groupRect.left;
     indicator.style.transform = `translate(${offsetLeft}px, -50%)`;
   }, [selectedOptionMap]);
 
+  // Заполнение дефолтных опций
   useEffect(() => {
     const defaultMap = {};
-    comboItems.forEach((i, idx) => {
-      if (i.type !== "pizzas") return;
-      const product = allItems.find((p) => p.id === i.defaultId);
-      product?.options?.forEach((group) => {
-        const defaultChoice = group.choices.find(
-          (c) => c.key === group.default
-        );
-        if (defaultChoice)
-          defaultMap[idx] = {
+    comboItems.forEach((it, index) => {
+      if (it.type !== "pizzas") return;
+      const product = allItems.find((p) => p.id === it.defaultId);
+      const optionGroups = product?.options || [];
+      optionGroups.forEach((group) => {
+        const defaultKey = group.default;
+        const defaultChoice = group.choices.find((c) => c.key === defaultKey);
+        if (defaultChoice) {
+          defaultMap[index] = {
             key: defaultChoice.key,
             label: defaultChoice.label,
           };
+        }
       });
     });
     setSelectedOptionMap(defaultMap);
@@ -132,21 +156,26 @@ export const useComboContent = (item, onClose) => {
     replaceItemIndex,
     setReplaceItemIndex,
     replaceItemType,
+    replaceItem,
     setReplaceItemType,
     comboItems,
+    setComboItems,
     showExtras,
     setShowExtras,
     selectedExtrasMap,
+    setSelectedExtrasMap,
     toggleExtra,
     selectedOptionMap,
     setSelectedOptionMap,
-    replaceItem,
-    handleAddToCart,
-    totalPrice,
-    formattedPrice,
+    lastActiveIndex,
+    setLastActiveIndex,
     indicatorRef,
     groupRef,
     refs,
-    allItems,
+    formattedPrice,
+    totalPrice,
+    itemsPrice,
+    itemToAdd,
+    handleAddToCart,
   };
 };

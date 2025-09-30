@@ -1,6 +1,6 @@
 "use client";
 import PizzaExtrasSelector from "@/features/PizzaExtrasSelector/PizzaExtrasSelector";
-import styles from "./ComboContent.module.scss";
+import styles from "./ComboExtrasOverlay.module.scss";
 import ArrowLeft from "@/components/svg/ArrowLeftSvg";
 
 const ComboExtrasOverlay = ({

@@ -1,0 +1,47 @@
+.price_wrapper {
+  display: flex;
+  justify-content: space-between;
+
+  width: 100%;
+  bottom: 0;
+  padding: 0 24px;
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+
+  height: auto;
+  background-color: #ffffff;
+
+  display: flex;
+  flex-direction: column;
+
+  .extra_price {
+    display: flex;
+    flex-direction: column;
+    font-size: var(--font-size14);
+    border-bottom: 1px solid var(--light-dark-gray);
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+
+    .price_combo,
+    .price_extra {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  .total_price {
+    display: flex;
+    width: 100%;
+    align-items: center;
+  }
+
+  .price {
+    font-size: var(--font-size24);
+    font-weight: 600;
+    flex: 1;
+  }
+
+  .button {
+    flex: 1;
+  }
+}

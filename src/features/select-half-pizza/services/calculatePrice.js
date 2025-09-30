@@ -19,7 +19,7 @@ export const calculatePrice = (selectedSides) => {
       : null;
 
   return {
-    totalPrice: totalPrice !== null ? totalPrice.toLocaleString("ru-RU") : null,
+    totalPrice,
     left:
       leftPrice !== null ? Math.round(leftPrice).toLocaleString("ru-RU") : null,
     right:

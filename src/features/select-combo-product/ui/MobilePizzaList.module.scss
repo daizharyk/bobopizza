@@ -1,0 +1,116 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  z-index: 999;
+}
+
+.closeBtn {
+  position: absolute;
+  height: fit-content;
+  width: fit-content;
+  color: white;
+  right: 10px;
+  top: 0;
+  background: none;
+  border: none;
+  font-size: 60px;
+  color: white;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.cardWrapper {
+  flex: 1;
+  display: flex;
+  position: relative;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+.counter {
+  position: absolute;
+  top: 40px;
+  font-size: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+}
+.cardParent {
+  flex: 0 0 auto;
+  perspective: 1500px;
+  width: 100%;
+  height: 100%;
+  margin-right: calc(24px - 22.4vw);
+  scroll-snap-align: center;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+}
+
+.card {
+  position: relative;
+
+  height: 77.6vh;
+  width: 77.6vw;
+  flex: 0 0 auto;
+  background: #fff;
+  display: flex;
+  flex-flow: column;
+  border-radius: 24px;
+  padding: 16px;
+  transition: transform 300ms;
+  transform-style: preserve-3d;
+
+  &.flipped {
+    transform: rotateY(180deg);
+  }
+}
+
+.cardFace {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden; // скрываем обратную сторону
+  background: #fff;
+  border-radius: 24px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.cardFront {
+  transform: rotateY(0deg);
+}
+
+.cardBack {
+  transform: rotateY(180deg);
+  background: #f8f8f8;
+}
+
+.closeBack {
+  margin-top: auto;
+  padding: 10px 16px;
+  background: #ff3b30;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.cardInner {
+  display: flex;
+  flex-flow: column;
+  position: absolute;
+  inset: 0;
+  background: #fff;
+  border-radius: 24px;
+  padding: 16px;
+  overflow: hidden;
+  transform: translateZ(1px);
+}

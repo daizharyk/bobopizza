@@ -1,0 +1,202 @@
+.wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 650px;
+  justify-content: space-between;
+  @media (max-width: 450px) {
+    height: 100%;
+    padding-bottom: 80px;
+  }
+}
+.info_wrapper {
+  width: 437px;
+  padding: 24px;
+  background-color: var(--light-gray);
+  overflow: auto;
+  position: relative;
+  height: 100%;
+
+  @media (max-width: 450px) {
+    width: 100%;
+    height: fit-content;
+    max-height: 100%;
+    padding: 12px;
+  }
+  .title {
+    padding-bottom: 5px;
+    font-size: var(--font-size24);
+  }
+  .description {
+    font-size: var(--font-size15);
+    margin-bottom: 30px;
+    line-height: 20px;
+  }
+
+  .item_card {
+    display: flex;
+    flex-direction: column;
+    box-shadow: rgba(6, 5, 50, 0.1) 0px 6px 20px;
+    cursor: pointer;
+    width: 100%;
+    min-height: 94px;
+    background-color: var(--white);
+    border-radius: 16px;
+    padding: 12px;
+    margin-bottom: 12px;
+    border: 1px solid var(--white);
+
+    .extraList {
+      color: #000;
+      text-transform: lowercase;
+    }
+    .top_wrapper {
+      display: flex;
+      gap: 10px;
+    }
+    .image {
+      display: flex;
+      align-items: flex-start;
+
+      @media (max-width: 450px) {
+        .pizza_img {
+          width: 121.5px;
+          height: 121.5px;
+        }
+      }
+    }
+
+    .info {
+      padding-bottom: 5px;
+
+      .extra_price {
+        font-size: var(--font-size16);
+        padding-top: 10px;
+
+        font-weight: 600;
+      }
+    }
+
+    .title {
+      font-size: var(--font-size16);
+      font-weight: 600;
+      padding-bottom: 4px;
+    }
+    .size {
+      line-height: 16px;
+      font-size: var(--font-size12);
+      text-transform: lowercase;
+      padding-bottom: 4px;
+    }
+    .ingredients {
+      color: var(--light-dark-gray);
+      line-height: 16px;
+      font-size: var(--font-size12);
+    }
+    .botton_wrapper {
+      margin-top: 8px;
+      display: flex;
+      gap: 7px;
+      .replace {
+        background-color: var(--color-light-orange);
+        padding: 8px 12px;
+        border-radius: 9999px;
+        font-size: var(--font-size14);
+        color: var(--color-dark-orange);
+        font-weight: 600;
+        width: 100px;
+        transition: 0.2s background-color ease-in-out;
+        &:hover {
+          background-color: var(--dark-light-orange);
+        }
+      }
+      .change {
+        background: none;
+        padding: 8px 12px;
+        border-radius: 9999px;
+        font-size: var(--font-size14);
+        color: var(--color-dark-orange);
+        font-weight: 600;
+      }
+    }
+
+    .column {
+      flex-direction: column;
+
+      .change {
+        order: 1;
+        justify-content: left;
+        display: flex;
+        padding: 8px 0;
+      }
+
+      .thicknessGroup {
+        order: 2;
+      }
+    }
+    .thicknessGroup {
+      margin: 8px 0;
+      display: flex;
+      position: relative;
+      width: 100%;
+      z-index: 2;
+      height: 32px;
+      flex-shrink: 0;
+      border-radius: 9999px;
+      background-color: var(--light-gray-2);
+      overflow: hidden;
+      font-size: 12px;
+      line-height: 32px;
+      min-height: 32px;
+
+      .optionGroup {
+        display: flex;
+        width: 100%;
+      }
+      .wrapper_option {
+        flex: 1;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .selected {
+        position: absolute;
+
+        top: 50%;
+        left: 0;
+
+        width: 50%;
+        height: 90%;
+        background-color: white;
+        border-radius: 9999px;
+        box-shadow: rgba(6, 5, 50, 0.19) 0px 6px 20px;
+        transition: transform 0.3s ease, width 0.3s ease;
+        z-index: 1;
+        transform: translate(0, -50%);
+      }
+
+      input {
+        display: none;
+      }
+
+      .thicknessOption {
+        flex: 1;
+        text-align: center;
+        z-index: 2;
+        cursor: pointer;
+        position: relative;
+        user-select: none;
+      }
+    }
+  }
+
+  .disabled {
+    pointer-events: none;
+    opacity: 0.5;
+    cursor: default;
+  }
+  .item_card_active {
+    outline: 1px solid var(--color-dark-orange);
+  }
+}

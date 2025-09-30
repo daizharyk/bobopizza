@@ -111,14 +111,12 @@
     }
   }
   .combine_wrapper {
-    position: absolute;
+    position: fixed;
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     width: 100%;
     bottom: 0;
     border-top: 1px solid var(--light-dark-gray-2);
-
-   
   }
   .left-selected {
     clip-path: inset(0 50% 0 0);
