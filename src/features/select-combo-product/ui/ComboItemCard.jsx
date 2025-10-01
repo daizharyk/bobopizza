@@ -1,5 +1,6 @@
 import Image from "next/image";
 import styles from "./ComboItemCard.module.scss";
+import OptionGroupSelector from "./OptionGroupSelector";
 const ComboItemCard = ({
   item,
   comboItems,
@@ -19,7 +20,6 @@ const ComboItemCard = ({
   isMobile,
   refs,
 }) => {
-  
   return (
     <div className={styles.wrapper}>
       <article className={styles.info_wrapper}>
@@ -29,6 +29,7 @@ const ComboItemCard = ({
         </div>
         {comboItems.map((item, index) => {
           const product = allItems.find((p) => p.id === item.defaultId);
+
 
           let selectedVariant;
 
@@ -156,68 +157,21 @@ const ComboItemCard = ({
               {replaceItemIndex === index &&
                 product.options &&
                 !["drinks", "coctayls", "coffee"].includes(product.type) && (
-                  <div
-                    onClick={(e) => e.stopPropagation()}
-                    ref={groupRef}
-                    className={styles.thicknessGroup}
-                  >
-                    <div ref={indicatorRef} className={styles.selected}></div>
-                    {product.options?.map((optionGroup, groupIndex) => {
-                      return (
-                        <div key={groupIndex} className={styles.optionGroup}>
-                          {optionGroup.choices.map((choice) => {
-                            const isChecked =
-                              selectedOptionMap[optionGroup.type]?.key ===
-                              choice.key;
-
-                            return (
-                              <div
-                                className={styles.wrapper_option}
-                                key={choice.key}
-                              >
-                                <input
-                                  type="radio"
-                                  id={`${optionGroup.type}_${choice.key}_${item.defaultId}`}
-                                  name={`${optionGroup.type}_${item.defaultId}`}
-                                  value={choice.key}
-                                  className={styles.hiddenInput}
-                                  checked={isChecked}
-                                  onChange={() => {
-                                    const updatedMap = {
-                                      ...selectedOptionMap,
-                                      [replaceItemIndex]: {
-                                        key: choice.key,
-                                        label: choice.label,
-                                      },
-                                    };
-
-                                    setSelectedOptionMap(updatedMap);
-                                  }}
-                                />
-                                <label
-                                  htmlFor={`${optionGroup.type}_${choice.key}_${item.defaultId}`}
-                                  className={styles.thicknessOption}
-                                  ref={(el) => {
-                                    if (el) {
-                                      refs.current[choice.key] = el;
-                                    }
-                                  }}
-                                >
-                                  {choice.label}
-                                </label>
-                              </div>
-                            );
-                          })}
-                        </div>
-                      );
-                    })}
-                  </div>
+                  <OptionGroupSelector
+                    product={product}
+                    item={item}
+                    replaceItemIndex={replaceItemIndex}
+                    selectedOptionMap={selectedOptionMap}
+                    setSelectedOptionMap={setSelectedOptionMap}
+                    groupRef={groupRef}
+                    indicatorRef={indicatorRef}
+                    refs={refs}
+                  />
                 )}
             </article>
           );
         })}
       </article>
-      
     </div>
   );
 };

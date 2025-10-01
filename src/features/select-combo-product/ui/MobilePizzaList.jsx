@@ -2,6 +2,8 @@ import { useState } from "react";
 import styles from "./MobilePizzaList.module.scss";
 import Image from "next/image";
 import ComboExtrasOverlay from "./ComboExtrasOverlay";
+import OptionGroupSelector from "./OptionGroupSelector";
+import AddToCartButton from "@/shared/ui/AddToCartButton/AddToCartButton";
 
 const MobilePizzaList = ({
   items,
@@ -14,6 +16,11 @@ const MobilePizzaList = ({
   setShowExtras,
   selectedExtrasMap,
   replaceItemIndex,
+  selectedOptionMap,
+  setSelectedOptionMap,
+  groupRef,
+  indicatorRef,
+  refs,
 }) => {
   const [flippedIndex, setFlippedIndex] = useState(null);
 
@@ -39,26 +46,43 @@ const MobilePizzaList = ({
               >
                 {/* FRONT */}
                 <div className={`${styles.cardFace} ${styles.cardFront}`}>
-                  <Image
-                    className={styles.image}
-                    src={item.image}
-                    alt={item.title}
-                    width={156}
-                    height={156}
-                  />
-                  <h3>{item.title}</h3>
-                  <div className={styles.size}>
-                    {variant30
-                      ? `${variant30.size} ${variant30.sizeUnit} ${variant30.weight} ${variant30.weightUnit}`
-                      : ""}
+                  <div className={styles.top}>
+                    {" "}
+                    <Image
+                      className={styles.image}
+                      src={item.image}
+                      alt={item.title}
+                      width={181}
+                      height={181}
+                    />
+                    <h3 className={styles.title}>{item.title}</h3>
+                    <div className={styles.size}>
+                      {variant30
+                        ? `${variant30.size} ${variant30.sizeUnit} ${variant30.weight} ${variant30.weightUnit}`
+                        : ""}
+                    </div>
+                    <div className={styles.ingredients}>{item.ingredients}</div>
+                    <button
+                      className={styles.changeIngredients}
+                      onClick={() => setFlippedIndex(index)}
+                    >
+                      Изменить состав
+                    </button>
                   </div>
-                  <div className={styles.ingredients}>{item.ingredients}</div>
-                  <button
-                    className={styles.changeIngredients}
-                    onClick={() => setFlippedIndex(index)}
-                  >
-                    Изменить состав
-                  </button>
+                  <div className={styles.bottom}>
+                    {" "}
+                    <OptionGroupSelector
+                      className={styles.optionSelector}
+                      item={item}
+                      replaceItemIndex={replaceItemIndex}
+                      selectedOptionMap={selectedOptionMap}
+                      setSelectedOptionMap={setSelectedOptionMap}
+                      groupRef={groupRef}
+                      indicatorRef={indicatorRef}
+                      refs={refs}
+                    />
+                    <AddToCartButton item={item} onSelected={onSelected} />
+                  </div>
                 </div>
 
                 <div className={`${styles.cardFace} ${styles.cardBack}`}>

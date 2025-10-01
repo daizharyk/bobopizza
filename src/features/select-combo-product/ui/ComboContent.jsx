@@ -42,8 +42,6 @@ const ComboModal = ({ item, onClose }) => {
     handleAddToCart,
   } = useComboContent(item, onClose);
 
- 
-
   return (
     <section className={styles.container}>
       <article className={styles.image_combo}>
@@ -80,6 +78,12 @@ const ComboModal = ({ item, onClose }) => {
             <MobilePizzaList
               setShowExtras={setShowExtras}
               pizzaExtras={pizzaExtras}
+              groupRef={groupRef}
+              indicatorRef={indicatorRef}
+              refs={refs}
+              setReplaceItemIndex={setReplaceItemIndex}
+              setSelectedOptionMap={setSelectedOptionMap}
+              selectedOptionMap={selectedOptionMap}
               selectedExtras={selectedExtrasMap[replaceItemIndex] || []}
               setSelectedExtrasMap={setSelectedExtrasMap}
               selectedExtrasMap={selectedExtrasMap}
