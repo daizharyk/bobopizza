@@ -2,17 +2,16 @@
   padding: 14px 0 24px 0;
   width: 100%;
   @media (max-width: 450px) {
-    padding-left: 15px;
+    padding: 10px 16px;
     padding-bottom: 100px;
- 
-
   }
 
   h3 {
     padding: 14px 0;
     @media (max-width: 450px) {
-      font-size: var(--font-size16);
-      padding: 24px 0 12px 0;
+      width: 100%;
+      font-size: var(--font-size20);
+      padding: 10px 0 12px 0;
     }
   }
 }
@@ -22,12 +21,23 @@
   flex-wrap: wrap;
   gap: 0;
 
+  @media (max-width: 450px) {
+    flex-wrap: nowrap;
+    flex-direction: column;
+    width: 100%;
+
+  }
   &.pizza .article {
+    width: 100%;
+
     margin: 0 8px 8px 0;
   }
 
   &.combo .article {
     margin: 0 12px 12px 0;
+    @media (max-width: 450px) {
+      margin: 0 0 8px 0;
+    }
   }
 
   .article {
@@ -45,12 +55,30 @@
     border-radius: 10px;
     transition: 0.2s all ease;
 
+    @media (max-width: 450px) {
+      width: 100%;
+      justify-content: flex-start;
+      flex-direction: row;
+      height: 100%;
+      align-items: center;
+    }
+
+    .info {
+      @media (max-width: 450px) {
+        display: flex;
+        flex-direction: column;
+
+        align-items: flex-start;
+      }
+    }
     .image {
       width: 100%;
-    }
-    @media (max-width: 450px) {
-      width: 100px;
-      height: 170px;
+      @media (max-width: 450px) {
+        width: 48px;
+        height: 48px;
+        flex-shrink: 0;
+        margin-right: 5px;
+      }
     }
 
     &:hover {

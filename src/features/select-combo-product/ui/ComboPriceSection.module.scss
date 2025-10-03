@@ -1,7 +1,9 @@
 .price_wrapper {
   display: flex;
   justify-content: space-between;
-
+  z-index: 900;
+  position: absolute;
+  bottom: 0;
   width: 100%;
   bottom: 0;
   padding: 0 24px;
@@ -21,7 +23,7 @@
     border-bottom: 1px solid var(--light-dark-gray);
     margin-bottom: 10px;
     padding-bottom: 10px;
-
+    margin-top: 20px;
     .price_combo,
     .price_extra {
       display: flex;

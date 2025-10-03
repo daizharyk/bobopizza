@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import data from "@/data/data.json";
 import pizzaExtras from "@/data/pizzaExtras.json";
 import { addItemToCart } from "@/components/utils/addItemToCart";
+import { Logger } from "sass";
 
 const allItems = [...data.items];
 
@@ -16,6 +17,8 @@ export const useComboContent = (item, onClose) => {
   const [selectedOptionMap, setSelectedOptionMap] = useState({});
   const [lastActiveIndex, setLastActiveIndex] = useState(null);
 
+  console.log("selectedExtrasMap", selectedExtrasMap);
+  
   const indicatorRef = useRef(null);
   const groupRef = useRef(null);
   const refs = useRef({});
@@ -116,28 +119,18 @@ export const useComboContent = (item, onClose) => {
     addItemToCart(dispatch, itemToAdd, onClose);
   };
 
-  // Перемещение индикатора
-  useEffect(() => {
-    const currentOption = selectedOptionMap[replaceItemIndex];
-    const currentRef = refs.current[currentOption?.key || ""];
-    const indicator = indicatorRef.current;
-    const group = groupRef.current;
 
-    if (!currentRef || !indicator || !group) return;
-    const option = currentRef;
-    const groupRect = group.getBoundingClientRect();
-    const optionRect = option.getBoundingClientRect();
-    const offsetLeft = optionRect.left - groupRect.left;
-    indicator.style.transform = `translate(${offsetLeft}px, -50%)`;
-  }, [selectedOptionMap]);
 
-  // Заполнение дефолтных опций
   useEffect(() => {
     const defaultMap = {};
     comboItems.forEach((it, index) => {
-      if (it.type !== "pizzas") return;
+      if (it.type !== "pizza") return;
       const product = allItems.find((p) => p.id === it.defaultId);
+
       const optionGroups = product?.options || [];
+
+
+
       optionGroups.forEach((group) => {
         const defaultKey = group.default;
         const defaultChoice = group.choices.find((c) => c.key === defaultKey);
@@ -149,6 +142,7 @@ export const useComboContent = (item, onClose) => {
         }
       });
     });
+
     setSelectedOptionMap(defaultMap);
   }, [comboItems]);
 

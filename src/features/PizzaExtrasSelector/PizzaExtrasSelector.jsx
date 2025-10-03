@@ -9,8 +9,6 @@ const PizzaExtrasSelector = ({
   toggleExtra,
   variant = "combo",
 }) => {
-  
-
   return (
     <div className={styles.extra_content}>
       <h3>Добавить по вкусу</h3>
@@ -34,9 +32,17 @@ const PizzaExtrasSelector = ({
                   <SelectedSvg />
                 </div>
               )}
-              <Image className={styles.image} src={item.image} alt={item.title} width={88} height={88} />
-              <h4 className={styles.title}>{item.title}</h4>
-              <p className={styles.price}>{item.price}тг.</p>
+              <Image
+                className={styles.image}
+                src={item.image}
+                alt={item.title}
+                width={88}
+                height={88}
+              />
+              <div className={styles.info}>
+                <h4 className={styles.title}>{item.title}</h4>
+                <p className={styles.price}>{item.price}тг.</p>
+              </div>
             </button>
           );
         })}

@@ -10,24 +10,43 @@ const ComboExtrasOverlay = ({
   setSelectedExtrasMap,
   selectedExtrasMap,
   replaceItemIndex,
+  isMobile,
   toggleExtra,
+
+  pizzaIndex,
 }) => {
+  const currentIndex = isMobile ? pizzaIndex : replaceItemIndex;
+  console.log(
+    "isMobile:",
+    isMobile,
+    "replaceItemIndex:",
+    replaceItemIndex,
+    "pizzaIndex:",
+    pizzaIndex,
+    "currentIndex:",
+    currentIndex
+  );
+
   return (
     <div className={styles.extras_overlay}>
       <div className={styles.extras_header}>
-        <button
-          onClick={() => setShowExtras(false)}
-          className={styles.back_button}
-        >
-          <ArrowLeft className={styles.back_icon} />
-        </button>
-        <h2>Меняйте на свой вкус</h2>
+        {!isMobile && (
+          <>
+            <button
+              onClick={() => setShowExtras(false)}
+              className={styles.back_button}
+            >
+              <ArrowLeft className={styles.back_icon} />
+            </button>
+            <h2>Добавить по вкусу</h2>
+          </>
+        )}
       </div>
       <div className={styles.extras_content_scrollable}>
         <PizzaExtrasSelector
           pizzaExtras={pizzaExtras}
-          selectedExtras={selectedExtrasMap[replaceItemIndex] || []}
-          toggleExtra={(id) => toggleExtra(replaceItemIndex, id)}
+          selectedExtras={selectedExtrasMap[currentIndex] || []}
+          toggleExtra={(id) => toggleExtra(currentIndex, id)}
           variant="combo"
         />
       </div>

@@ -80,8 +80,13 @@ const ComboModal = ({ item, onClose }) => {
               pizzaExtras={pizzaExtras}
               groupRef={groupRef}
               indicatorRef={indicatorRef}
+              showExtras={showExtras}
               refs={refs}
+              isMobile={isMobile}
+              comboItems={comboItems}
+              setReplaceItemType={setReplaceItemType}
               setReplaceItemIndex={setReplaceItemIndex}
+              replaceItem={replaceItem}
               setSelectedOptionMap={setSelectedOptionMap}
               selectedOptionMap={selectedOptionMap}
               selectedExtras={selectedExtrasMap[replaceItemIndex] || []}

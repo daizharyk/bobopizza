@@ -1,4 +1,5 @@
 "use client";
+import { useEffect } from "react";
 import styles from "./OptionGroupSelector.module.scss";
 
 const OptionGroupSelector = ({
@@ -12,10 +13,39 @@ const OptionGroupSelector = ({
   refs,
   className,
 }) => {
-
   const option = product || item || [];
-  console.log(option);
-  
+  const uniqueId = item?.defaultId || item?.id;
+
+  useEffect(() => {
+    let currentOption = selectedOptionMap[replaceItemIndex];
+
+    // если ещё ничего не выбрали — берём дефолт из product
+    if (!currentOption && option?.options) {
+      option.options.forEach((group) => {
+        const defaultKey = group.default;
+        const defaultChoice = group.choices.find((c) => c.key === defaultKey);
+        if (defaultChoice) {
+          currentOption = {
+            key: defaultChoice.key,
+            label: defaultChoice.label,
+          };
+        }
+      });
+    }
+
+    const currentRef = refs.current[currentOption?.key || ""];
+    const indicator = indicatorRef.current;
+    const group = groupRef.current;
+
+    if (!currentRef || !indicator || !group) return;
+
+    const optionRect = currentRef.getBoundingClientRect();
+    const groupRect = group.getBoundingClientRect();
+    const offsetLeft = optionRect.left - groupRect.left;
+
+    indicator.style.transform = `translate(${offsetLeft}px, -50%)`;
+  }, [selectedOptionMap, replaceItemIndex, option]);
+
   return (
     <div
       onClick={(e) => e.stopPropagation()}
@@ -27,14 +57,16 @@ const OptionGroupSelector = ({
         <div key={groupIndex} className={styles.optionGroup}>
           {optionGroup.choices.map((choice) => {
             const isChecked =
-              selectedOptionMap[optionGroup.type]?.key === choice.key;
+              selectedOptionMap[replaceItemIndex]?.key === choice.key ||
+              (!selectedOptionMap[replaceItemIndex] &&
+                optionGroup.default === choice.key);
 
             return (
               <div className={styles.wrapper_option} key={choice.key}>
                 <input
                   type="radio"
-                  id={`${optionGroup.type}_${choice.key}_${item.defaultId}`}
-                  name={`${optionGroup.type}_${item.defaultId}`}
+                  id={`${optionGroup.type}_${choice.key}_${uniqueId}`}
+                  name={`${optionGroup.type}_${uniqueId}`}
                   value={choice.key}
                   className={styles.hiddenInput}
                   checked={isChecked}
@@ -50,7 +82,7 @@ const OptionGroupSelector = ({
                   }}
                 />
                 <label
-                  htmlFor={`${optionGroup.type}_${choice.key}_${item.defaultId}`}
+                  htmlFor={`${optionGroup.type}_${choice.key}_${uniqueId}`}
                   className={styles.thicknessOption}
                   ref={(el) => {
                     if (el) {

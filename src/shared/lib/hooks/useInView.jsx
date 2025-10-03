@@ -6,10 +6,7 @@ export const useInView = (ref, threshold = 0.9) => {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-  
-          setInView(true);
-        }
+        setInView(entry.isIntersecting); // теперь может быть true и false
       },
       { threshold }
     );

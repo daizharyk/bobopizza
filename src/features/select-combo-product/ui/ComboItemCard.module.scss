@@ -4,6 +4,7 @@
   flex-direction: column;
   height: 650px;
   justify-content: space-between;
+  background-color: var(--light-gray);
   @media (max-width: 450px) {
     height: 100%;
     padding-bottom: 80px;
@@ -12,14 +13,16 @@
 .info_wrapper {
   width: 437px;
   padding: 24px;
-  background-color: var(--light-gray);
+
   overflow: auto;
   position: relative;
+  margin-bottom: 160px;
   height: 100%;
 
   @media (max-width: 450px) {
     width: 100%;
     height: fit-content;
+    margin-bottom: 0;
     max-height: 100%;
     padding: 12px;
   }

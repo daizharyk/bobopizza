@@ -1,46 +1,77 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from "./MobilePizzaList.module.scss";
 import Image from "next/image";
 import ComboExtrasOverlay from "./ComboExtrasOverlay";
 import OptionGroupSelector from "./OptionGroupSelector";
-import AddToCartButton from "@/shared/ui/AddToCartButton/AddToCartButton";
+import { useInView } from "@/shared/lib/hooks/useInView";
 
 const MobilePizzaList = ({
   items,
   onSelected,
   activeId,
   onClose,
+  comboItems,
+  replaceItem,
   pizzaExtras,
   setSelectedExtrasMap,
   toggleExtra,
   setShowExtras,
+  showExtras,
   selectedExtrasMap,
   replaceItemIndex,
   selectedOptionMap,
   setSelectedOptionMap,
+  isMobile,
   groupRef,
+  setReplaceItemType,
+  setReplaceItemIndex,
   indicatorRef,
   refs,
 }) => {
   const [flippedIndex, setFlippedIndex] = useState(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const selectedPizzaId = comboItems[replaceItemIndex]?.defaultId;
+  const selectedPizza = items.find((p) => p.id === selectedPizzaId);
+
+  const orderedItems = selectedPizza
+    ? [selectedPizza, ...items.filter((p) => p.id !== selectedPizzaId)]
+    : items;
 
   return (
     <div className={styles.overlay}>
       <button onClick={onClose} className={styles.closeBtn}>
         ×
       </button>
+      {flippedIndex != null && (
+        <div className={styles.extras_title}>Меняйте на свой вкус</div>
+      )}
 
-      <span className={styles.counter}>
-        {items.length > 0 ? `1/${items.length}` : "0/0"}
-      </span>
+      {flippedIndex === null && (
+        <span className={styles.counter}>
+          {items.length > 0 ? `${currentIndex + 1}/${items.length}` : "0/0"}
+        </span>
+      )}
 
       <div className={styles.cardWrapper}>
-        {items.map((item, index) => {
+        {orderedItems.map((item, index) => {
           const variant30 = item.variants?.find((v) => v.size === 30);
           const isFlipped = flippedIndex === index;
+          const ref = useRef(null);
+          const inView = useInView(ref, 0.6);
+
+          const isInCombo = comboItems.some(
+            (comboItem) => comboItem.defaultId === item.id
+          );
+
+          useEffect(() => {
+            if (inView) {
+              setCurrentIndex(index);
+            }
+          }, [inView, index]);
 
           return (
-            <div key={index} className={styles.cardParent}>
+            <div ref={ref} key={index} className={styles.cardParent}>
               <div
                 className={`${styles.card} ${isFlipped ? styles.flipped : ""}`}
               >
@@ -81,7 +112,21 @@ const MobilePizzaList = ({
                       indicatorRef={indicatorRef}
                       refs={refs}
                     />
-                    <AddToCartButton item={item} onSelected={onSelected} />
+                    <button
+                      className={styles.selectButton}
+                      onClick={() => {
+                        if (!isInCombo) {
+                          replaceItem(item);
+                          setReplaceItemIndex(null);
+                          setReplaceItemType(null);
+                        } else {
+                          setReplaceItemIndex(null);
+                          setReplaceItemType(null);
+                        }
+                      }}
+                    >
+                      {isInCombo ? "Уже в комбо" : "Выбрать"}
+                    </button>
                   </div>
                 </div>
 
@@ -90,10 +135,12 @@ const MobilePizzaList = ({
                     className={styles.extra}
                     setShowExtras={() => setFlippedIndex(null)}
                     pizzaExtras={pizzaExtras}
+                    isMobile={isMobile}
                     selectedExtras={selectedExtrasMap[replaceItemIndex] || []}
                     setSelectedExtrasMap={setSelectedExtrasMap}
                     selectedExtrasMap={selectedExtrasMap}
-                    replaceItemIndex={replaceItemIndex}
+                    replaceItemIndex={replaceItemIndex} // ← для десктопа
+                    pizzaIndex={index}
                     toggleExtra={toggleExtra}
                   />
                   <button

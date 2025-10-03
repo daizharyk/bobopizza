@@ -9,11 +9,14 @@
   z-index: 2;
   background-color: var(--white);
 
+  @media (max-width: 450px) {
+    padding: 0;
+  }
   .extras_content_scrollable {
     flex: 1;
     overflow-y: auto;
     height: 100vh;
-    padding-bottom: 120px;
+    padding-bottom: 150px;
   }
 
   .extras_buttons {
@@ -51,12 +54,18 @@
 
   h2 {
     font-size: var(--font-size32);
-   
   }
   .extras_header {
     display: flex;
     gap: 20px;
     align-items: center;
+
+    .title {
+      font-size: var(--font-size24);
+      @media (max-width: 480px) {
+        font-size: var(--font-size20);
+      }
+    }
   }
   .back_button {
     background: white;

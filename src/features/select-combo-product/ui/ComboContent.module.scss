@@ -16,11 +16,9 @@
     display: flex;
     flex-direction: column; /* если хочешь вертикально */
     align-items: stretch; /* чтобы занимали ровно ширину */
-
-    .price_section {
-      position: fixed;
-    }
+    position: relative;
   }
+
   .image_combo {
     margin: 22px 0 0 22px;
     width: 550px;

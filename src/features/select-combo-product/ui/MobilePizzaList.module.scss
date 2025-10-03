@@ -7,7 +7,19 @@
   flex-direction: column;
 
   z-index: 999;
+
+  .extras_title {
+    color: white;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    font-size: 20px;
+    position: absolute;
+    top: 35px;
+    width: 100%;
+  }
 }
+
 
 .closeBtn {
   position: absolute;
@@ -94,6 +106,22 @@
   }
   .bottom {
     width: 100%;
+
+    .selectButton {
+      padding: 12px 24px;
+      font-size: 16px;
+      line-height: 24px;
+      margin-top: 12px;
+      background-color: var(--color-light-orange);
+      color: var(--color-dark-orange);
+      font-weight: 600;
+      transition: all 0.2s ease-in-out;
+      border-radius: 9999px;
+      width: 100%;
+      &:hover {
+        background-color: var(--dark-light-orange);
+      }
+    }
   }
   .title {
     font-size: var(--font-size20);

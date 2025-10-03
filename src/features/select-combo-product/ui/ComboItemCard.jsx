@@ -30,7 +30,6 @@ const ComboItemCard = ({
         {comboItems.map((item, index) => {
           const product = allItems.find((p) => p.id === item.defaultId);
 
-
           let selectedVariant;
 
           if (item.preferredSize && product?.variants?.length > 1) {
