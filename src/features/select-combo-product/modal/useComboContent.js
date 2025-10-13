@@ -17,7 +17,7 @@ export const useComboContent = (item, onClose) => {
   const [selectedOptionMap, setSelectedOptionMap] = useState({});
   const [lastActiveIndex, setLastActiveIndex] = useState(null);
 
-  console.log("selectedExtrasMap", selectedExtrasMap);
+
   
   const indicatorRef = useRef(null);
   const groupRef = useRef(null);

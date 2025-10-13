@@ -16,16 +16,7 @@ const ComboExtrasOverlay = ({
   pizzaIndex,
 }) => {
   const currentIndex = isMobile ? pizzaIndex : replaceItemIndex;
-  console.log(
-    "isMobile:",
-    isMobile,
-    "replaceItemIndex:",
-    replaceItemIndex,
-    "pizzaIndex:",
-    pizzaIndex,
-    "currentIndex:",
-    currentIndex
-  );
+  
 
   return (
     <div className={styles.extras_overlay}>

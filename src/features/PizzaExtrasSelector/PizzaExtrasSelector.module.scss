@@ -25,16 +25,18 @@
     flex-wrap: nowrap;
     flex-direction: column;
     width: 100%;
-
   }
   &.pizza .article {
-    width: 100%;
-
     margin: 0 8px 8px 0;
+
+    @media (max-width: 450px) {
+      width: 100%;
+    }
   }
 
   &.combo .article {
     margin: 0 12px 12px 0;
+
     @media (max-width: 450px) {
       margin: 0 0 8px 0;
     }
@@ -72,7 +74,6 @@
       }
     }
     .image {
-      width: 100%;
       @media (max-width: 450px) {
         width: 48px;
         height: 48px;
